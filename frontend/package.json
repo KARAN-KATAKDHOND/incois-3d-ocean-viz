@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@deck.gl/core": "^9.3.11",
+    "@deck.gl/geo-layers": "^9.3.11",
+    "@deck.gl/layers": "^9.3.11",
+    "@deck.gl/react": "^9.3.11",
+    "cesium": "^1.144.0",
     "lucide-react": "^1.37.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -28,6 +33,7 @@
     "globals": "^17.11.0",
     "postcss": "^8.5.26",
     "tailwindcss": "^3.4.19",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "vite-plugin-cesium": "^1.2.23"
   }
 }
