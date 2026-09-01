@@ -1,0 +1,1905 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.3914,
+          15.0997,
+          0.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T00:00:00Z",
+        "temperature": 30.085,
+        "salinity": 34.425,
+        "pressure": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.4421,
+          15.1651,
+          -5.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T01:00:00Z",
+        "temperature": 28.993,
+        "salinity": 34.48,
+        "pressure": 5.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.6266,
+          14.9133,
+          -10.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T02:00:00Z",
+        "temperature": 29.242,
+        "salinity": 34.497,
+        "pressure": 10.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.6491,
+          14.9361,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T03:00:00Z",
+        "temperature": 28.501,
+        "salinity": 34.483,
+        "pressure": 25.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.7206,
+          15.2187,
+          -50.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T04:00:00Z",
+        "temperature": 27.637,
+        "salinity": 34.529,
+        "pressure": 50.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.5737,
+          15.1491,
+          -75.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T05:00:00Z",
+        "temperature": 25.819,
+        "salinity": 34.574,
+        "pressure": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.3746,
+          14.9362,
+          -100.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T06:00:00Z",
+        "temperature": 25.197,
+        "salinity": 34.449,
+        "pressure": 100.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.486,
+          14.9138,
+          -150.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T07:00:00Z",
+        "temperature": 22.666,
+        "salinity": 34.39,
+        "pressure": 150.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.3228,
+          14.93,
+          -200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T08:00:00Z",
+        "temperature": 21.047,
+        "salinity": 34.531,
+        "pressure": 200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.5003,
+          15.0688,
+          -300.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T09:00:00Z",
+        "temperature": 17.103,
+        "salinity": 34.574,
+        "pressure": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.4195,
+          14.8272,
+          -400.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T10:00:00Z",
+        "temperature": 14.464,
+        "salinity": 34.609,
+        "pressure": 400.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.5339,
+          14.9988,
+          -500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T11:00:00Z",
+        "temperature": 13.018,
+        "salinity": 34.621,
+        "pressure": 500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.5979,
+          15.2238,
+          -600.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T12:00:00Z",
+        "temperature": 10.045,
+        "salinity": 34.568,
+        "pressure": 600.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.6744,
+          14.9202,
+          -800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T13:00:00Z",
+        "temperature": 7.662,
+        "salinity": 34.713,
+        "pressure": 800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.5891,
+          15.1755,
+          -1000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T14:00:00Z",
+        "temperature": 6.238,
+        "salinity": 34.753,
+        "pressure": 1000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.4227,
+          15.0795,
+          -1200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T15:00:00Z",
+        "temperature": 4.634,
+        "salinity": 34.674,
+        "pressure": 1200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.6417,
+          15.0807,
+          -1500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T16:00:00Z",
+        "temperature": 3.408,
+        "salinity": 34.788,
+        "pressure": 1500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.3802,
+          15.02,
+          -1800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T17:00:00Z",
+        "temperature": 2.906,
+        "salinity": 34.818,
+        "pressure": 1800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.6162,
+          14.8903,
+          -2000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T18:00:00Z",
+        "temperature": 1.876,
+        "salinity": 34.952,
+        "pressure": 2000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.4597,
+          14.9874,
+          -2500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2901",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T19:00:00Z",
+        "temperature": 1.937,
+        "salinity": 34.92,
+        "pressure": 2500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.4255,
+          12.4311,
+          0.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T04:00:00Z",
+        "temperature": 30.498,
+        "salinity": 34.54,
+        "pressure": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2685,
+          12.3914,
+          -5.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T05:00:00Z",
+        "temperature": 29.502,
+        "salinity": 34.44,
+        "pressure": 5.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.5087,
+          12.5164,
+          -10.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T06:00:00Z",
+        "temperature": 29.791,
+        "salinity": 34.439,
+        "pressure": 10.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.3181,
+          12.6178,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T07:00:00Z",
+        "temperature": 28.534,
+        "salinity": 34.557,
+        "pressure": 25.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.1915,
+          12.3637,
+          -50.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T08:00:00Z",
+        "temperature": 27.449,
+        "salinity": 34.491,
+        "pressure": 50.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.3642,
+          12.3022,
+          -75.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T09:00:00Z",
+        "temperature": 26.314,
+        "salinity": 34.645,
+        "pressure": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2975,
+          12.5034,
+          -100.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T10:00:00Z",
+        "temperature": 24.978,
+        "salinity": 34.427,
+        "pressure": 100.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.3426,
+          12.3395,
+          -150.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T11:00:00Z",
+        "temperature": 22.615,
+        "salinity": 34.592,
+        "pressure": 150.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2265,
+          12.5501,
+          -200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T12:00:00Z",
+        "temperature": 21.073,
+        "salinity": 34.554,
+        "pressure": 200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.1629,
+          12.4668,
+          -300.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T13:00:00Z",
+        "temperature": 17.955,
+        "salinity": 34.459,
+        "pressure": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2724,
+          12.4448,
+          -400.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T14:00:00Z",
+        "temperature": 14.617,
+        "salinity": 34.617,
+        "pressure": 400.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.4609,
+          12.473,
+          -500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T15:00:00Z",
+        "temperature": 12.544,
+        "salinity": 34.625,
+        "pressure": 500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.3474,
+          12.4436,
+          -600.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T16:00:00Z",
+        "temperature": 10.134,
+        "salinity": 34.565,
+        "pressure": 600.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2244,
+          12.5322,
+          -800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T17:00:00Z",
+        "temperature": 7.881,
+        "salinity": 34.676,
+        "pressure": 800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2451,
+          12.6806,
+          -1000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T18:00:00Z",
+        "temperature": 6.245,
+        "salinity": 34.682,
+        "pressure": 1000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.2177,
+          12.513,
+          -1200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T19:00:00Z",
+        "temperature": 4.92,
+        "salinity": 34.757,
+        "pressure": 1200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.3557,
+          12.4788,
+          -1500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T20:00:00Z",
+        "temperature": 3.531,
+        "salinity": 34.877,
+        "pressure": 1500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.276,
+          12.5143,
+          -1800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T21:00:00Z",
+        "temperature": 2.841,
+        "salinity": 34.874,
+        "pressure": 1800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.1588,
+          12.3123,
+          -2000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T22:00:00Z",
+        "temperature": 2.207,
+        "salinity": 34.908,
+        "pressure": 2000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          68.3554,
+          12.4469,
+          -2500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2902",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T23:00:00Z",
+        "temperature": 2.602,
+        "salinity": 34.993,
+        "pressure": 2500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.102,
+          18.1806,
+          0.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T08:00:00Z",
+        "temperature": 30.04,
+        "salinity": 34.535,
+        "pressure": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1666,
+          18.1102,
+          -5.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T09:00:00Z",
+        "temperature": 30.178,
+        "salinity": 34.446,
+        "pressure": 5.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1079,
+          18.1726,
+          -10.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T10:00:00Z",
+        "temperature": 29.131,
+        "salinity": 34.498,
+        "pressure": 10.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0259,
+          18.2073,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T11:00:00Z",
+        "temperature": 28.755,
+        "salinity": 34.579,
+        "pressure": 25.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1307,
+          18.1389,
+          -50.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T12:00:00Z",
+        "temperature": 27.218,
+        "salinity": 34.517,
+        "pressure": 50.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1093,
+          18.346,
+          -75.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T13:00:00Z",
+        "temperature": 26.518,
+        "salinity": 34.497,
+        "pressure": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0451,
+          17.9443,
+          -100.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T14:00:00Z",
+        "temperature": 24.76,
+        "salinity": 34.471,
+        "pressure": 100.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0645,
+          18.2392,
+          -150.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T15:00:00Z",
+        "temperature": 22.796,
+        "salinity": 34.529,
+        "pressure": 150.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.12,
+          18.1874,
+          -200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T16:00:00Z",
+        "temperature": 20.828,
+        "salinity": 34.378,
+        "pressure": 200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0731,
+          18.1889,
+          -300.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T17:00:00Z",
+        "temperature": 17.264,
+        "salinity": 34.549,
+        "pressure": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1703,
+          18.1402,
+          -400.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T18:00:00Z",
+        "temperature": 15.241,
+        "salinity": 34.614,
+        "pressure": 400.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0994,
+          18.1793,
+          -500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T19:00:00Z",
+        "temperature": 12.275,
+        "salinity": 34.554,
+        "pressure": 500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0905,
+          18.2279,
+          -600.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T20:00:00Z",
+        "temperature": 10.607,
+        "salinity": 34.649,
+        "pressure": 600.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0725,
+          18.0584,
+          -800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T21:00:00Z",
+        "temperature": 7.452,
+        "salinity": 34.741,
+        "pressure": 800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1896,
+          18.237,
+          -1000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T22:00:00Z",
+        "temperature": 5.561,
+        "salinity": 34.7,
+        "pressure": 1000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.9744,
+          18.1448,
+          -1200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T23:00:00Z",
+        "temperature": 4.467,
+        "salinity": 34.722,
+        "pressure": 1200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.1957,
+          18.0581,
+          -1500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T00:00:00Z",
+        "temperature": 3.134,
+        "salinity": 34.731,
+        "pressure": 1500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.9763,
+          18.2124,
+          -1800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T01:00:00Z",
+        "temperature": 2.285,
+        "salinity": 34.898,
+        "pressure": 1800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.0753,
+          18.2069,
+          -2000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T02:00:00Z",
+        "temperature": 2.61,
+        "salinity": 34.878,
+        "pressure": 2000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          75.2032,
+          18.1806,
+          -2500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2903",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T03:00:00Z",
+        "temperature": 2.367,
+        "salinity": 34.99,
+        "pressure": 2500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0291,
+          10.528,
+          0.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T12:00:00Z",
+        "temperature": 30.075,
+        "salinity": 34.451,
+        "pressure": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0436,
+          10.4681,
+          -5.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T13:00:00Z",
+        "temperature": 29.911,
+        "salinity": 34.393,
+        "pressure": 5.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8535,
+          10.5363,
+          -10.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T14:00:00Z",
+        "temperature": 30.004,
+        "salinity": 34.544,
+        "pressure": 10.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9318,
+          10.3308,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T15:00:00Z",
+        "temperature": 28.857,
+        "salinity": 34.501,
+        "pressure": 25.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0591,
+          10.5115,
+          -50.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T16:00:00Z",
+        "temperature": 27.344,
+        "salinity": 34.658,
+        "pressure": 50.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9994,
+          10.4841,
+          -75.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T17:00:00Z",
+        "temperature": 26.063,
+        "salinity": 34.486,
+        "pressure": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.099,
+          10.4646,
+          -100.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T18:00:00Z",
+        "temperature": 25.115,
+        "salinity": 34.534,
+        "pressure": 100.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1219,
+          10.542,
+          -150.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T19:00:00Z",
+        "temperature": 22.379,
+        "salinity": 34.464,
+        "pressure": 150.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1408,
+          10.4391,
+          -200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T20:00:00Z",
+        "temperature": 20.373,
+        "salinity": 34.507,
+        "pressure": 200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1265,
+          10.358,
+          -300.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T21:00:00Z",
+        "temperature": 17.107,
+        "salinity": 34.527,
+        "pressure": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8749,
+          10.3816,
+          -400.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T22:00:00Z",
+        "temperature": 14.126,
+        "salinity": 34.557,
+        "pressure": 400.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9645,
+          10.4317,
+          -500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T23:00:00Z",
+        "temperature": 11.805,
+        "salinity": 34.663,
+        "pressure": 500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8671,
+          10.5278,
+          -600.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T00:00:00Z",
+        "temperature": 10.111,
+        "salinity": 34.653,
+        "pressure": 600.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0956,
+          10.4122,
+          -800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T01:00:00Z",
+        "temperature": 7.076,
+        "salinity": 34.695,
+        "pressure": 800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1876,
+          10.5416,
+          -1000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T02:00:00Z",
+        "temperature": 5.838,
+        "salinity": 34.741,
+        "pressure": 1000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0765,
+          10.4171,
+          -1200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T03:00:00Z",
+        "temperature": 4.342,
+        "salinity": 34.771,
+        "pressure": 1200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9856,
+          10.6317,
+          -1500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T04:00:00Z",
+        "temperature": 3.183,
+        "salinity": 34.838,
+        "pressure": 1500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0343,
+          10.4874,
+          -1800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T05:00:00Z",
+        "temperature": 3.118,
+        "salinity": 34.894,
+        "pressure": 1800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8995,
+          10.564,
+          -2000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T06:00:00Z",
+        "temperature": 2.925,
+        "salinity": 34.893,
+        "pressure": 2000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9751,
+          10.433,
+          -2500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2904",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T07:00:00Z",
+        "temperature": 2.185,
+        "salinity": 35.034,
+        "pressure": 2500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7182,
+          19.9654,
+          0.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T16:00:00Z",
+        "temperature": 29.887,
+        "salinity": 34.431,
+        "pressure": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.8523,
+          20.0573,
+          -5.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T17:00:00Z",
+        "temperature": 29.195,
+        "salinity": 34.484,
+        "pressure": 5.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7807,
+          20.1449,
+          -10.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T18:00:00Z",
+        "temperature": 29.402,
+        "salinity": 34.595,
+        "pressure": 10.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7481,
+          20.0938,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T19:00:00Z",
+        "temperature": 28.604,
+        "salinity": 34.491,
+        "pressure": 25.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.8142,
+          20.1541,
+          -50.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T20:00:00Z",
+        "temperature": 27.737,
+        "salinity": 34.432,
+        "pressure": 50.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.749,
+          20.0552,
+          -75.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T21:00:00Z",
+        "temperature": 26.381,
+        "salinity": 34.497,
+        "pressure": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.6105,
+          20.1088,
+          -100.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T22:00:00Z",
+        "temperature": 24.914,
+        "salinity": 34.529,
+        "pressure": 100.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.696,
+          20.2719,
+          -150.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T23:00:00Z",
+        "temperature": 22.646,
+        "salinity": 34.521,
+        "pressure": 150.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.71,
+          20.0069,
+          -200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T00:00:00Z",
+        "temperature": 20.402,
+        "salinity": 34.52,
+        "pressure": 200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7042,
+          20.3056,
+          -300.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T01:00:00Z",
+        "temperature": 16.8,
+        "salinity": 34.504,
+        "pressure": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7599,
+          20.1673,
+          -400.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T02:00:00Z",
+        "temperature": 14.457,
+        "salinity": 34.614,
+        "pressure": 400.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7013,
+          20.1059,
+          -500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T03:00:00Z",
+        "temperature": 12.824,
+        "salinity": 34.552,
+        "pressure": 500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.842,
+          20.1207,
+          -600.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T04:00:00Z",
+        "temperature": 9.758,
+        "salinity": 34.591,
+        "pressure": 600.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.9131,
+          20.1135,
+          -800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T05:00:00Z",
+        "temperature": 7.289,
+        "salinity": 34.695,
+        "pressure": 800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7521,
+          20.136,
+          -1000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T06:00:00Z",
+        "temperature": 5.902,
+        "salinity": 34.644,
+        "pressure": 1000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.879,
+          19.9992,
+          -1200.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T07:00:00Z",
+        "temperature": 4.148,
+        "salinity": 34.696,
+        "pressure": 1200.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7654,
+          20.1109,
+          -1500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T08:00:00Z",
+        "temperature": 3.162,
+        "salinity": 34.837,
+        "pressure": 1500.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.8251,
+          20.0305,
+          -1800.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T09:00:00Z",
+        "temperature": 3.032,
+        "salinity": 34.918,
+        "pressure": 1800.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7901,
+          20.0785,
+          -2000.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T10:00:00Z",
+        "temperature": 1.981,
+        "salinity": 34.88,
+        "pressure": 2000.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.7708,
+          20.1245,
+          -2500.0
+        ]
+      },
+      "properties": {
+        "id": "ARGO_2905",
+        "instrument_type": "argo",
+        "timestamp": "2025-01-15T11:00:00Z",
+        "temperature": 2.138,
+        "salinity": 35.012,
+        "pressure": 2500.0
+      }
+    }
+  ]
+}

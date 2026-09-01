@@ -1,19 +1,46 @@
+import { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useMapStore } from '../store/useMapStore';
-import { Layers, Activity, Settings, X, Droplet, Wind, LogOut, User, SlidersHorizontal , Moon , Sun } from 'lucide-react';
+import { 
+  Layers, Activity, Settings, X, Droplet, Wind, LogOut, User, 
+  SlidersHorizontal, Moon, Sun, Database, ChevronDown, RefreshCw 
+} from 'lucide-react';
 
 export default function Sidebar({ onClose }) {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   
   // Zustand State
-  const { activeLayers, toggleLayer, layerOpacity, setLayerOpacity, verticalExaggeration, setVerticalExaggeration } = useMapStore();
-const { theme, toggleTheme } = useMapStore();
+  const { 
+    activeLayers, toggleLayer, layerOpacity, setLayerOpacity, 
+    verticalExaggeration, setVerticalExaggeration,
+    theme, toggleTheme,
+    // API-driven state
+    availableDatasets, activeDatasetId, setActiveDataset,
+    activeVariable, setActiveVariable,
+    activeDepthIdx, setActiveDepthIdx,
+    activeTimeIdx, setActiveTimeIdx,
+    datasetMetadata,
+    fetchDatasets, fetchSlice, fetchInsituPoints,
+    isLoadingDatasets, isLoadingSlice,
+    profileData,
+  } = useMapStore();
+
   const handleLogout = () => {
     logout();
     navigate('/');
   };
+
+  // Fetch slice when dataset/variable/depth/time changes
+  useEffect(() => {
+    if (activeDatasetId) {
+      fetchSlice();
+    }
+  }, [activeDatasetId, activeVariable, activeDepthIdx, activeTimeIdx]);
+
+  const griddedDatasets = availableDatasets.filter(d => d.type === 'gridded');
+  const insituDatasets = availableDatasets.filter(d => d.type === 'insitu');
 
   return (
     <aside className="w-full h-full bg-slate-900 border-r border-slate-800 flex flex-col shadow-2xl">
@@ -28,7 +55,170 @@ const { theme, toggleTheme } = useMapStore();
       </div>
 
       <div className="flex-1 overflow-y-auto p-5 space-y-8 custom-scrollbar">
-        {/* Ocean Models */}
+
+        {/* ─── Dataset Selector ─────────────────────────────────── */}
+        <section>
+          <h2 className="text-xs uppercase tracking-widest font-semibold text-slate-500 flex items-center gap-2 mb-4">
+            <Database size={14} /> Dataset
+            <button 
+              onClick={fetchDatasets} 
+              className="ml-auto p-1 text-slate-500 hover:text-blue-400 transition-colors"
+              title="Refresh datasets"
+            >
+              <RefreshCw size={12} className={isLoadingDatasets ? 'animate-spin' : ''} />
+            </button>
+          </h2>
+          <div className="space-y-3">
+            {/* Gridded datasets */}
+            {griddedDatasets.length > 0 ? (
+              <div className="relative">
+                <select
+                  value={activeDatasetId || ''}
+                  onChange={(e) => setActiveDataset(e.target.value)}
+                  className="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-3 py-2.5 text-sm text-white appearance-none cursor-pointer focus:outline-none focus:border-blue-500 transition-colors"
+                >
+                  <option value="">Select a gridded dataset...</option>
+                  {griddedDatasets.map((d) => (
+                    <option key={d.dataset_id} value={d.dataset_id}>
+                      {d.name} ({d.variables?.join(', ')})
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+              </div>
+            ) : (
+              <div className="text-xs text-slate-500 italic p-3 bg-slate-800/30 rounded-lg border border-dashed border-slate-700">
+                {isLoadingDatasets ? 'Loading datasets...' : 'No datasets available. Upload data to get started.'}
+              </div>
+            )}
+
+            {/* In-situ datasets */}
+            {insituDatasets.length > 0 && (
+              <div className="space-y-1">
+                <span className="text-[10px] uppercase tracking-wider text-slate-500">In-Situ</span>
+                {insituDatasets.map((d) => (
+                  <button
+                    key={d.dataset_id}
+                    onClick={() => fetchInsituPoints(d.dataset_id)}
+                    className="w-full text-left px-3 py-2 bg-slate-800/50 rounded-lg text-xs text-slate-300 hover:bg-slate-800 hover:text-white transition-colors border border-transparent hover:border-slate-700"
+                  >
+                    📍 {d.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── Variable & Depth Controls (only when dataset selected) ── */}
+        {datasetMetadata && (
+          <section>
+            <h2 className="text-xs uppercase tracking-widest font-semibold text-slate-500 flex items-center gap-2 mb-4">
+              <SlidersHorizontal size={14} /> Data Selection
+            </h2>
+            <div className="space-y-4 p-4 bg-slate-800/30 rounded-lg border border-slate-800">
+              
+              {/* Variable picker */}
+              {datasetMetadata.variables?.length > 0 && (
+                <div>
+                  <div className="text-xs text-slate-400 mb-2">Variable</div>
+                  <div className="flex flex-wrap gap-2">
+                    {datasetMetadata.variables.map((v) => (
+                      <button
+                        key={v}
+                        onClick={() => setActiveVariable(v)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                          activeVariable === v
+                            ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                            : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
+                        }`}
+                      >
+                        {v.charAt(0).toUpperCase() + v.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Depth level slider */}
+              {datasetMetadata.depth_levels?.length > 1 && (
+                <div>
+                  <div className="flex justify-between text-xs text-slate-400 mb-2">
+                    <span>Depth Level</span>
+                    <span className="font-mono text-blue-400">
+                      {datasetMetadata.depth_levels[activeDepthIdx]?.toFixed(0) ?? 0}m
+                    </span>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="0" 
+                    max={datasetMetadata.depth_levels.length - 1} 
+                    step="1"
+                    value={activeDepthIdx}
+                    onChange={(e) => setActiveDepthIdx(parseInt(e.target.value))}
+                    className="w-full accent-blue-500 cursor-pointer" 
+                  />
+                  <div className="flex justify-between text-[10px] text-slate-500 mt-1">
+                    <span>Surface (0m)</span>
+                    <span>{datasetMetadata.depth_levels[datasetMetadata.depth_levels.length - 1]?.toFixed(0)}m</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Time step (if dataset has time) */}
+              {datasetMetadata.time_steps > 1 && (
+                <div>
+                  <div className="flex justify-between text-xs text-slate-400 mb-2">
+                    <span>Time Step</span>
+                    <span className="font-mono text-blue-400">{activeTimeIdx} / {datasetMetadata.time_steps - 1}</span>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="0" 
+                    max={datasetMetadata.time_steps - 1} 
+                    step="1"
+                    value={activeTimeIdx}
+                    onChange={(e) => setActiveTimeIdx(parseInt(e.target.value))}
+                    className="w-full accent-blue-500 cursor-pointer" 
+                  />
+                </div>
+              )}
+
+              {isLoadingSlice && (
+                <div className="text-[10px] text-blue-400 flex items-center gap-1">
+                  <RefreshCw size={10} className="animate-spin" /> Fetching slice...
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* ─── Depth Profile Display ───────────────────────────── */}
+        {profileData && (
+          <section>
+            <h2 className="text-xs uppercase tracking-widest font-semibold text-slate-500 flex items-center gap-2 mb-4">
+              <Activity size={14} /> Depth Profile
+            </h2>
+            <div className="p-4 bg-slate-800/30 rounded-lg border border-slate-800 space-y-2">
+              <div className="text-[10px] text-slate-400">
+                📍 {profileData.lat?.toFixed(2)}°N, {profileData.lon?.toFixed(2)}°E — {profileData.variable}
+              </div>
+              <div className="max-h-40 overflow-y-auto custom-scrollbar">
+                {profileData.depths?.map((d, i) => (
+                  <div key={i} className="flex justify-between text-xs py-0.5 border-b border-slate-800/50">
+                    <span className="text-slate-500 font-mono">{d?.toFixed(0)}m</span>
+                    <span className="text-slate-200 font-mono">
+                      {profileData.values?.[i] !== null ? profileData.values[i]?.toFixed(2) : '—'}
+                      <span className="text-slate-500 ml-1">{profileData.units}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ─── Ocean Models (Layer Toggles) ────────────────────── */}
         <section>
           <h2 className="text-xs uppercase tracking-widest font-semibold text-slate-500 flex items-center gap-2 mb-4">
             <Layers size={14} /> Ocean Models
@@ -57,7 +247,7 @@ const { theme, toggleTheme } = useMapStore();
           </div>
         </section>
 
-        {/* Instruments */}
+        {/* ─── Instruments ─────────────────────────────────────── */}
         <section>
           <h2 className="text-xs uppercase tracking-widest font-semibold text-slate-500 flex items-center gap-2 mb-4">
             <Activity size={14} /> Instruments
@@ -86,7 +276,7 @@ const { theme, toggleTheme } = useMapStore();
           </div>
         </section>
 
-        {/* 3D Visual Controls */}
+        {/* ─── 3D Visual Controls ──────────────────────────────── */}
         <section>
           <h2 className="text-xs uppercase tracking-widest font-semibold text-slate-500 flex items-center gap-2 mb-4">
             <SlidersHorizontal size={14} /> Visual Settings
@@ -122,7 +312,7 @@ const { theme, toggleTheme } = useMapStore();
         </section>
       </div>
 
-      {/* Profile & Session Footer */}
+      {/* ─── Profile & Session Footer ──────────────────────────── */}
       <div className="p-4 border-t border-slate-800 bg-slate-950/60 space-y-3">
         {user && (
           <div className="flex items-center gap-3 p-2 rounded-lg bg-slate-800/40 border border-slate-800">
@@ -135,12 +325,6 @@ const { theme, toggleTheme } = useMapStore();
             </div>
           </div>
         )}
-        {/* <button 
-  onClick={toggleTheme}
-  className="flex justify-center items-center p-2 bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 rounded-lg text-slate-300 transition-colors"
->
-  {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-</button> */}
         <button
           onClick={handleLogout}
           className="flex w-full justify-center items-center gap-2 py-2 px-4 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 rounded-lg text-xs font-medium transition-colors"
