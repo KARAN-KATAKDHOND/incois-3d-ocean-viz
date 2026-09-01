@@ -1,0 +1,22 @@
+# INCOIS Data Pipeline — Processing Worker Dependencies
+celery[redis]>=5.4.0
+redis>=5.0.0
+
+# Scientific / Array
+xarray>=2024.1.0
+netcdf4>=1.7.0
+zarr>=2.18.0
+dask[complete]>=2024.1.0
+numpy>=1.26.0
+pandas>=2.2.0
+
+# Storage
+pyarrow>=15.0.0
+
+# Metadata / Serialization
+orjson>=3.9.0
+pydantic>=2.0
+geojson>=3.1.0
+
+# Utilities
+python-dotenv>=1.0.0

@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  # ─── Redis (Message Broker & Result Backend) ─────────────────
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # ─── Backend API (FastAPI + Uvicorn) ─────────────────────────
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - shared_data:/app/data
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - PIPELINE_URL=http://pipeline:8001
+      - ALLOWED_ORIGINS=["http://localhost:5173","http://localhost:3000"]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ─── Pipeline Trigger API ────────────────────────────────────
+  pipeline:
+    build:
+      context: ./data-pipeline
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    volumes:
+      - shared_data:/app/data
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - SHARED_DATA_DIR=/app/data
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ─── Celery Worker (Async Processing) ────────────────────────
+  worker:
+    build:
+      context: ./data-pipeline
+      dockerfile: Dockerfile
+    command: celery -A pipeline.core.celery_app:celery_app worker --loglevel=info --concurrency=2
+    volumes:
+      - shared_data:/app/data
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - SHARED_DATA_DIR=/app/data
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  shared_data:
