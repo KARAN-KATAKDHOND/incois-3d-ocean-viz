@@ -1,0 +1,4249 @@
+{
+  "instruments": [
+    {
+      "id": "argo-000",
+      "type": "argo",
+      "coordinates": [
+        68.23125159905719,
+        9.65102772702414,
+        -1000
+      ],
+      "temperature": 5.05
+    },
+    {
+      "id": "argo-001",
+      "type": "argo",
+      "coordinates": [
+        60.72760781899154,
+        10.36593532397774,
+        -1000
+      ],
+      "temperature": 4.5
+    },
+    {
+      "id": "glider-002",
+      "type": "glider",
+      "coordinates": [
+        82.34623436233592,
+        12.715271172627162,
+        -200
+      ],
+      "temperature": 24.13
+    },
+    {
+      "id": "argo-003",
+      "type": "argo",
+      "coordinates": [
+        67.25607794580453,
+        12.108569229240228,
+        -200
+      ],
+      "temperature": 23.21
+    },
+    {
+      "id": "argo-004",
+      "type": "argo",
+      "coordinates": [
+        64.13984713151223,
+        14.407414287684464,
+        -100
+      ],
+      "temperature": 24.38
+    },
+    {
+      "id": "glider-005",
+      "type": "glider",
+      "coordinates": [
+        88.5875270613185,
+        12.346525517941732,
+        -1000
+      ],
+      "temperature": 5.04
+    },
+    {
+      "id": "argo-006",
+      "type": "argo",
+      "coordinates": [
+        70.3997601147902,
+        15.855291782578528,
+        -50
+      ],
+      "temperature": 22.28
+    },
+    {
+      "id": "argo-007",
+      "type": "argo",
+      "coordinates": [
+        61.11471798697005,
+        15.797157800866774,
+        -1000
+      ],
+      "temperature": 6.41
+    },
+    {
+      "id": "argo-008",
+      "type": "argo",
+      "coordinates": [
+        85.06855180712775,
+        12.383341094994574,
+        -200
+      ],
+      "temperature": 20.71
+    },
+    {
+      "id": "glider-009",
+      "type": "glider",
+      "coordinates": [
+        82.19630123244129,
+        15.680851054526938,
+        -10
+      ],
+      "temperature": 28.25
+    },
+    {
+      "id": "argo-010",
+      "type": "argo",
+      "coordinates": [
+        85.85072095591542,
+        16.684191435543287,
+        -1000
+      ],
+      "temperature": 6.84
+    },
+    {
+      "id": "glider-011",
+      "type": "glider",
+      "coordinates": [
+        89.95235569113241,
+        15.03967227886139,
+        -200
+      ],
+      "temperature": 20.21
+    },
+    {
+      "id": "glider-012",
+      "type": "glider",
+      "coordinates": [
+        84.69976082059809,
+        10.63045960547325,
+        -200
+      ],
+      "temperature": 21.72
+    },
+    {
+      "id": "glider-013",
+      "type": "glider",
+      "coordinates": [
+        66.62499808582322,
+        18.77038662074579,
+        -1000
+      ],
+      "temperature": 5.29
+    },
+    {
+      "id": "argo-014",
+      "type": "argo",
+      "coordinates": [
+        68.94713191477584,
+        14.27870641458992,
+        -500
+      ],
+      "temperature": 17.69
+    },
+    {
+      "id": "argo-015",
+      "type": "argo",
+      "coordinates": [
+        87.08276351932562,
+        11.928939043946436,
+        -100
+      ],
+      "temperature": 23.3
+    },
+    {
+      "id": "argo-016",
+      "type": "argo",
+      "coordinates": [
+        65.93127326527275,
+        11.394945148077438,
+        -1000
+      ],
+      "temperature": 7.9
+    },
+    {
+      "id": "glider-017",
+      "type": "glider",
+      "coordinates": [
+        69.5325594391779,
+        18.33672081136698,
+        -10
+      ],
+      "temperature": 26.77
+    },
+    {
+      "id": "glider-018",
+      "type": "glider",
+      "coordinates": [
+        71.55787981091014,
+        11.959135227202959,
+        -1000
+      ],
+      "temperature": 7.26
+    },
+    {
+      "id": "argo-019",
+      "type": "argo",
+      "coordinates": [
+        61.11043555298909,
+        11.821834135700538,
+        -10
+      ],
+      "temperature": 24.03
+    },
+    {
+      "id": "argo-020",
+      "type": "argo",
+      "coordinates": [
+        82.54763240958937,
+        16.783037574765235,
+        -200
+      ],
+      "temperature": 22.74
+    },
+    {
+      "id": "argo-021",
+      "type": "argo",
+      "coordinates": [
+        60.11819258223887,
+        16.307843788637815,
+        -1000
+      ],
+      "temperature": 5.96
+    },
+    {
+      "id": "argo-022",
+      "type": "argo",
+      "coordinates": [
+        89.3690931633511,
+        13.976660600139223,
+        -100
+      ],
+      "temperature": 25.01
+    },
+    {
+      "id": "glider-023",
+      "type": "glider",
+      "coordinates": [
+        84.64161200614451,
+        8.143881255923242,
+        -200
+      ],
+      "temperature": 20.95
+    },
+    {
+      "id": "argo-024",
+      "type": "argo",
+      "coordinates": [
+        86.09451761290396,
+        10.57620938285333,
+        -10
+      ],
+      "temperature": 24.09
+    },
+    {
+      "id": "glider-025",
+      "type": "glider",
+      "coordinates": [
+        90.36654625910487,
+        12.01299904744935,
+        -200
+      ],
+      "temperature": 21.8
+    },
+    {
+      "id": "glider-026",
+      "type": "glider",
+      "coordinates": [
+        87.78228222468225,
+        14.64123553869856,
+        -1000
+      ],
+      "temperature": 7.76
+    },
+    {
+      "id": "glider-027",
+      "type": "glider",
+      "coordinates": [
+        91.42514946365887,
+        12.253338192183591,
+        -1000
+      ],
+      "temperature": 5.45
+    },
+    {
+      "id": "argo-028",
+      "type": "argo",
+      "coordinates": [
+        63.68948363803834,
+        8.304406525613985,
+        -1000
+      ],
+      "temperature": 4.92
+    },
+    {
+      "id": "glider-029",
+      "type": "glider",
+      "coordinates": [
+        67.46874530431906,
+        15.948539452921583,
+        -10
+      ],
+      "temperature": 27.98
+    },
+    {
+      "id": "argo-030",
+      "type": "argo",
+      "coordinates": [
+        83.79730612100347,
+        10.901752318118753,
+        -500
+      ],
+      "temperature": 17.18
+    },
+    {
+      "id": "argo-031",
+      "type": "argo",
+      "coordinates": [
+        87.8836565968325,
+        8.241745325295547,
+        -1000
+      ],
+      "temperature": 6.03
+    },
+    {
+      "id": "argo-032",
+      "type": "argo",
+      "coordinates": [
+        89.55318038382494,
+        13.498679254729614,
+        -10
+      ],
+      "temperature": 24.75
+    },
+    {
+      "id": "argo-033",
+      "type": "argo",
+      "coordinates": [
+        63.9416476235294,
+        10.019607197266492,
+        -10
+      ],
+      "temperature": 23.35
+    },
+    {
+      "id": "argo-034",
+      "type": "argo",
+      "coordinates": [
+        61.65014917382084,
+        18.533502818509895,
+        -10
+      ],
+      "temperature": 25.51
+    },
+    {
+      "id": "argo-035",
+      "type": "argo",
+      "coordinates": [
+        88.15480446291848,
+        8.410542302544437,
+        -200
+      ],
+      "temperature": 20.06
+    },
+    {
+      "id": "argo-036",
+      "type": "argo",
+      "coordinates": [
+        63.39187695060985,
+        13.125331909185636,
+        -200
+      ],
+      "temperature": 22.39
+    },
+    {
+      "id": "argo-037",
+      "type": "argo",
+      "coordinates": [
+        65.51767682243513,
+        14.930675520426867,
+        -1000
+      ],
+      "temperature": 6.8
+    },
+    {
+      "id": "argo-038",
+      "type": "argo",
+      "coordinates": [
+        86.90018232726179,
+        9.892920125681748,
+        -100
+      ],
+      "temperature": 23.19
+    },
+    {
+      "id": "argo-039",
+      "type": "argo",
+      "coordinates": [
+        90.05565946316364,
+        16.978216819145334,
+        -500
+      ],
+      "temperature": 16.47
+    },
+    {
+      "id": "argo-040",
+      "type": "argo",
+      "coordinates": [
+        87.53284557342833,
+        17.760622231352528,
+        -10
+      ],
+      "temperature": 24.84
+    },
+    {
+      "id": "argo-041",
+      "type": "argo",
+      "coordinates": [
+        90.90075336919341,
+        15.614093034957929,
+        -200
+      ],
+      "temperature": 23.42
+    },
+    {
+      "id": "argo-042",
+      "type": "argo",
+      "coordinates": [
+        69.0610370243551,
+        9.660167004704638,
+        -500
+      ],
+      "temperature": 13.83
+    },
+    {
+      "id": "argo-043",
+      "type": "argo",
+      "coordinates": [
+        87.4237576780188,
+        12.073934551798821,
+        -50
+      ],
+      "temperature": 26.59
+    },
+    {
+      "id": "glider-044",
+      "type": "glider",
+      "coordinates": [
+        83.07029843004153,
+        17.18312537919264,
+        -50
+      ],
+      "temperature": 26.19
+    },
+    {
+      "id": "argo-045",
+      "type": "argo",
+      "coordinates": [
+        84.95059916408977,
+        17.892319364075647,
+        -500
+      ],
+      "temperature": 16.33
+    },
+    {
+      "id": "glider-046",
+      "type": "glider",
+      "coordinates": [
+        69.99912049813935,
+        13.078630854167995,
+        -100
+      ],
+      "temperature": 24
+    },
+    {
+      "id": "argo-047",
+      "type": "argo",
+      "coordinates": [
+        63.346965970216836,
+        15.190577863478788,
+        -1000
+      ],
+      "temperature": 8.39
+    },
+    {
+      "id": "argo-048",
+      "type": "argo",
+      "coordinates": [
+        62.9630949254774,
+        8.06234868396925,
+        -10
+      ],
+      "temperature": 23.13
+    },
+    {
+      "id": "argo-049",
+      "type": "argo",
+      "coordinates": [
+        87.23553114939597,
+        13.497712291985108,
+        -50
+      ],
+      "temperature": 25.84
+    },
+    {
+      "id": "argo-050",
+      "type": "argo",
+      "coordinates": [
+        83.58407891302656,
+        11.255705142734511,
+        -10
+      ],
+      "temperature": 25.17
+    },
+    {
+      "id": "argo-051",
+      "type": "argo",
+      "coordinates": [
+        85.02613394182085,
+        17.96097274101613,
+        -500
+      ],
+      "temperature": 13.75
+    },
+    {
+      "id": "argo-052",
+      "type": "argo",
+      "coordinates": [
+        89.57412208026503,
+        13.950081929804695,
+        -200
+      ],
+      "temperature": 21.89
+    },
+    {
+      "id": "glider-053",
+      "type": "glider",
+      "coordinates": [
+        84.63481966086378,
+        13.673944822710423,
+        -200
+      ],
+      "temperature": 21.97
+    },
+    {
+      "id": "argo-054",
+      "type": "argo",
+      "coordinates": [
+        70.73298694866328,
+        17.42486900937395,
+        -200
+      ],
+      "temperature": 23.98
+    },
+    {
+      "id": "argo-055",
+      "type": "argo",
+      "coordinates": [
+        82.48371184835476,
+        11.159459165874203,
+        -1000
+      ],
+      "temperature": 6.9
+    },
+    {
+      "id": "argo-056",
+      "type": "argo",
+      "coordinates": [
+        60.96667527105953,
+        11.893742072290195,
+        -50
+      ],
+      "temperature": 26.03
+    },
+    {
+      "id": "argo-057",
+      "type": "argo",
+      "coordinates": [
+        60.14530227863443,
+        17.381477695069755,
+        -10
+      ],
+      "temperature": 25.27
+    },
+    {
+      "id": "argo-058",
+      "type": "argo",
+      "coordinates": [
+        87.15334391652269,
+        14.883999459877973,
+        -200
+      ],
+      "temperature": 21.44
+    },
+    {
+      "id": "argo-059",
+      "type": "argo",
+      "coordinates": [
+        85.68662664117973,
+        16.810007289894582,
+        -500
+      ],
+      "temperature": 17
+    },
+    {
+      "id": "argo-060",
+      "type": "argo",
+      "coordinates": [
+        69.00762454013507,
+        19.538067679181633,
+        -500
+      ],
+      "temperature": 17.24
+    },
+    {
+      "id": "glider-061",
+      "type": "glider",
+      "coordinates": [
+        60.6599251898742,
+        11.332330110956303,
+        -1000
+      ],
+      "temperature": 4
+    },
+    {
+      "id": "argo-062",
+      "type": "argo",
+      "coordinates": [
+        68.0458718407634,
+        9.489208635932613,
+        -100
+      ],
+      "temperature": 22.63
+    },
+    {
+      "id": "argo-063",
+      "type": "argo",
+      "coordinates": [
+        67.05122460776002,
+        8.682825070571885,
+        -200
+      ],
+      "temperature": 21.25
+    },
+    {
+      "id": "argo-064",
+      "type": "argo",
+      "coordinates": [
+        82.51410670984909,
+        8.072488867243862,
+        -10
+      ],
+      "temperature": 24.71
+    },
+    {
+      "id": "argo-065",
+      "type": "argo",
+      "coordinates": [
+        91.48573063450681,
+        16.192583652272347,
+        -50
+      ],
+      "temperature": 25.99
+    },
+    {
+      "id": "glider-066",
+      "type": "glider",
+      "coordinates": [
+        85.71000761035883,
+        11.267911009795673,
+        -500
+      ],
+      "temperature": 17.12
+    },
+    {
+      "id": "argo-067",
+      "type": "argo",
+      "coordinates": [
+        86.28784763578523,
+        14.701731330015186,
+        -200
+      ],
+      "temperature": 23.11
+    },
+    {
+      "id": "argo-068",
+      "type": "argo",
+      "coordinates": [
+        64.74050656159139,
+        8.29767786232021,
+        -50
+      ],
+      "temperature": 26.65
+    },
+    {
+      "id": "argo-069",
+      "type": "argo",
+      "coordinates": [
+        86.30172223397712,
+        15.51032457469017,
+        -50
+      ],
+      "temperature": 24.53
+    },
+    {
+      "id": "argo-070",
+      "type": "argo",
+      "coordinates": [
+        86.38761897398619,
+        8.728013827020286,
+        -200
+      ],
+      "temperature": 19.96
+    },
+    {
+      "id": "argo-071",
+      "type": "argo",
+      "coordinates": [
+        85.143348830574,
+        16.568100727430163,
+        -50
+      ],
+      "temperature": 25.54
+    },
+    {
+      "id": "argo-072",
+      "type": "argo",
+      "coordinates": [
+        63.326030807922905,
+        10.252428868091146,
+        -50
+      ],
+      "temperature": 26.96
+    },
+    {
+      "id": "glider-073",
+      "type": "glider",
+      "coordinates": [
+        65.71556546296691,
+        18.45410521290169,
+        -1000
+      ],
+      "temperature": 7.05
+    },
+    {
+      "id": "argo-074",
+      "type": "argo",
+      "coordinates": [
+        86.19975614867661,
+        13.756836538670171,
+        -10
+      ],
+      "temperature": 24.9
+    },
+    {
+      "id": "argo-075",
+      "type": "argo",
+      "coordinates": [
+        69.82310613274382,
+        16.410314224796096,
+        -10
+      ],
+      "temperature": 24.83
+    },
+    {
+      "id": "argo-076",
+      "type": "argo",
+      "coordinates": [
+        69.47817820238451,
+        19.959299840577838,
+        -10
+      ],
+      "temperature": 25.13
+    },
+    {
+      "id": "argo-077",
+      "type": "argo",
+      "coordinates": [
+        91.26003395280755,
+        10.188270960453043,
+        -200
+      ],
+      "temperature": 20.25
+    },
+    {
+      "id": "argo-078",
+      "type": "argo",
+      "coordinates": [
+        69.53605039804015,
+        8.988389452698694,
+        -50
+      ],
+      "temperature": 24.59
+    },
+    {
+      "id": "glider-079",
+      "type": "glider",
+      "coordinates": [
+        60.877867389671344,
+        13.748917559223017,
+        -200
+      ],
+      "temperature": 22.25
+    },
+    {
+      "id": "argo-080",
+      "type": "argo",
+      "coordinates": [
+        70.64083854863085,
+        19.37520945096995,
+        -200
+      ],
+      "temperature": 19.95
+    },
+    {
+      "id": "glider-081",
+      "type": "glider",
+      "coordinates": [
+        84.6403255205502,
+        14.290343737639255,
+        -500
+      ],
+      "temperature": 15.56
+    },
+    {
+      "id": "glider-082",
+      "type": "glider",
+      "coordinates": [
+        84.43398142460316,
+        12.123353149734445,
+        -500
+      ],
+      "temperature": 15.57
+    },
+    {
+      "id": "glider-083",
+      "type": "glider",
+      "coordinates": [
+        68.077496722861,
+        19.449636313261752,
+        -100
+      ],
+      "temperature": 23.85
+    },
+    {
+      "id": "argo-084",
+      "type": "argo",
+      "coordinates": [
+        64.0882031984464,
+        15.409612068266085,
+        -1000
+      ],
+      "temperature": 7.88
+    },
+    {
+      "id": "argo-085",
+      "type": "argo",
+      "coordinates": [
+        88.69765390019626,
+        11.995695758824247,
+        -10
+      ],
+      "temperature": 25.86
+    },
+    {
+      "id": "argo-086",
+      "type": "argo",
+      "coordinates": [
+        62.711819072145644,
+        17.744913500986534,
+        -50
+      ],
+      "temperature": 23.54
+    },
+    {
+      "id": "argo-087",
+      "type": "argo",
+      "coordinates": [
+        71.55304340999345,
+        13.996242061315884,
+        -10
+      ],
+      "temperature": 26.64
+    },
+    {
+      "id": "argo-088",
+      "type": "argo",
+      "coordinates": [
+        65.5807040815986,
+        9.117961171513546,
+        -200
+      ],
+      "temperature": 20.59
+    },
+    {
+      "id": "argo-089",
+      "type": "argo",
+      "coordinates": [
+        71.66401184576198,
+        8.187581999576427,
+        -1000
+      ],
+      "temperature": 4
+    },
+    {
+      "id": "argo-090",
+      "type": "argo",
+      "coordinates": [
+        91.64574530336053,
+        13.815006568768244,
+        -50
+      ],
+      "temperature": 23.8
+    },
+    {
+      "id": "glider-091",
+      "type": "glider",
+      "coordinates": [
+        63.64099970795986,
+        15.32191748733988,
+        -10
+      ],
+      "temperature": 25.01
+    },
+    {
+      "id": "argo-092",
+      "type": "argo",
+      "coordinates": [
+        83.80740216500388,
+        15.345672786611356,
+        -200
+      ],
+      "temperature": 21.72
+    },
+    {
+      "id": "argo-093",
+      "type": "argo",
+      "coordinates": [
+        68.95252979762998,
+        8.81750763089585,
+        -100
+      ],
+      "temperature": 25.24
+    },
+    {
+      "id": "argo-094",
+      "type": "argo",
+      "coordinates": [
+        91.835144234361,
+        13.020610560049633,
+        -10
+      ],
+      "temperature": 25.26
+    },
+    {
+      "id": "argo-095",
+      "type": "argo",
+      "coordinates": [
+        69.70231058408581,
+        8.067624833978446,
+        -10
+      ],
+      "temperature": 27.09
+    },
+    {
+      "id": "argo-096",
+      "type": "argo",
+      "coordinates": [
+        66.05249551003693,
+        19.048326401170304,
+        -1000
+      ],
+      "temperature": 5.83
+    },
+    {
+      "id": "argo-097",
+      "type": "argo",
+      "coordinates": [
+        66.70303895379011,
+        10.704095904432899,
+        -10
+      ],
+      "temperature": 26.21
+    },
+    {
+      "id": "argo-098",
+      "type": "argo",
+      "coordinates": [
+        68.78938622327784,
+        9.977967316730748,
+        -50
+      ],
+      "temperature": 25.23
+    },
+    {
+      "id": "glider-099",
+      "type": "glider",
+      "coordinates": [
+        65.22038787068416,
+        9.567782753846133,
+        -200
+      ],
+      "temperature": 23.79
+    },
+    {
+      "id": "argo-100",
+      "type": "argo",
+      "coordinates": [
+        71.94094347163117,
+        9.603461014977377,
+        -500
+      ],
+      "temperature": 14.71
+    },
+    {
+      "id": "glider-101",
+      "type": "glider",
+      "coordinates": [
+        89.04610549067101,
+        8.238791203551516,
+        -200
+      ],
+      "temperature": 19.44
+    },
+    {
+      "id": "glider-102",
+      "type": "glider",
+      "coordinates": [
+        63.50091485245291,
+        16.697185593260347,
+        -1000
+      ],
+      "temperature": 5.68
+    },
+    {
+      "id": "glider-103",
+      "type": "glider",
+      "coordinates": [
+        69.44169756300093,
+        10.659531792053478,
+        -50
+      ],
+      "temperature": 24.06
+    },
+    {
+      "id": "argo-104",
+      "type": "argo",
+      "coordinates": [
+        70.7453757764235,
+        16.32406124872459,
+        -10
+      ],
+      "temperature": 24.49
+    },
+    {
+      "id": "glider-105",
+      "type": "glider",
+      "coordinates": [
+        71.77867980229139,
+        12.872144887576559,
+        -10
+      ],
+      "temperature": 24.26
+    },
+    {
+      "id": "glider-106",
+      "type": "glider",
+      "coordinates": [
+        91.02988516861433,
+        11.41354490386232,
+        -500
+      ],
+      "temperature": 16.79
+    },
+    {
+      "id": "argo-107",
+      "type": "argo",
+      "coordinates": [
+        64.1429943326075,
+        10.822176829492589,
+        -10
+      ],
+      "temperature": 27.48
+    },
+    {
+      "id": "glider-108",
+      "type": "glider",
+      "coordinates": [
+        69.4210673581138,
+        15.440985368532548,
+        -1000
+      ],
+      "temperature": 6.28
+    },
+    {
+      "id": "argo-109",
+      "type": "argo",
+      "coordinates": [
+        90.8176911257064,
+        8.039495160777644,
+        -10
+      ],
+      "temperature": 24.88
+    },
+    {
+      "id": "argo-110",
+      "type": "argo",
+      "coordinates": [
+        64.65323924805699,
+        8.776178259807313,
+        -200
+      ],
+      "temperature": 19.26
+    },
+    {
+      "id": "glider-111",
+      "type": "glider",
+      "coordinates": [
+        87.04191358742656,
+        15.653306095141268,
+        -10
+      ],
+      "temperature": 28.19
+    },
+    {
+      "id": "argo-112",
+      "type": "argo",
+      "coordinates": [
+        67.61173991108805,
+        16.02523617714158,
+        -1000
+      ],
+      "temperature": 6.2
+    },
+    {
+      "id": "argo-113",
+      "type": "argo",
+      "coordinates": [
+        83.64822917124545,
+        16.51221996146026,
+        -100
+      ],
+      "temperature": 21.91
+    },
+    {
+      "id": "argo-114",
+      "type": "argo",
+      "coordinates": [
+        84.91507323977022,
+        8.688314903315694,
+        -500
+      ],
+      "temperature": 16.22
+    },
+    {
+      "id": "argo-115",
+      "type": "argo",
+      "coordinates": [
+        87.4097696226559,
+        9.768960434697567,
+        -10
+      ],
+      "temperature": 25.83
+    },
+    {
+      "id": "argo-116",
+      "type": "argo",
+      "coordinates": [
+        65.24795992839202,
+        12.17034090657317,
+        -10
+      ],
+      "temperature": 25.49
+    },
+    {
+      "id": "argo-117",
+      "type": "argo",
+      "coordinates": [
+        82.71559800593407,
+        15.53017726155316,
+        -1000
+      ],
+      "temperature": 4.99
+    },
+    {
+      "id": "glider-118",
+      "type": "glider",
+      "coordinates": [
+        85.81313799978288,
+        15.801605431755437,
+        -500
+      ],
+      "temperature": 16.98
+    },
+    {
+      "id": "argo-119",
+      "type": "argo",
+      "coordinates": [
+        82.00609036126794,
+        14.856607939700984,
+        -10
+      ],
+      "temperature": 23.56
+    },
+    {
+      "id": "argo-120",
+      "type": "argo",
+      "coordinates": [
+        64.33993185880065,
+        8.608972853814592,
+        -100
+      ],
+      "temperature": 24.79
+    },
+    {
+      "id": "argo-121",
+      "type": "argo",
+      "coordinates": [
+        69.34513003759979,
+        18.88114193943205,
+        -200
+      ],
+      "temperature": 21.06
+    },
+    {
+      "id": "glider-122",
+      "type": "glider",
+      "coordinates": [
+        71.37943484397499,
+        9.921686548556156,
+        -100
+      ],
+      "temperature": 24.68
+    },
+    {
+      "id": "glider-123",
+      "type": "glider",
+      "coordinates": [
+        65.01135151399308,
+        10.440178638752569,
+        -10
+      ],
+      "temperature": 24.59
+    },
+    {
+      "id": "argo-124",
+      "type": "argo",
+      "coordinates": [
+        87.64543593109063,
+        12.623775056538902,
+        -200
+      ],
+      "temperature": 20.83
+    },
+    {
+      "id": "argo-125",
+      "type": "argo",
+      "coordinates": [
+        87.25738551851231,
+        8.157020005324952,
+        -1000
+      ],
+      "temperature": 4.37
+    },
+    {
+      "id": "glider-126",
+      "type": "glider",
+      "coordinates": [
+        84.35243943195385,
+        12.084449213830045,
+        -1000
+      ],
+      "temperature": 5.38
+    },
+    {
+      "id": "argo-127",
+      "type": "argo",
+      "coordinates": [
+        88.37334227217605,
+        10.78531648452978,
+        -200
+      ],
+      "temperature": 21.91
+    },
+    {
+      "id": "argo-128",
+      "type": "argo",
+      "coordinates": [
+        82.83382755847974,
+        8.897004813705488,
+        -100
+      ],
+      "temperature": 25.64
+    },
+    {
+      "id": "argo-129",
+      "type": "argo",
+      "coordinates": [
+        68.98730482440652,
+        15.269534410246635,
+        -50
+      ],
+      "temperature": 27.15
+    },
+    {
+      "id": "argo-130",
+      "type": "argo",
+      "coordinates": [
+        65.52157427695299,
+        18.585160265752535,
+        -1000
+      ],
+      "temperature": 7.56
+    },
+    {
+      "id": "glider-131",
+      "type": "glider",
+      "coordinates": [
+        68.76433581425096,
+        8.897627676682593,
+        -50
+      ],
+      "temperature": 25.15
+    },
+    {
+      "id": "glider-132",
+      "type": "glider",
+      "coordinates": [
+        71.65774627702402,
+        17.6413806379262,
+        -500
+      ],
+      "temperature": 15.15
+    },
+    {
+      "id": "argo-133",
+      "type": "argo",
+      "coordinates": [
+        90.19133082069811,
+        17.607056878047317,
+        -50
+      ],
+      "temperature": 24.85
+    },
+    {
+      "id": "glider-134",
+      "type": "glider",
+      "coordinates": [
+        60.915420639153396,
+        10.109061279182367,
+        -10
+      ],
+      "temperature": 25.9
+    },
+    {
+      "id": "argo-135",
+      "type": "argo",
+      "coordinates": [
+        91.58041139701129,
+        16.88157650011621,
+        -200
+      ],
+      "temperature": 24.51
+    },
+    {
+      "id": "argo-136",
+      "type": "argo",
+      "coordinates": [
+        86.0647561932749,
+        16.72379495695507,
+        -50
+      ],
+      "temperature": 25.12
+    },
+    {
+      "id": "glider-137",
+      "type": "glider",
+      "coordinates": [
+        88.42308624529609,
+        17.31710059735429,
+        -50
+      ],
+      "temperature": 24.16
+    },
+    {
+      "id": "argo-138",
+      "type": "argo",
+      "coordinates": [
+        63.5236561450737,
+        18.219026233344042,
+        -50
+      ],
+      "temperature": 25.98
+    },
+    {
+      "id": "argo-139",
+      "type": "argo",
+      "coordinates": [
+        63.84304915670025,
+        19.35568795048017,
+        -100
+      ],
+      "temperature": 21.43
+    },
+    {
+      "id": "argo-140",
+      "type": "argo",
+      "coordinates": [
+        66.51220996194976,
+        17.829985019789323,
+        -1000
+      ],
+      "temperature": 7.49
+    },
+    {
+      "id": "glider-141",
+      "type": "glider",
+      "coordinates": [
+        61.06620763149396,
+        19.40465405496093,
+        -200
+      ],
+      "temperature": 22.94
+    },
+    {
+      "id": "argo-142",
+      "type": "argo",
+      "coordinates": [
+        84.87975276857235,
+        14.804586553081423,
+        -1000
+      ],
+      "temperature": 6.75
+    },
+    {
+      "id": "argo-143",
+      "type": "argo",
+      "coordinates": [
+        89.6218657766547,
+        8.558492896314073,
+        -50
+      ],
+      "temperature": 22.76
+    },
+    {
+      "id": "argo-144",
+      "type": "argo",
+      "coordinates": [
+        84.79990732315645,
+        11.091222338042446,
+        -100
+      ],
+      "temperature": 23.42
+    },
+    {
+      "id": "argo-145",
+      "type": "argo",
+      "coordinates": [
+        88.21964789657837,
+        15.408485700844933,
+        -50
+      ],
+      "temperature": 26.66
+    },
+    {
+      "id": "argo-146",
+      "type": "argo",
+      "coordinates": [
+        82.26819535453404,
+        10.835774891534424,
+        -100
+      ],
+      "temperature": 24.98
+    },
+    {
+      "id": "argo-147",
+      "type": "argo",
+      "coordinates": [
+        87.15932527651391,
+        9.927653268716627,
+        -500
+      ],
+      "temperature": 17.82
+    },
+    {
+      "id": "glider-148",
+      "type": "glider",
+      "coordinates": [
+        83.38313787569118,
+        14.6282817625141,
+        -500
+      ],
+      "temperature": 18.02
+    },
+    {
+      "id": "argo-149",
+      "type": "argo",
+      "coordinates": [
+        67.21999703237276,
+        18.67968610397706,
+        -50
+      ],
+      "temperature": 24.74
+    },
+    {
+      "id": "argo-150",
+      "type": "argo",
+      "coordinates": [
+        85.97323323232965,
+        15.031759974976833,
+        -100
+      ],
+      "temperature": 22.77
+    },
+    {
+      "id": "argo-151",
+      "type": "argo",
+      "coordinates": [
+        83.99360952568102,
+        16.482605873507467,
+        -100
+      ],
+      "temperature": 26.41
+    },
+    {
+      "id": "argo-152",
+      "type": "argo",
+      "coordinates": [
+        88.15089059507811,
+        8.77951764470177,
+        -10
+      ],
+      "temperature": 27.11
+    },
+    {
+      "id": "argo-153",
+      "type": "argo",
+      "coordinates": [
+        64.8136160384207,
+        16.536737653514216,
+        -1000
+      ],
+      "temperature": 4.61
+    },
+    {
+      "id": "argo-154",
+      "type": "argo",
+      "coordinates": [
+        90.97712370901226,
+        8.188926010556933,
+        -50
+      ],
+      "temperature": 25.94
+    },
+    {
+      "id": "glider-155",
+      "type": "glider",
+      "coordinates": [
+        66.89515754410348,
+        12.983739015770452,
+        -500
+      ],
+      "temperature": 17.94
+    },
+    {
+      "id": "argo-156",
+      "type": "argo",
+      "coordinates": [
+        89.87933675426882,
+        11.703423213143921,
+        -10
+      ],
+      "temperature": 26.49
+    },
+    {
+      "id": "argo-157",
+      "type": "argo",
+      "coordinates": [
+        89.1980006993084,
+        14.677230988282403,
+        -100
+      ],
+      "temperature": 24.2
+    },
+    {
+      "id": "glider-158",
+      "type": "glider",
+      "coordinates": [
+        66.90895772318099,
+        8.445202546420578,
+        -10
+      ],
+      "temperature": 24.97
+    },
+    {
+      "id": "argo-159",
+      "type": "argo",
+      "coordinates": [
+        67.79371615430964,
+        12.373480094688338,
+        -10
+      ],
+      "temperature": 24.65
+    },
+    {
+      "id": "glider-160",
+      "type": "glider",
+      "coordinates": [
+        83.2676896175129,
+        12.048648004088564,
+        -100
+      ],
+      "temperature": 24.99
+    },
+    {
+      "id": "glider-161",
+      "type": "glider",
+      "coordinates": [
+        64.41356653687347,
+        16.906425197920676,
+        -500
+      ],
+      "temperature": 14.86
+    },
+    {
+      "id": "glider-162",
+      "type": "glider",
+      "coordinates": [
+        71.89109783964763,
+        10.277128677034467,
+        -100
+      ],
+      "temperature": 24.84
+    },
+    {
+      "id": "glider-163",
+      "type": "glider",
+      "coordinates": [
+        71.03064699631992,
+        8.053436863789017,
+        -10
+      ],
+      "temperature": 25.31
+    },
+    {
+      "id": "argo-164",
+      "type": "argo",
+      "coordinates": [
+        62.70043776818309,
+        16.905479572825087,
+        -1000
+      ],
+      "temperature": 8.37
+    },
+    {
+      "id": "argo-165",
+      "type": "argo",
+      "coordinates": [
+        87.16284966892327,
+        13.563538109616221,
+        -10
+      ],
+      "temperature": 26.42
+    },
+    {
+      "id": "argo-166",
+      "type": "argo",
+      "coordinates": [
+        87.20967014003456,
+        10.760065530840823,
+        -50
+      ],
+      "temperature": 26.19
+    },
+    {
+      "id": "argo-167",
+      "type": "argo",
+      "coordinates": [
+        91.13448924035069,
+        8.462543661003359,
+        -100
+      ],
+      "temperature": 25.59
+    },
+    {
+      "id": "glider-168",
+      "type": "glider",
+      "coordinates": [
+        64.56453437610891,
+        10.299813218632767,
+        -500
+      ],
+      "temperature": 14.83
+    },
+    {
+      "id": "glider-169",
+      "type": "glider",
+      "coordinates": [
+        85.59633253167591,
+        14.489818046243286,
+        -1000
+      ],
+      "temperature": 5.84
+    },
+    {
+      "id": "argo-170",
+      "type": "argo",
+      "coordinates": [
+        65.752032373703,
+        8.594209969754717,
+        -10
+      ],
+      "temperature": 24.74
+    },
+    {
+      "id": "argo-171",
+      "type": "argo",
+      "coordinates": [
+        90.40044938416361,
+        17.37835728951231,
+        -500
+      ],
+      "temperature": 14.71
+    },
+    {
+      "id": "argo-172",
+      "type": "argo",
+      "coordinates": [
+        86.49020239747892,
+        12.772236702408248,
+        -200
+      ],
+      "temperature": 23.29
+    },
+    {
+      "id": "argo-173",
+      "type": "argo",
+      "coordinates": [
+        66.03901784723946,
+        13.873873886764377,
+        -500
+      ],
+      "temperature": 14.42
+    },
+    {
+      "id": "argo-174",
+      "type": "argo",
+      "coordinates": [
+        90.45533226302285,
+        13.650682620253402,
+        -1000
+      ],
+      "temperature": 6.43
+    },
+    {
+      "id": "argo-175",
+      "type": "argo",
+      "coordinates": [
+        61.20682554451505,
+        17.39620364060296,
+        -200
+      ],
+      "temperature": 22.44
+    },
+    {
+      "id": "argo-176",
+      "type": "argo",
+      "coordinates": [
+        61.35270491341666,
+        10.19233413341445,
+        -100
+      ],
+      "temperature": 25.29
+    },
+    {
+      "id": "argo-177",
+      "type": "argo",
+      "coordinates": [
+        66.1571619741262,
+        8.411103297736279,
+        -10
+      ],
+      "temperature": 24.11
+    },
+    {
+      "id": "argo-178",
+      "type": "argo",
+      "coordinates": [
+        86.09892806746899,
+        14.43214434165807,
+        -100
+      ],
+      "temperature": 21.73
+    },
+    {
+      "id": "argo-179",
+      "type": "argo",
+      "coordinates": [
+        70.10603977510927,
+        13.91000087466433,
+        -100
+      ],
+      "temperature": 22.15
+    },
+    {
+      "id": "argo-180",
+      "type": "argo",
+      "coordinates": [
+        87.53421828498229,
+        10.823718718590124,
+        -1000
+      ],
+      "temperature": 8.21
+    },
+    {
+      "id": "argo-181",
+      "type": "argo",
+      "coordinates": [
+        82.78547730701852,
+        10.359372877595291,
+        -1000
+      ],
+      "temperature": 4.97
+    },
+    {
+      "id": "argo-182",
+      "type": "argo",
+      "coordinates": [
+        61.14775656121274,
+        19.52358847639143,
+        -1000
+      ],
+      "temperature": 4.64
+    },
+    {
+      "id": "glider-183",
+      "type": "glider",
+      "coordinates": [
+        60.29378132050648,
+        17.077279377795023,
+        -50
+      ],
+      "temperature": 24.31
+    },
+    {
+      "id": "argo-184",
+      "type": "argo",
+      "coordinates": [
+        84.84271904052292,
+        13.883766145858763,
+        -1000
+      ],
+      "temperature": 6.07
+    },
+    {
+      "id": "argo-185",
+      "type": "argo",
+      "coordinates": [
+        67.94301784984307,
+        14.679557260493088,
+        -200
+      ],
+      "temperature": 21.2
+    },
+    {
+      "id": "argo-186",
+      "type": "argo",
+      "coordinates": [
+        89.2691619799355,
+        9.948116677962023,
+        -50
+      ],
+      "temperature": 24.62
+    },
+    {
+      "id": "glider-187",
+      "type": "glider",
+      "coordinates": [
+        61.486747133723064,
+        12.411555749969445,
+        -200
+      ],
+      "temperature": 23.55
+    },
+    {
+      "id": "argo-188",
+      "type": "argo",
+      "coordinates": [
+        69.57318334592708,
+        15.514077380730436,
+        -1000
+      ],
+      "temperature": 7.66
+    },
+    {
+      "id": "glider-189",
+      "type": "glider",
+      "coordinates": [
+        71.022636664569,
+        14.159787603048601,
+        -1000
+      ],
+      "temperature": 6.39
+    },
+    {
+      "id": "argo-190",
+      "type": "argo",
+      "coordinates": [
+        65.23708157321815,
+        19.54408906585709,
+        -200
+      ],
+      "temperature": 22.35
+    },
+    {
+      "id": "argo-191",
+      "type": "argo",
+      "coordinates": [
+        71.16231088519027,
+        17.422794656220876,
+        -50
+      ],
+      "temperature": 24.28
+    },
+    {
+      "id": "glider-192",
+      "type": "glider",
+      "coordinates": [
+        64.35734567631611,
+        10.784773228089744,
+        -10
+      ],
+      "temperature": 28.38
+    },
+    {
+      "id": "argo-193",
+      "type": "argo",
+      "coordinates": [
+        64.6196105358504,
+        9.57624595947827,
+        -50
+      ],
+      "temperature": 24.41
+    },
+    {
+      "id": "argo-194",
+      "type": "argo",
+      "coordinates": [
+        67.14790682429579,
+        11.52525724543149,
+        -1000
+      ],
+      "temperature": 4
+    },
+    {
+      "id": "argo-195",
+      "type": "argo",
+      "coordinates": [
+        90.683432261814,
+        10.59336936411809,
+        -50
+      ],
+      "temperature": 25.42
+    },
+    {
+      "id": "argo-196",
+      "type": "argo",
+      "coordinates": [
+        61.298793855149995,
+        15.569709309128111,
+        -500
+      ],
+      "temperature": 14.93
+    },
+    {
+      "id": "glider-197",
+      "type": "glider",
+      "coordinates": [
+        91.42015103170625,
+        12.82341373449338,
+        -100
+      ],
+      "temperature": 24.95
+    },
+    {
+      "id": "argo-198",
+      "type": "argo",
+      "coordinates": [
+        89.19417808379278,
+        9.315651690957475,
+        -50
+      ],
+      "temperature": 25.15
+    },
+    {
+      "id": "argo-199",
+      "type": "argo",
+      "coordinates": [
+        68.134557788519,
+        13.90762090013519,
+        -100
+      ],
+      "temperature": 24.55
+    },
+    {
+      "id": "ARGO-2901323",
+      "type": "argo",
+      "coordinates": [
+        68.30740561827058,
+        8.43942036195843,
+        -5
+      ],
+      "temperature": 28.5
+    },
+    {
+      "id": "ARGO-2902086",
+      "type": "argo",
+      "coordinates": [
+        64.95500980876795,
+        11.713900592521853,
+        -5
+      ],
+      "temperature": 29.2
+    },
+    {
+      "id": "GLIDER-9921",
+      "type": "glider",
+      "coordinates": [
+        65.26149694508176,
+        13.70591798215716,
+        -5
+      ],
+      "temperature": 28.8
+    }
+  ],
+  "sst_grid": [
+    {
+      "coordinates": [
+        50,
+        5
+      ],
+      "base_temp": 28.52
+    },
+    {
+      "coordinates": [
+        50,
+        7
+      ],
+      "base_temp": 28.22
+    },
+    {
+      "coordinates": [
+        50,
+        9
+      ],
+      "base_temp": 27.92
+    },
+    {
+      "coordinates": [
+        50,
+        11
+      ],
+      "base_temp": 27.62
+    },
+    {
+      "coordinates": [
+        50,
+        13
+      ],
+      "base_temp": 27.32
+    },
+    {
+      "coordinates": [
+        50,
+        15
+      ],
+      "base_temp": 27.02
+    },
+    {
+      "coordinates": [
+        50,
+        17
+      ],
+      "base_temp": 26.72
+    },
+    {
+      "coordinates": [
+        50,
+        19
+      ],
+      "base_temp": 26.42
+    },
+    {
+      "coordinates": [
+        50,
+        21
+      ],
+      "base_temp": 26.12
+    },
+    {
+      "coordinates": [
+        50,
+        23
+      ],
+      "base_temp": 25.82
+    },
+    {
+      "coordinates": [
+        50,
+        25
+      ],
+      "base_temp": 25.52
+    },
+    {
+      "coordinates": [
+        52,
+        5
+      ],
+      "base_temp": 28.56
+    },
+    {
+      "coordinates": [
+        52,
+        7
+      ],
+      "base_temp": 28.26
+    },
+    {
+      "coordinates": [
+        52,
+        9
+      ],
+      "base_temp": 27.96
+    },
+    {
+      "coordinates": [
+        52,
+        11
+      ],
+      "base_temp": 27.66
+    },
+    {
+      "coordinates": [
+        52,
+        13
+      ],
+      "base_temp": 27.36
+    },
+    {
+      "coordinates": [
+        52,
+        15
+      ],
+      "base_temp": 27.06
+    },
+    {
+      "coordinates": [
+        52,
+        17
+      ],
+      "base_temp": 26.76
+    },
+    {
+      "coordinates": [
+        52,
+        19
+      ],
+      "base_temp": 26.46
+    },
+    {
+      "coordinates": [
+        52,
+        21
+      ],
+      "base_temp": 26.16
+    },
+    {
+      "coordinates": [
+        52,
+        23
+      ],
+      "base_temp": 25.86
+    },
+    {
+      "coordinates": [
+        52,
+        25
+      ],
+      "base_temp": 25.56
+    },
+    {
+      "coordinates": [
+        54,
+        5
+      ],
+      "base_temp": 28.61
+    },
+    {
+      "coordinates": [
+        54,
+        7
+      ],
+      "base_temp": 28.31
+    },
+    {
+      "coordinates": [
+        54,
+        9
+      ],
+      "base_temp": 28.01
+    },
+    {
+      "coordinates": [
+        54,
+        11
+      ],
+      "base_temp": 27.71
+    },
+    {
+      "coordinates": [
+        54,
+        13
+      ],
+      "base_temp": 27.41
+    },
+    {
+      "coordinates": [
+        54,
+        15
+      ],
+      "base_temp": 27.11
+    },
+    {
+      "coordinates": [
+        54,
+        17
+      ],
+      "base_temp": 26.81
+    },
+    {
+      "coordinates": [
+        54,
+        19
+      ],
+      "base_temp": 26.51
+    },
+    {
+      "coordinates": [
+        54,
+        21
+      ],
+      "base_temp": 26.21
+    },
+    {
+      "coordinates": [
+        54,
+        23
+      ],
+      "base_temp": 25.91
+    },
+    {
+      "coordinates": [
+        54,
+        25
+      ],
+      "base_temp": 25.61
+    },
+    {
+      "coordinates": [
+        56,
+        5
+      ],
+      "base_temp": 28.68
+    },
+    {
+      "coordinates": [
+        56,
+        7
+      ],
+      "base_temp": 28.38
+    },
+    {
+      "coordinates": [
+        56,
+        9
+      ],
+      "base_temp": 28.08
+    },
+    {
+      "coordinates": [
+        56,
+        11
+      ],
+      "base_temp": 27.78
+    },
+    {
+      "coordinates": [
+        56,
+        13
+      ],
+      "base_temp": 27.48
+    },
+    {
+      "coordinates": [
+        56,
+        15
+      ],
+      "base_temp": 27.18
+    },
+    {
+      "coordinates": [
+        56,
+        17
+      ],
+      "base_temp": 26.88
+    },
+    {
+      "coordinates": [
+        56,
+        19
+      ],
+      "base_temp": 26.58
+    },
+    {
+      "coordinates": [
+        56,
+        21
+      ],
+      "base_temp": 26.28
+    },
+    {
+      "coordinates": [
+        56,
+        23
+      ],
+      "base_temp": 25.98
+    },
+    {
+      "coordinates": [
+        56,
+        25
+      ],
+      "base_temp": 25.68
+    },
+    {
+      "coordinates": [
+        58,
+        5
+      ],
+      "base_temp": 28.77
+    },
+    {
+      "coordinates": [
+        58,
+        7
+      ],
+      "base_temp": 28.47
+    },
+    {
+      "coordinates": [
+        58,
+        9
+      ],
+      "base_temp": 28.17
+    },
+    {
+      "coordinates": [
+        58,
+        11
+      ],
+      "base_temp": 27.87
+    },
+    {
+      "coordinates": [
+        58,
+        13
+      ],
+      "base_temp": 27.57
+    },
+    {
+      "coordinates": [
+        58,
+        15
+      ],
+      "base_temp": 27.27
+    },
+    {
+      "coordinates": [
+        58,
+        17
+      ],
+      "base_temp": 26.97
+    },
+    {
+      "coordinates": [
+        58,
+        19
+      ],
+      "base_temp": 26.67
+    },
+    {
+      "coordinates": [
+        58,
+        21
+      ],
+      "base_temp": 26.37
+    },
+    {
+      "coordinates": [
+        58,
+        23
+      ],
+      "base_temp": 26.07
+    },
+    {
+      "coordinates": [
+        58,
+        25
+      ],
+      "base_temp": 25.77
+    },
+    {
+      "coordinates": [
+        60,
+        5
+      ],
+      "base_temp": 28.86
+    },
+    {
+      "coordinates": [
+        60,
+        7
+      ],
+      "base_temp": 28.56
+    },
+    {
+      "coordinates": [
+        60,
+        9
+      ],
+      "base_temp": 28.26
+    },
+    {
+      "coordinates": [
+        60,
+        11
+      ],
+      "base_temp": 27.96
+    },
+    {
+      "coordinates": [
+        60,
+        13
+      ],
+      "base_temp": 27.66
+    },
+    {
+      "coordinates": [
+        60,
+        15
+      ],
+      "base_temp": 27.36
+    },
+    {
+      "coordinates": [
+        60,
+        17
+      ],
+      "base_temp": 27.06
+    },
+    {
+      "coordinates": [
+        60,
+        19
+      ],
+      "base_temp": 26.76
+    },
+    {
+      "coordinates": [
+        60,
+        21
+      ],
+      "base_temp": 26.46
+    },
+    {
+      "coordinates": [
+        60,
+        23
+      ],
+      "base_temp": 26.16
+    },
+    {
+      "coordinates": [
+        60,
+        25
+      ],
+      "base_temp": 25.86
+    },
+    {
+      "coordinates": [
+        62,
+        5
+      ],
+      "base_temp": 28.96
+    },
+    {
+      "coordinates": [
+        62,
+        7
+      ],
+      "base_temp": 28.66
+    },
+    {
+      "coordinates": [
+        62,
+        9
+      ],
+      "base_temp": 28.36
+    },
+    {
+      "coordinates": [
+        62,
+        11
+      ],
+      "base_temp": 28.06
+    },
+    {
+      "coordinates": [
+        62,
+        13
+      ],
+      "base_temp": 27.76
+    },
+    {
+      "coordinates": [
+        62,
+        15
+      ],
+      "base_temp": 27.46
+    },
+    {
+      "coordinates": [
+        62,
+        17
+      ],
+      "base_temp": 27.16
+    },
+    {
+      "coordinates": [
+        62,
+        19
+      ],
+      "base_temp": 26.86
+    },
+    {
+      "coordinates": [
+        62,
+        21
+      ],
+      "base_temp": 26.56
+    },
+    {
+      "coordinates": [
+        62,
+        23
+      ],
+      "base_temp": 26.26
+    },
+    {
+      "coordinates": [
+        62,
+        25
+      ],
+      "base_temp": 25.96
+    },
+    {
+      "coordinates": [
+        64,
+        5
+      ],
+      "base_temp": 29.06
+    },
+    {
+      "coordinates": [
+        64,
+        7
+      ],
+      "base_temp": 28.76
+    },
+    {
+      "coordinates": [
+        64,
+        9
+      ],
+      "base_temp": 28.46
+    },
+    {
+      "coordinates": [
+        64,
+        11
+      ],
+      "base_temp": 28.16
+    },
+    {
+      "coordinates": [
+        64,
+        13
+      ],
+      "base_temp": 27.86
+    },
+    {
+      "coordinates": [
+        64,
+        15
+      ],
+      "base_temp": 27.56
+    },
+    {
+      "coordinates": [
+        64,
+        17
+      ],
+      "base_temp": 27.26
+    },
+    {
+      "coordinates": [
+        64,
+        19
+      ],
+      "base_temp": 26.96
+    },
+    {
+      "coordinates": [
+        64,
+        21
+      ],
+      "base_temp": 26.66
+    },
+    {
+      "coordinates": [
+        64,
+        23
+      ],
+      "base_temp": 26.36
+    },
+    {
+      "coordinates": [
+        64,
+        25
+      ],
+      "base_temp": 26.06
+    },
+    {
+      "coordinates": [
+        66,
+        5
+      ],
+      "base_temp": 29.16
+    },
+    {
+      "coordinates": [
+        66,
+        7
+      ],
+      "base_temp": 28.86
+    },
+    {
+      "coordinates": [
+        66,
+        9
+      ],
+      "base_temp": 28.56
+    },
+    {
+      "coordinates": [
+        66,
+        11
+      ],
+      "base_temp": 28.26
+    },
+    {
+      "coordinates": [
+        66,
+        13
+      ],
+      "base_temp": 27.96
+    },
+    {
+      "coordinates": [
+        66,
+        15
+      ],
+      "base_temp": 27.66
+    },
+    {
+      "coordinates": [
+        66,
+        17
+      ],
+      "base_temp": 27.36
+    },
+    {
+      "coordinates": [
+        66,
+        19
+      ],
+      "base_temp": 27.06
+    },
+    {
+      "coordinates": [
+        66,
+        21
+      ],
+      "base_temp": 26.76
+    },
+    {
+      "coordinates": [
+        66,
+        23
+      ],
+      "base_temp": 26.46
+    },
+    {
+      "coordinates": [
+        66,
+        25
+      ],
+      "base_temp": 26.16
+    },
+    {
+      "coordinates": [
+        68,
+        5
+      ],
+      "base_temp": 29.25
+    },
+    {
+      "coordinates": [
+        68,
+        7
+      ],
+      "base_temp": 28.95
+    },
+    {
+      "coordinates": [
+        68,
+        9
+      ],
+      "base_temp": 28.65
+    },
+    {
+      "coordinates": [
+        68,
+        11
+      ],
+      "base_temp": 28.35
+    },
+    {
+      "coordinates": [
+        68,
+        13
+      ],
+      "base_temp": 28.05
+    },
+    {
+      "coordinates": [
+        68,
+        15
+      ],
+      "base_temp": 27.75
+    },
+    {
+      "coordinates": [
+        68,
+        17
+      ],
+      "base_temp": 27.45
+    },
+    {
+      "coordinates": [
+        68,
+        19
+      ],
+      "base_temp": 27.15
+    },
+    {
+      "coordinates": [
+        68,
+        21
+      ],
+      "base_temp": 26.85
+    },
+    {
+      "coordinates": [
+        68,
+        23
+      ],
+      "base_temp": 26.55
+    },
+    {
+      "coordinates": [
+        68,
+        25
+      ],
+      "base_temp": 26.25
+    },
+    {
+      "coordinates": [
+        70,
+        5
+      ],
+      "base_temp": 29.33
+    },
+    {
+      "coordinates": [
+        70,
+        7
+      ],
+      "base_temp": 29.03
+    },
+    {
+      "coordinates": [
+        70,
+        9
+      ],
+      "base_temp": 28.73
+    },
+    {
+      "coordinates": [
+        70,
+        11
+      ],
+      "base_temp": 28.43
+    },
+    {
+      "coordinates": [
+        70,
+        13
+      ],
+      "base_temp": 28.13
+    },
+    {
+      "coordinates": [
+        70,
+        15
+      ],
+      "base_temp": 27.83
+    },
+    {
+      "coordinates": [
+        70,
+        17
+      ],
+      "base_temp": 27.53
+    },
+    {
+      "coordinates": [
+        70,
+        19
+      ],
+      "base_temp": 27.23
+    },
+    {
+      "coordinates": [
+        70,
+        21
+      ],
+      "base_temp": 26.93
+    },
+    {
+      "coordinates": [
+        70,
+        23
+      ],
+      "base_temp": 26.63
+    },
+    {
+      "coordinates": [
+        70,
+        25
+      ],
+      "base_temp": 26.33
+    },
+    {
+      "coordinates": [
+        72,
+        5
+      ],
+      "base_temp": 29.4
+    },
+    {
+      "coordinates": [
+        72,
+        7
+      ],
+      "base_temp": 29.1
+    },
+    {
+      "coordinates": [
+        72,
+        9
+      ],
+      "base_temp": 28.8
+    },
+    {
+      "coordinates": [
+        72,
+        11
+      ],
+      "base_temp": 28.5
+    },
+    {
+      "coordinates": [
+        72,
+        13
+      ],
+      "base_temp": 28.2
+    },
+    {
+      "coordinates": [
+        72,
+        15
+      ],
+      "base_temp": 27.9
+    },
+    {
+      "coordinates": [
+        72,
+        17
+      ],
+      "base_temp": 27.6
+    },
+    {
+      "coordinates": [
+        72,
+        19
+      ],
+      "base_temp": 27.3
+    },
+    {
+      "coordinates": [
+        72,
+        21
+      ],
+      "base_temp": 27
+    },
+    {
+      "coordinates": [
+        72,
+        23
+      ],
+      "base_temp": 26.7
+    },
+    {
+      "coordinates": [
+        72,
+        25
+      ],
+      "base_temp": 26.4
+    },
+    {
+      "coordinates": [
+        74,
+        5
+      ],
+      "base_temp": 29.45
+    },
+    {
+      "coordinates": [
+        74,
+        7
+      ],
+      "base_temp": 29.15
+    },
+    {
+      "coordinates": [
+        74,
+        9
+      ],
+      "base_temp": 28.85
+    },
+    {
+      "coordinates": [
+        74,
+        11
+      ],
+      "base_temp": 28.55
+    },
+    {
+      "coordinates": [
+        74,
+        13
+      ],
+      "base_temp": 28.25
+    },
+    {
+      "coordinates": [
+        74,
+        15
+      ],
+      "base_temp": 27.95
+    },
+    {
+      "coordinates": [
+        74,
+        17
+      ],
+      "base_temp": 27.65
+    },
+    {
+      "coordinates": [
+        74,
+        19
+      ],
+      "base_temp": 27.35
+    },
+    {
+      "coordinates": [
+        74,
+        21
+      ],
+      "base_temp": 27.05
+    },
+    {
+      "coordinates": [
+        74,
+        23
+      ],
+      "base_temp": 26.75
+    },
+    {
+      "coordinates": [
+        74,
+        25
+      ],
+      "base_temp": 26.45
+    },
+    {
+      "coordinates": [
+        76,
+        5
+      ],
+      "base_temp": 29.48
+    },
+    {
+      "coordinates": [
+        76,
+        7
+      ],
+      "base_temp": 29.18
+    },
+    {
+      "coordinates": [
+        76,
+        9
+      ],
+      "base_temp": 28.88
+    },
+    {
+      "coordinates": [
+        76,
+        11
+      ],
+      "base_temp": 28.58
+    },
+    {
+      "coordinates": [
+        76,
+        13
+      ],
+      "base_temp": 28.28
+    },
+    {
+      "coordinates": [
+        76,
+        15
+      ],
+      "base_temp": 27.98
+    },
+    {
+      "coordinates": [
+        76,
+        17
+      ],
+      "base_temp": 27.68
+    },
+    {
+      "coordinates": [
+        76,
+        19
+      ],
+      "base_temp": 27.38
+    },
+    {
+      "coordinates": [
+        76,
+        21
+      ],
+      "base_temp": 27.08
+    },
+    {
+      "coordinates": [
+        76,
+        23
+      ],
+      "base_temp": 26.78
+    },
+    {
+      "coordinates": [
+        76,
+        25
+      ],
+      "base_temp": 26.48
+    },
+    {
+      "coordinates": [
+        78,
+        5
+      ],
+      "base_temp": 29.5
+    },
+    {
+      "coordinates": [
+        78,
+        7
+      ],
+      "base_temp": 29.2
+    },
+    {
+      "coordinates": [
+        78,
+        9
+      ],
+      "base_temp": 28.9
+    },
+    {
+      "coordinates": [
+        78,
+        11
+      ],
+      "base_temp": 28.6
+    },
+    {
+      "coordinates": [
+        78,
+        13
+      ],
+      "base_temp": 28.3
+    },
+    {
+      "coordinates": [
+        78,
+        15
+      ],
+      "base_temp": 28
+    },
+    {
+      "coordinates": [
+        78,
+        17
+      ],
+      "base_temp": 27.7
+    },
+    {
+      "coordinates": [
+        78,
+        19
+      ],
+      "base_temp": 27.4
+    },
+    {
+      "coordinates": [
+        78,
+        21
+      ],
+      "base_temp": 27.1
+    },
+    {
+      "coordinates": [
+        78,
+        23
+      ],
+      "base_temp": 26.8
+    },
+    {
+      "coordinates": [
+        78,
+        25
+      ],
+      "base_temp": 26.5
+    },
+    {
+      "coordinates": [
+        80,
+        5
+      ],
+      "base_temp": 29.49
+    },
+    {
+      "coordinates": [
+        80,
+        7
+      ],
+      "base_temp": 29.19
+    },
+    {
+      "coordinates": [
+        80,
+        9
+      ],
+      "base_temp": 28.89
+    },
+    {
+      "coordinates": [
+        80,
+        11
+      ],
+      "base_temp": 28.59
+    },
+    {
+      "coordinates": [
+        80,
+        13
+      ],
+      "base_temp": 28.29
+    },
+    {
+      "coordinates": [
+        80,
+        15
+      ],
+      "base_temp": 27.99
+    },
+    {
+      "coordinates": [
+        80,
+        17
+      ],
+      "base_temp": 27.69
+    },
+    {
+      "coordinates": [
+        80,
+        19
+      ],
+      "base_temp": 27.39
+    },
+    {
+      "coordinates": [
+        80,
+        21
+      ],
+      "base_temp": 27.09
+    },
+    {
+      "coordinates": [
+        80,
+        23
+      ],
+      "base_temp": 26.79
+    },
+    {
+      "coordinates": [
+        80,
+        25
+      ],
+      "base_temp": 26.49
+    },
+    {
+      "coordinates": [
+        82,
+        5
+      ],
+      "base_temp": 29.47
+    },
+    {
+      "coordinates": [
+        82,
+        7
+      ],
+      "base_temp": 29.17
+    },
+    {
+      "coordinates": [
+        82,
+        9
+      ],
+      "base_temp": 28.87
+    },
+    {
+      "coordinates": [
+        82,
+        11
+      ],
+      "base_temp": 28.57
+    },
+    {
+      "coordinates": [
+        82,
+        13
+      ],
+      "base_temp": 28.27
+    },
+    {
+      "coordinates": [
+        82,
+        15
+      ],
+      "base_temp": 27.97
+    },
+    {
+      "coordinates": [
+        82,
+        17
+      ],
+      "base_temp": 27.67
+    },
+    {
+      "coordinates": [
+        82,
+        19
+      ],
+      "base_temp": 27.37
+    },
+    {
+      "coordinates": [
+        82,
+        21
+      ],
+      "base_temp": 27.07
+    },
+    {
+      "coordinates": [
+        82,
+        23
+      ],
+      "base_temp": 26.77
+    },
+    {
+      "coordinates": [
+        82,
+        25
+      ],
+      "base_temp": 26.47
+    },
+    {
+      "coordinates": [
+        84,
+        5
+      ],
+      "base_temp": 29.43
+    },
+    {
+      "coordinates": [
+        84,
+        7
+      ],
+      "base_temp": 29.13
+    },
+    {
+      "coordinates": [
+        84,
+        9
+      ],
+      "base_temp": 28.83
+    },
+    {
+      "coordinates": [
+        84,
+        11
+      ],
+      "base_temp": 28.53
+    },
+    {
+      "coordinates": [
+        84,
+        13
+      ],
+      "base_temp": 28.23
+    },
+    {
+      "coordinates": [
+        84,
+        15
+      ],
+      "base_temp": 27.93
+    },
+    {
+      "coordinates": [
+        84,
+        17
+      ],
+      "base_temp": 27.63
+    },
+    {
+      "coordinates": [
+        84,
+        19
+      ],
+      "base_temp": 27.33
+    },
+    {
+      "coordinates": [
+        84,
+        21
+      ],
+      "base_temp": 27.03
+    },
+    {
+      "coordinates": [
+        84,
+        23
+      ],
+      "base_temp": 26.73
+    },
+    {
+      "coordinates": [
+        84,
+        25
+      ],
+      "base_temp": 26.43
+    },
+    {
+      "coordinates": [
+        86,
+        5
+      ],
+      "base_temp": 29.37
+    },
+    {
+      "coordinates": [
+        86,
+        7
+      ],
+      "base_temp": 29.07
+    },
+    {
+      "coordinates": [
+        86,
+        9
+      ],
+      "base_temp": 28.77
+    },
+    {
+      "coordinates": [
+        86,
+        11
+      ],
+      "base_temp": 28.47
+    },
+    {
+      "coordinates": [
+        86,
+        13
+      ],
+      "base_temp": 28.17
+    },
+    {
+      "coordinates": [
+        86,
+        15
+      ],
+      "base_temp": 27.87
+    },
+    {
+      "coordinates": [
+        86,
+        17
+      ],
+      "base_temp": 27.57
+    },
+    {
+      "coordinates": [
+        86,
+        19
+      ],
+      "base_temp": 27.27
+    },
+    {
+      "coordinates": [
+        86,
+        21
+      ],
+      "base_temp": 26.97
+    },
+    {
+      "coordinates": [
+        86,
+        23
+      ],
+      "base_temp": 26.67
+    },
+    {
+      "coordinates": [
+        86,
+        25
+      ],
+      "base_temp": 26.37
+    },
+    {
+      "coordinates": [
+        88,
+        5
+      ],
+      "base_temp": 29.29
+    },
+    {
+      "coordinates": [
+        88,
+        7
+      ],
+      "base_temp": 28.99
+    },
+    {
+      "coordinates": [
+        88,
+        9
+      ],
+      "base_temp": 28.69
+    },
+    {
+      "coordinates": [
+        88,
+        11
+      ],
+      "base_temp": 28.39
+    },
+    {
+      "coordinates": [
+        88,
+        13
+      ],
+      "base_temp": 28.09
+    },
+    {
+      "coordinates": [
+        88,
+        15
+      ],
+      "base_temp": 27.79
+    },
+    {
+      "coordinates": [
+        88,
+        17
+      ],
+      "base_temp": 27.49
+    },
+    {
+      "coordinates": [
+        88,
+        19
+      ],
+      "base_temp": 27.19
+    },
+    {
+      "coordinates": [
+        88,
+        21
+      ],
+      "base_temp": 26.89
+    },
+    {
+      "coordinates": [
+        88,
+        23
+      ],
+      "base_temp": 26.59
+    },
+    {
+      "coordinates": [
+        88,
+        25
+      ],
+      "base_temp": 26.29
+    },
+    {
+      "coordinates": [
+        90,
+        5
+      ],
+      "base_temp": 29.21
+    },
+    {
+      "coordinates": [
+        90,
+        7
+      ],
+      "base_temp": 28.91
+    },
+    {
+      "coordinates": [
+        90,
+        9
+      ],
+      "base_temp": 28.61
+    },
+    {
+      "coordinates": [
+        90,
+        11
+      ],
+      "base_temp": 28.31
+    },
+    {
+      "coordinates": [
+        90,
+        13
+      ],
+      "base_temp": 28.01
+    },
+    {
+      "coordinates": [
+        90,
+        15
+      ],
+      "base_temp": 27.71
+    },
+    {
+      "coordinates": [
+        90,
+        17
+      ],
+      "base_temp": 27.41
+    },
+    {
+      "coordinates": [
+        90,
+        19
+      ],
+      "base_temp": 27.11
+    },
+    {
+      "coordinates": [
+        90,
+        21
+      ],
+      "base_temp": 26.81
+    },
+    {
+      "coordinates": [
+        90,
+        23
+      ],
+      "base_temp": 26.51
+    },
+    {
+      "coordinates": [
+        90,
+        25
+      ],
+      "base_temp": 26.21
+    },
+    {
+      "coordinates": [
+        92,
+        5
+      ],
+      "base_temp": 29.11
+    },
+    {
+      "coordinates": [
+        92,
+        7
+      ],
+      "base_temp": 28.81
+    },
+    {
+      "coordinates": [
+        92,
+        9
+      ],
+      "base_temp": 28.51
+    },
+    {
+      "coordinates": [
+        92,
+        11
+      ],
+      "base_temp": 28.21
+    },
+    {
+      "coordinates": [
+        92,
+        13
+      ],
+      "base_temp": 27.91
+    },
+    {
+      "coordinates": [
+        92,
+        15
+      ],
+      "base_temp": 27.61
+    },
+    {
+      "coordinates": [
+        92,
+        17
+      ],
+      "base_temp": 27.31
+    },
+    {
+      "coordinates": [
+        92,
+        19
+      ],
+      "base_temp": 27.01
+    },
+    {
+      "coordinates": [
+        92,
+        21
+      ],
+      "base_temp": 26.71
+    },
+    {
+      "coordinates": [
+        92,
+        23
+      ],
+      "base_temp": 26.41
+    },
+    {
+      "coordinates": [
+        92,
+        25
+      ],
+      "base_temp": 26.11
+    },
+    {
+      "coordinates": [
+        94,
+        5
+      ],
+      "base_temp": 29.01
+    },
+    {
+      "coordinates": [
+        94,
+        7
+      ],
+      "base_temp": 28.71
+    },
+    {
+      "coordinates": [
+        94,
+        9
+      ],
+      "base_temp": 28.41
+    },
+    {
+      "coordinates": [
+        94,
+        11
+      ],
+      "base_temp": 28.11
+    },
+    {
+      "coordinates": [
+        94,
+        13
+      ],
+      "base_temp": 27.81
+    },
+    {
+      "coordinates": [
+        94,
+        15
+      ],
+      "base_temp": 27.51
+    },
+    {
+      "coordinates": [
+        94,
+        17
+      ],
+      "base_temp": 27.21
+    },
+    {
+      "coordinates": [
+        94,
+        19
+      ],
+      "base_temp": 26.91
+    },
+    {
+      "coordinates": [
+        94,
+        21
+      ],
+      "base_temp": 26.61
+    },
+    {
+      "coordinates": [
+        94,
+        23
+      ],
+      "base_temp": 26.31
+    },
+    {
+      "coordinates": [
+        94,
+        25
+      ],
+      "base_temp": 26.01
+    }
+  ],
+  "wind_vectors": [
+    {
+      "coordinates": [
+        52,
+        6
+      ],
+      "u": 0.11,
+      "v": 0.52
+    },
+    {
+      "coordinates": [
+        52,
+        10
+      ],
+      "u": -0.77,
+      "v": 0.52
+    },
+    {
+      "coordinates": [
+        52,
+        14
+      ],
+      "u": 0.53,
+      "v": 0.52
+    },
+    {
+      "coordinates": [
+        52,
+        18
+      ],
+      "u": 0.33,
+      "v": 0.52
+    },
+    {
+      "coordinates": [
+        52,
+        22
+      ],
+      "u": -0.8,
+      "v": 0.52
+    },
+    {
+      "coordinates": [
+        56,
+        6
+      ],
+      "u": 0.11,
+      "v": -0.77
+    },
+    {
+      "coordinates": [
+        56,
+        10
+      ],
+      "u": -0.77,
+      "v": -0.77
+    },
+    {
+      "coordinates": [
+        56,
+        14
+      ],
+      "u": 0.53,
+      "v": -0.77
+    },
+    {
+      "coordinates": [
+        56,
+        18
+      ],
+      "u": 0.33,
+      "v": -0.77
+    },
+    {
+      "coordinates": [
+        56,
+        22
+      ],
+      "u": -0.8,
+      "v": -0.77
+    },
+    {
+      "coordinates": [
+        60,
+        6
+      ],
+      "u": 0.11,
+      "v": 0.12
+    },
+    {
+      "coordinates": [
+        60,
+        10
+      ],
+      "u": -0.77,
+      "v": 0.12
+    },
+    {
+      "coordinates": [
+        60,
+        14
+      ],
+      "u": 0.53,
+      "v": 0.12
+    },
+    {
+      "coordinates": [
+        60,
+        18
+      ],
+      "u": 0.33,
+      "v": 0.12
+    },
+    {
+      "coordinates": [
+        60,
+        22
+      ],
+      "u": -0.8,
+      "v": 0.12
+    },
+    {
+      "coordinates": [
+        64,
+        6
+      ],
+      "u": 0.11,
+      "v": 0.67
+    },
+    {
+      "coordinates": [
+        64,
+        10
+      ],
+      "u": -0.77,
+      "v": 0.67
+    },
+    {
+      "coordinates": [
+        64,
+        14
+      ],
+      "u": 0.53,
+      "v": 0.67
+    },
+    {
+      "coordinates": [
+        64,
+        18
+      ],
+      "u": 0.33,
+      "v": 0.67
+    },
+    {
+      "coordinates": [
+        64,
+        22
+      ],
+      "u": -0.8,
+      "v": 0.67
+    },
+    {
+      "coordinates": [
+        68,
+        6
+      ],
+      "u": 0.11,
+      "v": -0.68
+    },
+    {
+      "coordinates": [
+        68,
+        10
+      ],
+      "u": -0.77,
+      "v": -0.68
+    },
+    {
+      "coordinates": [
+        68,
+        14
+      ],
+      "u": 0.53,
+      "v": -0.68
+    },
+    {
+      "coordinates": [
+        68,
+        18
+      ],
+      "u": 0.33,
+      "v": -0.68
+    },
+    {
+      "coordinates": [
+        68,
+        22
+      ],
+      "u": -0.8,
+      "v": -0.68
+    },
+    {
+      "coordinates": [
+        72,
+        6
+      ],
+      "u": 0.11,
+      "v": -0.1
+    },
+    {
+      "coordinates": [
+        72,
+        10
+      ],
+      "u": -0.77,
+      "v": -0.1
+    },
+    {
+      "coordinates": [
+        72,
+        14
+      ],
+      "u": 0.53,
+      "v": -0.1
+    },
+    {
+      "coordinates": [
+        72,
+        18
+      ],
+      "u": 0.33,
+      "v": -0.1
+    },
+    {
+      "coordinates": [
+        72,
+        22
+      ],
+      "u": -0.8,
+      "v": -0.1
+    },
+    {
+      "coordinates": [
+        76,
+        6
+      ],
+      "u": 0.11,
+      "v": 0.76
+    },
+    {
+      "coordinates": [
+        76,
+        10
+      ],
+      "u": -0.77,
+      "v": 0.76
+    },
+    {
+      "coordinates": [
+        76,
+        14
+      ],
+      "u": 0.53,
+      "v": 0.76
+    },
+    {
+      "coordinates": [
+        76,
+        18
+      ],
+      "u": 0.33,
+      "v": 0.76
+    },
+    {
+      "coordinates": [
+        76,
+        22
+      ],
+      "u": -0.8,
+      "v": 0.76
+    },
+    {
+      "coordinates": [
+        80,
+        6
+      ],
+      "u": 0.11,
+      "v": -0.53
+    },
+    {
+      "coordinates": [
+        80,
+        10
+      ],
+      "u": -0.77,
+      "v": -0.53
+    },
+    {
+      "coordinates": [
+        80,
+        14
+      ],
+      "u": 0.53,
+      "v": -0.53
+    },
+    {
+      "coordinates": [
+        80,
+        18
+      ],
+      "u": 0.33,
+      "v": -0.53
+    },
+    {
+      "coordinates": [
+        80,
+        22
+      ],
+      "u": -0.8,
+      "v": -0.53
+    },
+    {
+      "coordinates": [
+        84,
+        6
+      ],
+      "u": 0.11,
+      "v": -0.32
+    },
+    {
+      "coordinates": [
+        84,
+        10
+      ],
+      "u": -0.77,
+      "v": -0.32
+    },
+    {
+      "coordinates": [
+        84,
+        14
+      ],
+      "u": 0.53,
+      "v": -0.32
+    },
+    {
+      "coordinates": [
+        84,
+        18
+      ],
+      "u": 0.33,
+      "v": -0.32
+    },
+    {
+      "coordinates": [
+        84,
+        22
+      ],
+      "u": -0.8,
+      "v": -0.32
+    },
+    {
+      "coordinates": [
+        88,
+        6
+      ],
+      "u": 0.11,
+      "v": 0.8
+    },
+    {
+      "coordinates": [
+        88,
+        10
+      ],
+      "u": -0.77,
+      "v": 0.8
+    },
+    {
+      "coordinates": [
+        88,
+        14
+      ],
+      "u": 0.53,
+      "v": 0.8
+    },
+    {
+      "coordinates": [
+        88,
+        18
+      ],
+      "u": 0.33,
+      "v": 0.8
+    },
+    {
+      "coordinates": [
+        88,
+        22
+      ],
+      "u": -0.8,
+      "v": 0.8
+    },
+    {
+      "coordinates": [
+        92,
+        6
+      ],
+      "u": 0.11,
+      "v": -0.35
+    },
+    {
+      "coordinates": [
+        92,
+        10
+      ],
+      "u": -0.77,
+      "v": -0.35
+    },
+    {
+      "coordinates": [
+        92,
+        14
+      ],
+      "u": 0.53,
+      "v": -0.35
+    },
+    {
+      "coordinates": [
+        92,
+        18
+      ],
+      "u": 0.33,
+      "v": -0.35
+    },
+    {
+      "coordinates": [
+        92,
+        22
+      ],
+      "u": -0.8,
+      "v": -0.35
+    }
+  ]
+}
