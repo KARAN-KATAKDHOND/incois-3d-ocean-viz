@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@deck.gl/core": "^9.3.11",
-    "@deck.gl/geo-layers": "^9.3.11",
+    "@deck.gl/geo-layers": "^9.0.6",
     "@deck.gl/layers": "^9.3.11",
     "@deck.gl/react": "^9.3.11",
     "cesium": "^1.144.0",
+    "firebase": "^12.18.0",
     "lucide-react": "^1.37.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
