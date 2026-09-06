@@ -43,6 +43,29 @@ for gen in demo_generators.values():
     _observations_cache.extend(gen.generate_observations())
 
 
+# === Pipeline Trigger Endpoint ===
+
+@app.post("/api/process")
+async def trigger_pipeline(request_data: dict):
+    """
+    Forward processing requests to the internal data-pipeline service.
+    """
+    import httpx
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                "http://localhost:8001/api/v1/process",
+                json=request_data,
+                timeout=10.0
+            )
+            response.raise_for_status()
+            return response.json()
+    except httpx.RequestError as e:
+        raise HTTPException(status_code=503, detail=f"Data pipeline unreachable: {str(e)}")
+    except httpx.HTTPStatusError as e:
+        raise HTTPException(status_code=e.response.status_code, detail=e.response.text)
+
+
 # === Dataset Endpoints ===
 
 @app.get("/api/datasets", response_model=list[DatasetListItem])
