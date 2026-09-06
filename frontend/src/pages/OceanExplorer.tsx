@@ -14,6 +14,7 @@ import { ProbePanel } from '../components/panels/ProbePanel';
 import { CrossSectionPanel } from '../components/panels/CrossSectionPanel';
 import { DatasetPanel } from '../components/panels/DatasetPanel';
 import { ComparePanel } from '../components/panels/ComparePanel';
+import { DataFolderPanel } from '../components/panels/DataFolderPanel';
 import { useOceanStore } from '../stores/oceanStore';
 import { datasetApi } from '../services/api';
 import type { InstrumentType } from '../types/ocean';
@@ -122,6 +123,7 @@ export function OceanExplorer() {
           <DatasetPanel />
           <ComparePanel />
           <CrossSectionPanel />
+          <DataFolderPanel />
 
           {/* Explore mode overlay */}
           {appMode === 'explore' && (

@@ -14,6 +14,8 @@ class VariableType(str, Enum):
     TEMPERATURE = "temperature"
     SALINITY = "salinity"
     CURRENTS = "currents"
+    U = "u"
+    V = "v"
 
 
 class InstrumentType(str, Enum):

@@ -3,7 +3,7 @@
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Stars, Float } from '@react-three/drei';
-import { useRef, Suspense } from 'react';
+import { useRef, Suspense, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 

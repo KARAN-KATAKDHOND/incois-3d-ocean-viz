@@ -11,7 +11,7 @@ if [ -d "../.venv" ]; then
 elif [ -d "../venv" ]; then
     source ../venv/bin/activate
 fi
-python3 -m uvicorn main:app --port 8000 --reload &
+python3 -m uvicorn main:app --port 8000 &
 BACKEND_PID=$!
 cd ..
 
@@ -30,7 +30,7 @@ if [ -d "../.venv" ]; then
 elif [ -d "../venv" ]; then
     source ../venv/bin/activate
 fi
-python3 -m uvicorn pipeline.main:app --port 8001 --reload &
+python3 -m uvicorn pipeline.main:app --port 8001 &
 PIPELINE_PID=$!
 cd ..
 
