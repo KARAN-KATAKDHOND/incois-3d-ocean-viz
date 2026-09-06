@@ -22,12 +22,25 @@ npm run dev &
 FRONTEND_PID=$!
 cd ..
 
-# Wait for both processes
-echo "✅ Both servers are running!"
+# Start Data Pipeline
+echo "⚙️ Starting Data Pipeline Service on port 8001..."
+cd data-pipeline || exit
+if [ -d "../.venv" ]; then
+    source ../.venv/bin/activate
+elif [ -d "../venv" ]; then
+    source ../venv/bin/activate
+fi
+python3 -m uvicorn pipeline.main:app --port 8001 --reload &
+PIPELINE_PID=$!
+cd ..
+
+# Wait for all processes
+echo "✅ All servers are running!"
 echo "➡️  Frontend: http://localhost:5173"
-echo "➡️  API Docs: http://localhost:8000/api/docs"
+echo "➡️  Backend API Docs: http://localhost:8000/api/docs"
+echo "➡️  Pipeline API Docs: http://localhost:8001/docs"
 echo "Press Ctrl+C to stop."
 
-trap "echo 'Stopping servers...'; kill $BACKEND_PID $FRONTEND_PID 2>/dev/null" EXIT
+trap "echo 'Stopping servers...'; kill $BACKEND_PID $FRONTEND_PID $PIPELINE_PID 2>/dev/null" EXIT
 
 wait
