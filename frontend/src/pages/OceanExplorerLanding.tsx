@@ -7,13 +7,6 @@ import { useRef, Suspense, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Deterministic pseudo-random number generator for React Compiler purity
-let seed = 987654321;
-function random() {
-  seed = (seed * 9301 + 49297) % 233280;
-  return seed / 233280;
-}
-
 function HeroGlobe() {
   const groupRef = useRef<THREE.Group>(null);
   const particlesRef = useRef<THREE.Points>(null);
@@ -24,17 +17,21 @@ function HeroGlobe() {
     const pos = new Float32Array(particleCount * 3);
     const col = new Float32Array(particleCount * 3);
     
-    seed = 987654321; // Reset seed
+    let localSeed = 987654321;
+    const localRandom = () => {
+      localSeed = (localSeed * 9301 + 49297) % 233280;
+      return localSeed / 233280;
+    };
     
     for (let i = 0; i < particleCount; i++) {
-      const theta = random() * Math.PI * 2;
-      const phi = random() * Math.PI;
-      const r = 2.2 + random() * 0.3;
+      const theta = localRandom() * Math.PI * 2;
+      const phi = localRandom() * Math.PI;
+      const r = 2.2 + localRandom() * 0.3;
       pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       pos[i * 3 + 2] = r * Math.cos(phi);
       col[i * 3] = 0;
-      col[i * 3 + 1] = 0.7 + random() * 0.3;
+      col[i * 3 + 1] = 0.7 + localRandom() * 0.3;
       col[i * 3 + 2] = 1;
     }
     return { positions: pos, colors: col };

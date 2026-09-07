@@ -9,13 +9,6 @@ import { modelApi } from '../services/api';
 import type { CurrentsData } from '../types/ocean';
 // @ts-ignore - suppress strict R3F typing
 
-// Deterministic pseudo-random number generator for React Compiler purity
-let seed = 123456789;
-function random() {
-  seed = (seed * 9301 + 49297) % 233280;
-  return seed / 233280;
-}
-
 interface CurrentParticlesProps {
   verticalExaggeration: number;
 }
@@ -43,14 +36,17 @@ export function CurrentParticles({ verticalExaggeration }: CurrentParticlesProps
     const vel = new Float32Array(n * 3);
     const col = new Float32Array(n * 6); // 2 colors per line
 
-    // Reset seed to guarantee deterministic output on re-renders
-    seed = 123456789;
+    let localSeed = 123456789;
+    const localRandom = () => {
+      localSeed = (localSeed * 9301 + 49297) % 233280;
+      return localSeed / 233280;
+    };
 
     if (!currentsData) {
       for (let i = 0; i < n; i++) {
-        const px = (random() - 0.5) * 10;
-        const py = -random() * 0.5;
-        const pz = (random() - 0.5) * 8;
+        const px = (localRandom() - 0.5) * 10;
+        const py = -localRandom() * 0.5;
+        const pz = (localRandom() - 0.5) * 8;
         
         pos[i * 6] = px; pos[i * 6 + 1] = py; pos[i * 6 + 2] = pz;
         pos[i * 6 + 3] = px; pos[i * 6 + 4] = py; pos[i * 6 + 5] = pz;
@@ -67,8 +63,8 @@ export function CurrentParticles({ verticalExaggeration }: CurrentParticlesProps
       const maxDepth = depthLevels[depthLevels.length - 1] || 1000;
 
       for (let i = 0; i < n; i++) {
-        const px = (random() - 0.5) * 10;
-        const pz = (random() - 0.5) * 8;
+        const px = (localRandom() - 0.5) * 10;
+        const pz = (localRandom() - 0.5) * 8;
         const py = -(currentsData.depth / maxDepth) * 5 * (verticalExaggeration / 5);
         
         pos[i * 6] = px; pos[i * 6 + 1] = py; pos[i * 6 + 2] = pz;
@@ -115,7 +111,7 @@ export function CurrentParticles({ verticalExaggeration }: CurrentParticlesProps
     }
 
     return { positions: pos, velocities: vel, colors: col, count: n };
-  }, [currentsData, particleDensity, verticalExaggeration]);
+  }, [currentsData, particleDensity, verticalExaggeration, datasetMeta?.depth_levels]);
 
   useFrame((state, delta) => {
     if (!linesRef.current) return;

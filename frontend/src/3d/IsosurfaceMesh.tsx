@@ -24,13 +24,12 @@ export function IsosurfaceMesh({ verticalExaggeration }: IsosurfaceMeshProps) {
     modelApi.getIsosurface({ dataset_id: datasetMeta?.id, variable, threshold: isoThreshold, time_index: timeIndex })
       .then(setIsoData)
       .catch(console.error);
-  }, [variable, isoThreshold, timeIndex]);
+  }, [variable, isoThreshold, timeIndex, datasetMeta?.id]);
 
   const geometry = useMemo(() => {
     if (!isoData || isoData.vertex_count === 0) return null;
 
     const geo = new THREE.BufferGeometry();
-    const vertices = new Float32Array(isoData.vertices);
     const normals = new Float32Array(isoData.normals);
     const indices = new Uint32Array(isoData.indices);
 

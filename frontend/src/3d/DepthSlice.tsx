@@ -166,7 +166,7 @@ export function DepthSlice({ verticalExaggeration }: DepthSliceProps) {
     uVarType: { value: varType },
     uExaggeration: { value: verticalExaggeration },
     uTime: { value: 0 }
-  }), []);
+  }), [colorbar.min, colorbar.max, varType, verticalExaggeration]);
 
   // Update shader variable type when it changes
   useEffect(() => {
