@@ -131,7 +131,37 @@ export function generateColorArray(
   return colors;
 }
 
-/** Variable-specific default configurations */
+/** Generate a texture Uint8Array packed with RGB color and normalized data in Alpha channel */
+export function generateTexturePixels(
+  data: number[],
+  min: number,
+  max: number,
+  colormap: ColormapName = 'turbo',
+  scale: ScaleType = 'linear',
+  reversed: boolean = false
+): Uint8Array {
+  const pixels = new Uint8Array(data.length * 4);
+  for (let i = 0; i < data.length; i++) {
+    const val = data[i];
+    let normalized = 0;
+    if (scale === 'logarithmic' && min > 0) {
+      normalized = (Math.log(val) - Math.log(min)) / (Math.log(max) - Math.log(min));
+    } else {
+      normalized = (val - min) / (max - min);
+    }
+    
+    // Clamp
+    normalized = Math.max(0, Math.min(1, normalized));
+    
+    const [r, g, b] = getColormapColor(normalized, colormap, reversed);
+    pixels[i * 4] = r;
+    pixels[i * 4 + 1] = g;
+    pixels[i * 4 + 2] = b;
+    pixels[i * 4 + 3] = Math.round(normalized * 255); // Pack normalized value into alpha!
+  }
+  return pixels;
+}
+
 export const VARIABLE_DEFAULTS: Record<string, {
   colormap: ColormapName;
   min: number;
@@ -140,6 +170,17 @@ export const VARIABLE_DEFAULTS: Record<string, {
   label: string;
 }> = {
   temperature: { colormap: 'turbo', min: 2, max: 32, unit: '°C', label: 'Temperature' },
-  salinity: { colormap: 'turbo', min: 33.5, max: 35.5, unit: 'PSU', label: 'Salinity' },
-  currents: { colormap: 'plasma', min: 0, max: 1.5, unit: 'm/s', label: 'Current Speed' }
+  thetao: { colormap: 'turbo', min: 2, max: 32, unit: '°C', label: 'Potential Temp' },
+  bottomT: { colormap: 'turbo', min: 0, max: 20, unit: '°C', label: 'Bottom Temp' },
+  salinity: { colormap: 'viridis', min: 30, max: 36, unit: 'PSU', label: 'Salinity' },
+  so: { colormap: 'viridis', min: 30, max: 36, unit: 'PSU', label: 'Salinity' },
+  currents: { colormap: 'plasma', min: 0, max: 1.5, unit: 'm/s', label: 'Current Speed' },
+  uo: { colormap: 'coolwarm', min: -1.0, max: 1.0, unit: 'm/s', label: 'Zonal Vel' },
+  vo: { colormap: 'coolwarm', min: -1.0, max: 1.0, unit: 'm/s', label: 'Meridional Vel' },
+  zos: { colormap: 'coolwarm', min: -1.5, max: 1.5, unit: 'm', label: 'Sea Surface Height' },
+  mlotst: { colormap: 'ocean', min: 0, max: 200, unit: 'm', label: 'Mixed Layer Depth' },
+  sithick: { colormap: 'ocean', min: 0, max: 3, unit: 'm', label: 'Ice Thickness' },
+  siconc: { colormap: 'ocean', min: 0, max: 1, unit: '1', label: 'Ice Fraction' },
+  usi: { colormap: 'coolwarm', min: -0.5, max: 0.5, unit: 'm/s', label: 'Ice X Vel' },
+  vsi: { colormap: 'coolwarm', min: -0.5, max: 0.5, unit: 'm/s', label: 'Ice Y Vel' },
 };

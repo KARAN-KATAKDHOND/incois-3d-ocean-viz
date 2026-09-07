@@ -99,7 +99,7 @@ export const useOceanStore = create<OceanState>((set) => ({
   setAppMode: (mode) => set({ appMode: mode }),
 
   // Dataset
-  datasetId: 'north-indian-ocean-demo',
+  datasetId: 'noaa_sst_real',
   datasetMeta: null,
   setDatasetId: (id) => set({ datasetId: id }),
   setDatasetMeta: (meta) => set({ datasetMeta: meta }),

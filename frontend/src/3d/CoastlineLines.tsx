@@ -3,6 +3,8 @@
 
 import { useMemo } from 'react';
 import * as THREE from 'three';
+import { latLonToScene } from '../utils/coordinates';
+import { useOceanStore } from '../stores/oceanStore';
 
 // Simplified coastline points (lat, lon) for North Indian Ocean
 const COASTLINE_SEGMENTS: [number, number][][] = [
@@ -42,24 +44,23 @@ const COASTLINE_SEGMENTS: [number, number][][] = [
   ],
 ];
 
-function latLonToScene(lat: number, lon: number): [number, number, number] {
-  const x = ((lon - 60) / 40) * 10 - 5;
-  const z = ((lat - 5) / 20) * 8 - 4;
-  return [x, 0.01, z]; // Slightly above surface
-}
+// using imported latLonToScene
 
 export function CoastlineLines() {
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
+  const extent = datasetMeta?.spatial_extent || { lat_min: 5, lat_max: 25, lon_min: 60, lon_max: 100 };
+
   const lines = useMemo(() => {
     return COASTLINE_SEGMENTS.map((segment) => {
       const points = segment.map(([lat, lon]) => {
-        const [x, y, z] = latLonToScene(lat, lon);
-        return new THREE.Vector3(x, y, z);
+        const [x, y, z] = latLonToScene(lat, lon, extent, 10, 8, 0, 1);
+        return new THREE.Vector3(x, 0.01, z);
       });
       const geo = new THREE.BufferGeometry().setFromPoints(points);
       const mat = new THREE.LineBasicMaterial({ color: '#4b9cd3', transparent: true, opacity: 0.6 });
       return new THREE.Line(geo, mat);
     });
-  }, []);
+  }, [extent]);
 
   return (
     <group>

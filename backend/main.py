@@ -14,7 +14,7 @@ from pathlib import Path
 
 from services.real_data import real_data_manager
 from models.schemas import (
-    VariableType, InstrumentType, QualityFlag,
+    InstrumentType, QualityFlag,
     DatasetMetadata, DatasetListItem,
     Observation, ProfileResponse, ComparisonResult
 )
@@ -96,6 +96,51 @@ async def trigger_pipeline(request_data: dict):
     except httpx.HTTPStatusError as e:
         raise HTTPException(status_code=e.response.status_code, detail=e.response.text)
 
+@app.get("/api/data/files")
+async def list_local_files():
+    """List raw NetCDF and CSV files available on the server for processing."""
+    original_dir = Path("data/original")
+    files = []
+    if original_dir.exists():
+        for file in original_dir.iterdir():
+            if file.is_file() and file.suffix in [".nc", ".nc4", ".csv"]:
+                size_mb = round(file.stat().st_size / (1024 * 1024), 2)
+                files.append({
+                    "name": file.name,
+                    "size_mb": size_mb,
+                    "type": file.suffix
+                })
+    return files
+
+
+@app.post("/api/data/process/{filename}")
+async def process_local_file(filename: str):
+    """Trigger processing for a file in data/original/."""
+    file_path = Path("data/original") / filename
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="File not found on server")
+        
+    dataset_name = file_path.stem
+    file_type = "csv" if filename.lower().endswith(".csv") else "netcdf"
+    
+    import httpx
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                "http://localhost:8001/api/v1/process",
+                json={
+                    "task_id": f"process_local_{dataset_name}",
+                    "file_path": str(file_path.absolute()), 
+                    "dataset_name": dataset_name,
+                    "file_type": file_type
+                },
+                timeout=60.0
+            )
+            response.raise_for_status()
+            return {"status": "success", "message": f"Started processing {filename}"}
+    except Exception as e:
+        return {"status": "error", "message": f"Pipeline failed: {str(e)}"}
+
 
 # === Dataset Endpoints ===
 
@@ -161,12 +206,12 @@ async def get_dataset_depths(dataset_id: str):
 @app.get("/api/model/volume")
 async def get_volume_data(
     dataset_id: str = "noaa_sst_real",
-    variable: VariableType = VariableType.TEMPERATURE,
+    variable: str = "temperature",
     time_index: int = 0,
     resolution: int = Query(default=32, ge=8, le=64)
 ):
     """Get 3D volumetric data for visualization."""
-    if variable == VariableType.CURRENTS:
+    if variable == "currents":
         result = real_data_manager.generate_currents(
             dataset_id=dataset_id,
             time_index=time_index,
@@ -179,28 +224,29 @@ async def get_volume_data(
 
     result = real_data_manager.generate_volume(
         dataset_id=dataset_id, 
-        variable=variable.value, 
+        variable=variable, 
         time_index=time_index, 
         n_lat=resolution, 
         n_lon=int(resolution * 1.5)
     )
     if not result:
         # Fallback empty response instead of error to keep UI rendering
-        return {"data": [], "shape": [1,1,1], "variable": variable.value, "unit": ""}
+        return {"data": [], "shape": [1,1,1], "variable": variable, "unit": ""}
     return result
 
 
 @app.get("/api/model/slice")
 async def get_slice_data(
     dataset_id: str = "noaa_sst_real",
-    variable: VariableType = VariableType.TEMPERATURE,
+    variable: str = "temperature",
     depth_index: int = 0,
     time_index: int = 0
 ):
     """Get 2D depth-slice data."""
-    if variable == VariableType.CURRENTS:
+    if variable in ["currents", "uo", "vo", "usi", "vsi"]:
         result = real_data_manager.generate_currents(
             dataset_id=dataset_id,
+            variable=variable,
             time_index=time_index,
             depth_index=depth_index
         )
@@ -210,19 +256,19 @@ async def get_slice_data(
 
     result = real_data_manager.generate_slice(
         dataset_id=dataset_id,
-        variable=variable.value,
+        variable=variable,
         depth_index=depth_index,
         time_index=time_index
     )
     if not result:
-        return {"data": [], "shape": [1,1], "variable": variable.value, "unit": ""}
+        return {"data": [], "shape": [1,1], "variable": variable, "unit": ""}
     return result
 
 
 @app.get("/api/model/isosurface")
 async def get_isosurface(
     dataset_id: str = "noaa_sst_real",
-    variable: VariableType = VariableType.TEMPERATURE,
+    variable: str = "temperature",
     threshold: float = 25.0,
     time_index: int = 0
 ):
@@ -230,38 +276,36 @@ async def get_isosurface(
     from visualization.isosurface import extract_isosurface
     vol_data = real_data_manager.generate_volume(
         dataset_id=dataset_id,
-        variable=variable.value,
+        variable=variable,
         time_index=time_index,
         n_lat=24, n_lon=36
     )
     if not vol_data:
-        return {"vertices": [], "indices": [], "values": [], "variable": variable.value}
+        return {"vertices": [], "indices": [], "values": [], "variable": variable}
     
-    return extract_isosurface(vol_data, threshold, variable.value)
+    return extract_isosurface(vol_data, threshold, variable)
 
 
 @app.get("/api/model/crosssection")
 async def get_cross_section(
     dataset_id: str = "noaa_sst_real",
-    variable: VariableType = VariableType.TEMPERATURE,
+    variable: str = "temperature",
     lat1: float = 8.0, lon1: float = 70.0,
     lat2: float = 22.0, lon2: float = 85.0,
     time_index: int = 0
 ):
     """Get vertical cross-section data between two geographic points."""
-    # Simplified placeholder for cross-section
-    return {
-        "variable": variable.value,
-        "unit": "",
-        "shape": [50, 10],
-        "data": [0.0] * 500,
-        "distances": [i * 10 for i in range(50)],
-        "depths": [0, 5, 10, 20, 50, 100, 200, 500, 750, 1000],
-        "min_value": 0.0,
-        "max_value": 30.0,
-        "start_point": [lat1, lon1],
-        "end_point": [lat2, lon2]
-    }
+    result = real_data_manager.generate_crosssection(
+        dataset_id=dataset_id,
+        variable=variable,
+        lat1=lat1, lon1=lon1,
+        lat2=lat2, lon2=lon2,
+        time_index=time_index,
+        num_points=50
+    )
+    if not result:
+        raise HTTPException(status_code=404, detail="Failed to generate cross section")
+    return result
 
 
 # === Observation Endpoints ===
@@ -309,10 +353,10 @@ async def get_observation(obs_id: str):
 @app.get("/api/observations/{obs_id}/profile")
 async def get_observation_profile(
     obs_id: str,
-    variable: VariableType = VariableType.TEMPERATURE
+    variable: str = "temperature"
 ):
     """Get depth-vs-variable profile for an observation."""
-    profile = real_data_manager.generate_profile(obs_id, variable.value)
+    profile = real_data_manager.generate_profile(obs_id, variable)
     if not profile:
         raise HTTPException(status_code=404, detail="Profile not found")
     return profile
@@ -324,14 +368,14 @@ async def get_observation_profile(
 async def compare_model_vs_observation(
     observation_id: str,
     dataset_id: str = "noaa_sst_real",
-    variable: VariableType = VariableType.TEMPERATURE,
+    variable: str = "temperature",
     time_index: int = 0
 ):
     """Get statistical comparison between model data and in-situ observation."""
     result = real_data_manager.generate_comparison(
         dataset_id=dataset_id,
         obs_id=observation_id,
-        variable=variable.value
+        variable=variable
     )
     if not result:
         raise HTTPException(status_code=404, detail="Comparison could not be generated")

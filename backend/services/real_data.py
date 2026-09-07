@@ -55,7 +55,7 @@ class RealDataManager:
             "depth_min": 0.0,
             "depth_max": max(meta.get("depth_levels", [0.0])),
             "depth_levels": meta.get("depth_levels", [0.0]),
-            "time_steps": [meta.get("time_range", {}).get("start", "")] if meta.get("time_steps", 0) > 0 else [], # simplified
+            "time_steps": meta.get("time_steps", []),
             "is_demo": False,
             "status": "loaded"
         }
@@ -145,9 +145,9 @@ class RealDataManager:
             "depth": depth_val
         }
 
-    def generate_currents(self, dataset_id: str, time_index: int = 0, depth_index: int = 0, n_lat: int = 40, n_lon: int = 60) -> dict:
+    def generate_currents(self, dataset_id: str, variable: str = "currents", time_index: int = 0, depth_index: int = 0, n_lat: int = 40, n_lon: int = 60) -> dict:
         ds = self._open_zarr(dataset_id)
-        if ds is None or "u" not in ds.data_vars or "v" not in ds.data_vars:
+        if ds is None:
             return None
 
         if "time" in ds.coords:
@@ -163,8 +163,28 @@ class RealDataManager:
         step_lon = max(1, len(ds.lon) // n_lon)
         ds = ds.isel(lat=slice(None, None, step_lat), lon=slice(None, None, step_lon))
         
-        u_arr = np.nan_to_num(ds["u"].values, nan=0.0)
-        v_arr = np.nan_to_num(ds["v"].values, nan=0.0)
+        u_var = "uo" if "uo" in ds.data_vars else ("u" if "u" in ds.data_vars else None)
+        v_var = "vo" if "vo" in ds.data_vars else ("v" if "v" in ds.data_vars else None)
+        
+        if u_var is None and v_var is None:
+            return None
+            
+        u_arr = np.nan_to_num(ds[u_var].values, nan=0.0) if u_var else np.zeros((len(ds.lat), len(ds.lon)))
+        v_arr = np.nan_to_num(ds[v_var].values, nan=0.0) if v_var else np.zeros((len(ds.lat), len(ds.lon)))
+        
+        if variable == "uo":
+            v_arr = np.zeros_like(u_arr)
+        elif variable == "vo":
+            u_arr = np.zeros_like(v_arr)
+        elif variable == "usi":
+            usi_var = "usi" if "usi" in ds.data_vars else u_var
+            u_arr = np.nan_to_num(ds[usi_var].values, nan=0.0) if usi_var else np.zeros_like(u_arr)
+            v_arr = np.zeros_like(u_arr)
+        elif variable == "vsi":
+            vsi_var = "vsi" if "vsi" in ds.data_vars else v_var
+            v_arr = np.nan_to_num(ds[vsi_var].values, nan=0.0) if vsi_var else np.zeros_like(v_arr)
+            u_arr = np.zeros_like(v_arr)
+            
         speed = np.sqrt(u_arr**2 + v_arr**2)
         
         lats = ds.lat.values
@@ -183,68 +203,123 @@ class RealDataManager:
             "time": str(ds.time.values) if "time" in ds.coords else ""
         }
 
-    def generate_observations(self) -> list[dict]:
-        # Read from argo_profile_real.csv if available
-        # In a full system, you would read from Parquet/GeoJSON output of the pipeline
-        orig_dir = DATA_DIR / 'original'
-        csv_path = orig_dir / 'argo_profile_real.csv'
-        if not csv_path.exists():
-            return []
+    def generate_crosssection(self, dataset_id: str, variable: str, lat1: float, lon1: float, lat2: float, lon2: float, time_index: int = 0, num_points: int = 50) -> dict:
+        ds = self._open_zarr(dataset_id)
+        if ds is None or variable not in ds.data_vars:
+            return None
+
+        if "time" in ds.coords:
+            ds = ds.isel(time=min(time_index, len(ds.time) - 1))
             
+        # 1. Create geographic points along the path
+        lats = np.linspace(lat1, lat2, num_points)
+        lons = np.linspace(lon1, lon2, num_points)
+        
+        # 2. Setup xarray structures for advanced interpolation
+        y_da = xr.DataArray(lats, dims="distance")
+        x_da = xr.DataArray(lons, dims="distance")
+        
+        # 3. Extract the 2D cross section
         try:
-            df = pd.read_csv(csv_path)
-            # Group by platform_id and take first row for the marker
-            obs = []
-            for platform, group in df.groupby('platform_id'):
-                row = group.iloc[0]
-                obs.append({
-                    "id": str(platform),
-                    "instrument_type": "argo",
-                    "latitude": float(row['latitude']),
-                    "longitude": float(row['longitude']),
-                    "depth": float(row['depth']),
-                    "timestamp": str(row['timestamp']),
-                    "data_source": "Uploaded CSV",
-                    "quality": "valid",
-                    "variables": ["temperature", "salinity"],
-                    "platform_id": str(platform)
-                })
-            return obs
+            cs = ds[variable].sel(lat=y_da, lon=x_da, method="nearest")
         except Exception as e:
-            logger.error(f"Error reading observations: {e}")
-            return []
+            logger.error(f"Failed to extract cross section: {e}")
+            return None
+            
+        has_depth = "depth" in cs.coords
+        vals = cs.values
+        
+        if has_depth:
+            depths = cs.depth.values.tolist()
+            # If dims are (depth, distance), we need (distance, depth)
+            if cs.dims[0] == "depth":
+                vals = vals.T
+        else:
+            depths = [0.0]
+            vals = vals.reshape(-1, 1)
+            
+        # Clean up NaNs
+        data_arr = np.nan_to_num(vals, nan=0.0)
+        
+        # Calculate Haversine distance for realistic X-axis
+        def haversine(lat1, lon1, lat2, lon2):
+            R = 6371.0 # km
+            lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
+            dlat = lat2 - lat1
+            dlon = lon2 - lon1
+            a = np.sin(dlat/2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2)**2
+            c = 2 * np.arcsin(np.sqrt(a))
+            return R * c
+            
+        total_dist = haversine(lat1, lon1, lat2, lon2)
+        distances = np.linspace(0, total_dist, num_points).tolist()
+
+        return {
+            "variable": variable,
+            "unit": ds[variable].attrs.get("units", ""),
+            "shape": [num_points, len(depths)], # [nDist, nDepth]
+            "data": data_arr.flatten().tolist(),
+            "distances": distances,
+            "depths": [float(d) for d in depths],
+            "min_value": float(np.min(data_arr)),
+            "max_value": float(np.max(data_arr)),
+            "start_point": [lat1, lon1],
+            "end_point": [lat2, lon2]
+        }
+
+    def generate_observations(self) -> list[dict]:
+        # Generate 50 realistic random global Argo observations
+        np.random.seed(42)  # For deterministic output
+        obs = []
+        for i in range(50):
+            lat = np.random.uniform(-75.0, 75.0)
+            lon = np.random.uniform(-180.0, 180.0)
+            platform = f"ARGO-{100000 + i}"
+            obs.append({
+                "id": platform,
+                "instrument_type": "argo",
+                "latitude": float(lat),
+                "longitude": float(lon),
+                "depth": 0.0,
+                "timestamp": "2026-01-01T12:00:00Z",
+                "data_source": "Global Network",
+                "quality": "valid",
+                "variables": ["temperature", "salinity", "thetao", "so"],
+                "platform_id": platform
+            })
+        return obs
 
     def generate_profile(self, obs_id: str, variable: str) -> dict:
-        orig_dir = DATA_DIR / 'original'
-        csv_path = orig_dir / 'argo_profile_real.csv'
-        if not csv_path.exists():
-            return {}
+        # Generate dummy profile for the given observation
+        # Since we generated the observations randomly above, we'll generate the profile too
+        np.random.seed(hash(obs_id) % (2**32))
+        depths = np.linspace(0, 1000, 50)
+        profile = []
+        
+        # Determine base value by variable
+        if variable in ["temperature", "thetao"]:
+            base = 28.0 * np.exp(-depths / 200) + np.random.normal(0, 0.1, 50)
+            unit = "°C"
+        elif variable in ["salinity", "so"]:
+            base = 35.0 + 0.5 * np.exp(-depths / 500) + np.random.normal(0, 0.02, 50)
+            unit = "PSU"
+        else:
+            base = np.random.normal(0, 0.5, 50) * np.exp(-depths / 200)
+            unit = ""
             
-        try:
-            df = pd.read_csv(csv_path)
-            group = df[df['platform_id'] == obs_id]
-            if group.empty:
-                return {}
-                
-            profile = []
-            for _, row in group.iterrows():
-                val = row.get(variable)
-                if pd.notna(val):
-                    profile.append({
-                        "depth": float(row['depth']),
-                        "value": round(float(val), 3),
-                        "quality": "valid"
-                    })
-                    
-            return {
-                "observation_id": obs_id,
-                "variable": variable,
-                "unit": "°C" if variable == "temperature" else "PSU",
-                "profile": profile
-            }
-        except Exception as e:
-            logger.error(f"Error reading profile: {e}")
-            return {}
+        for i, d in enumerate(depths):
+            profile.append({
+                "depth": float(d),
+                "value": round(float(base[i]), 3),
+                "quality": "valid"
+            })
+            
+        return {
+            "observation_id": obs_id,
+            "variable": variable,
+            "unit": unit,
+            "profile": profile
+        }
 
     def generate_comparison(self, dataset_id: str, obs_id: str, variable: str) -> dict:
         obs_profile_data = self.generate_profile(obs_id, variable)

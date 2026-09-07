@@ -199,10 +199,10 @@ class NetCDFParser(AbstractOceanParser):
 
         # Time range
         time_range = None
-        time_steps = 0
+        time_steps = []
         if "time" in ds.coords:
             time_vals = ds.time.values
-            time_steps = len(time_vals)
+            time_steps = [str(t) for t in time_vals]
             time_range = {
                 "start": str(time_vals[0]),
                 "end": str(time_vals[-1]),

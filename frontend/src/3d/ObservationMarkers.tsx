@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import { useOceanStore } from '../stores/oceanStore';
 import { observationApi } from '../services/api';
 import type { Observation } from '../types/ocean';
+import { latLonToScene } from '../utils/coordinates';
 
 const INSTRUMENT_COLORS: Record<string, string> = {
   argo: '#00e5ff',
@@ -19,13 +20,7 @@ interface ObservationMarkersProps {
   verticalExaggeration: number;
 }
 
-function latLonToScene(lat: number, lon: number, depth: number, ve: number, maxDepth = 1000) {
-  // Map lat 5-25 → z -4 to 4, lon 60-100 → x -5 to 5
-  const x = ((lon - 60) / 40) * 10 - 5;
-  const z = ((lat - 5) / 20) * 8 - 4;
-  const y = -(depth / maxDepth) * 5 * (ve / 5);
-  return [x, y, z] as const;
-}
+// latLonToScene moved to utils/coordinates.ts
 
 function MarkerMesh({
   obs,
@@ -38,8 +33,10 @@ function MarkerMesh({
   onClick: (obs: Observation) => void;
   isSelected: boolean;
 }) {
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
+  const extent = datasetMeta?.spatial_extent || { lat_min: 5, lat_max: 25, lon_min: 60, lon_max: 100 };
   const [hovered, setHovered] = useState(false);
-  const [x, y, z] = latLonToScene(obs.latitude, obs.longitude, obs.depth, verticalExaggeration);
+  const [x, y, z] = latLonToScene(obs.latitude, obs.longitude, extent, 10, 8, obs.depth, verticalExaggeration);
   const color = INSTRUMENT_COLORS[obs.instrument_type] || '#ffffff';
   const scale = isSelected ? 1.5 : hovered ? 1.2 : 1;
 

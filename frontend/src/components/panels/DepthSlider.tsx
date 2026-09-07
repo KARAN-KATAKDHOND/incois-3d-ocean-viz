@@ -9,9 +9,19 @@ export function DepthSlider() {
   const depthLevels = datasetMeta?.depth_levels || [0, 5, 10, 20, 30, 50, 75, 100, 150, 200, 300, 500, 750, 1000];
   const maxIndex = depthLevels.length - 1;
   const currentDepth = depthLevels[depthIndex] || 0;
+  
+  const variable = useOceanStore((s) => s.variable);
+  const isSurfaceVar = ['zos', 'mlotst', 'sithick', 'siconc'].includes(variable);
 
   return (
-    <div>
+    <div className={isSurfaceVar ? "opacity-50 pointer-events-none relative" : ""}>
+      {isSurfaceVar && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 rounded-lg backdrop-blur-[1px]">
+          <span className="text-[10px] font-bold text-center px-2 py-1 bg-cyan-900/80 rounded" style={{ color: '#00e5ff' }}>
+            Surface Variable<br/>(Depth Locked)
+          </span>
+        </div>
+      )}
       <div className="text-[10px] font-semibold mb-2 uppercase tracking-wider" style={{ color: '#4b9cd3' }}>
         Depth
       </div>

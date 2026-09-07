@@ -10,12 +10,7 @@ from datetime import datetime
 
 # === Enums ===
 
-class VariableType(str, Enum):
-    TEMPERATURE = "temperature"
-    SALINITY = "salinity"
-    CURRENTS = "currents"
-    U = "u"
-    V = "v"
+# VariableType removed as it is now dynamic string
 
 
 class InstrumentType(str, Enum):
@@ -63,7 +58,7 @@ class SpatialExtent(BaseModel):
 
 
 class VariableInfo(BaseModel):
-    name: VariableType
+    name: str
     display_name: str
     unit: str
     min_value: float
@@ -101,8 +96,8 @@ class DatasetListItem(BaseModel):
 # === Model Data Schemas ===
 
 class VolumeRequest(BaseModel):
-    dataset_id: str = "north-indian-ocean-demo"
-    variable: VariableType = VariableType.TEMPERATURE
+    dataset_id: str = "noaa_sst_real"
+    variable: str = "temperature"
     time_index: int = 0
     depth_start: Optional[int] = None
     depth_end: Optional[int] = None
@@ -110,22 +105,22 @@ class VolumeRequest(BaseModel):
 
 
 class SliceRequest(BaseModel):
-    dataset_id: str = "north-indian-ocean-demo"
-    variable: VariableType = VariableType.TEMPERATURE
+    dataset_id: str = "noaa_sst_real"
+    variable: str = "temperature"
     depth_index: int = 0
     time_index: int = 0
 
 
 class IsosurfaceRequest(BaseModel):
-    dataset_id: str = "north-indian-ocean-demo"
-    variable: VariableType = VariableType.TEMPERATURE
+    dataset_id: str = "noaa_sst_real"
+    variable: str = "temperature"
     threshold: float = 25.0
     time_index: int = 0
 
 
 class CrossSectionRequest(BaseModel):
-    dataset_id: str = "north-indian-ocean-demo"
-    variable: VariableType = VariableType.TEMPERATURE
+    dataset_id: str = "noaa_sst_real"
+    variable: str = "temperature"
     lat1: float
     lon1: float
     lat2: float
@@ -230,9 +225,9 @@ class ProfileResponse(BaseModel):
 # === Comparison Schemas ===
 
 class ComparisonRequest(BaseModel):
-    dataset_id: str = "north-indian-ocean-demo"
+    dataset_id: str = "noaa_sst_real"
     observation_id: str
-    variable: VariableType = VariableType.TEMPERATURE
+    variable: str = "temperature"
     time_index: int = 0
 
 

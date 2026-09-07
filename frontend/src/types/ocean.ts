@@ -1,6 +1,6 @@
 // === Ocean Data Visualization Types ===
 
-export type VariableType = 'temperature' | 'salinity' | 'currents';
+export type VariableType = string;
 export type InstrumentType = 'argo' | 'glider' | 'ctd' | 'bgc';
 export type QualityFlag = 'valid' | 'suspect' | 'missing' | 'interpolated';
 export type VisualizationMode = 'volume' | 'depth_slice' | 'isosurface' | 'currents';
