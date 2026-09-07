@@ -13,12 +13,14 @@ export function CrossSectionChart() {
   const variable = useOceanStore((s) => s.variable);
   const timeIndex = useOceanStore((s) => s.timeIndex);
   const colorbar = useOceanStore((s) => s.colorbar);
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!crossSection.enabled || variable === 'currents') return;
     setLoading(true);
     modelApi.getCrossSection({
+      dataset_id: datasetMeta?.id,
       variable,
       lat1: crossSection.lat1,
       lon1: crossSection.lon1,

@@ -92,3 +92,18 @@ class AbstractOceanParser(ABC):
                 "time", "TIME", "time_counter", "t", "T", "ocean_time",
             ],
         }
+
+    def get_variable_mapping(self) -> dict[str, list[str]]:
+        """
+        Return the mapping of canonical variable names to known aliases.
+        
+        Override in subclasses for format-specific aliases.
+        """
+        return {
+            "temperature": ["thetao", "temp", "t_an", "toce"],
+            "salinity": ["so", "salt", "s_an", "soce"],
+            "u": ["uo", "u_vel", "u_an", "vozocrtx"],
+            "v": ["vo", "v_vel", "v_an", "vomecrty"],
+            "sea_surface_height": ["zos", "ssh", "zeta", "sossheig"],
+            "mixed_layer_depth": ["mlotst", "mld", "somxl010"],
+        }

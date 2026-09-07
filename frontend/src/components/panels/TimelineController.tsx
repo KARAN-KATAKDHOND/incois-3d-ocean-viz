@@ -16,23 +16,25 @@ export function TimelineController() {
   const timeSteps = datasetMeta?.time_steps || [];
   const maxIndex = Math.max(0, timeSteps.length - 1);
   const currentTime = timeSteps[timeIndex] || '';
+  const isSingleTimeStep = maxIndex === 0;
 
   // Playback timer
   const timerRef = useRef<number>(0);
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying && !isSingleTimeStep) {
       timerRef.current = window.setInterval(() => {
         const state = useOceanStore.getState();
         state.setTimeIndex(state.timeIndex >= maxIndex ? 0 : state.timeIndex + 1);
       }, 1000 / playbackSpeed);
     }
     return () => clearInterval(timerRef.current);
-  }, [isPlaying, playbackSpeed, maxIndex]);
+  }, [isPlaying, playbackSpeed, maxIndex, isSingleTimeStep]);
 
   const formatTime = (iso: string) => {
     if (!iso) return '—';
     try {
       const d = new Date(iso);
+      if (isNaN(d.getTime())) return iso;
       return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
     } catch {
       return iso;
@@ -45,6 +47,8 @@ export function TimelineController() {
         background: 'rgba(10, 22, 40, 0.9)',
         borderTop: '1px solid rgba(42, 108, 176, 0.2)',
         backdropFilter: 'blur(12px)',
+        opacity: isSingleTimeStep ? 0.6 : 1,
+        pointerEvents: isSingleTimeStep ? 'none' : 'auto'
       }}>
       {/* Playback controls */}
       <div className="flex items-center gap-1">
@@ -53,35 +57,41 @@ export function TimelineController() {
           className="w-7 h-7 flex items-center justify-center rounded hover:opacity-80"
           style={{ color: '#7ec8e3' }}
           title="Jump to start"
+          disabled={isSingleTimeStep}
         >⏮</button>
         <button
           onClick={() => setTimeIndex(Math.max(0, timeIndex - 1))}
           className="w-7 h-7 flex items-center justify-center rounded hover:opacity-80"
           style={{ color: '#7ec8e3' }}
           title="Previous step"
+          disabled={isSingleTimeStep}
         >⏪</button>
         <button
-          onClick={() => setIsPlaying(!isPlaying)}
+          onClick={() => !isSingleTimeStep && setIsPlaying(!isPlaying)}
           className="w-9 h-9 flex items-center justify-center rounded-full transition-all"
           style={{
             background: isPlaying
               ? 'linear-gradient(135deg, #ff6d00, #ff9100)'
               : 'linear-gradient(135deg, #00838f, #00e5ff)',
             color: isPlaying ? '#000' : '#fff',
+            opacity: isSingleTimeStep ? 0.5 : 1
           }}
           title={isPlaying ? 'Pause' : 'Play'}
+          disabled={isSingleTimeStep}
         >{isPlaying ? '⏸' : '▶'}</button>
         <button
           onClick={() => setTimeIndex(Math.min(maxIndex, timeIndex + 1))}
           className="w-7 h-7 flex items-center justify-center rounded hover:opacity-80"
           style={{ color: '#7ec8e3' }}
           title="Next step"
+          disabled={isSingleTimeStep}
         >⏩</button>
         <button
           onClick={() => setTimeIndex(maxIndex)}
           className="w-7 h-7 flex items-center justify-center rounded hover:opacity-80"
           style={{ color: '#7ec8e3' }}
           title="Jump to end"
+          disabled={isSingleTimeStep}
         >⏭</button>
       </div>
 
@@ -107,14 +117,15 @@ export function TimelineController() {
           value={timeIndex}
           onChange={(e) => setTimeIndex(parseInt(e.target.value))}
           className="flex-1"
+          disabled={isSingleTimeStep}
         />
         <span className="text-[10px] font-mono" style={{ color: '#4b9cd3' }}>
-          {formatTime(timeSteps[maxIndex])}
+          {isSingleTimeStep ? 'No progression' : formatTime(timeSteps[maxIndex])}
         </span>
       </div>
 
       {/* Speed control */}
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 opacity-50">
         <span className="text-[10px]" style={{ color: '#4b9cd3' }}>Speed:</span>
         {[0.5, 1, 2, 4].map((s) => (
           <button
@@ -127,6 +138,7 @@ export function TimelineController() {
             } : {
               color: '#4b9cd3',
             }}
+            disabled={isSingleTimeStep}
           >{s}×</button>
         ))}
       </div>

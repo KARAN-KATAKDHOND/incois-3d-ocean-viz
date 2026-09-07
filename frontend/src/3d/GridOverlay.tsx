@@ -3,16 +3,14 @@
 
 import { useMemo, useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { latLonToScene } from '../utils/coordinates';
+import { useOceanStore } from '../stores/oceanStore';
 
 interface GridOverlayProps {
   verticalExaggeration: number;
 }
 
-function latLonToScene(lat: number, lon: number): [number, number] {
-  const x = ((lon - 60) / 40) * 10 - 5;
-  const z = ((lat - 5) / 20) * 8 - 4;
-  return [x, z];
-}
+// imported latLonToScene
 
 function GridLine({ points }: { points: THREE.Vector3[] }) {
   const ref = useRef<THREE.Line>(null);
@@ -31,21 +29,32 @@ function GridLine({ points }: { points: THREE.Vector3[] }) {
 }
 
 export function GridOverlay({ verticalExaggeration: _ve }: GridOverlayProps) {
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
+  const extent = datasetMeta?.spatial_extent || { lat_min: 5, lat_max: 25, lon_min: 60, lon_max: 100 };
+
   const gridLineData = useMemo(() => {
     const lines: THREE.Vector3[][] = [];
+    
+    // Dynamic step based on range
+    const latRange = extent.lat_max - extent.lat_min;
+    const lonRange = extent.lon_max - extent.lon_min;
+    
+    // Attempt to roughly draw 5 to 10 lines
+    const latStep = Math.max(Math.round(latRange / 5), 1);
+    const lonStep = Math.max(Math.round(lonRange / 8), 1);
 
-    // Latitude lines (every 5 degrees)
-    for (let lat = 5; lat <= 25; lat += 5) {
-      const [, z] = latLonToScene(lat, 60);
+    // Latitude lines
+    for (let lat = Math.floor(extent.lat_min); lat <= Math.ceil(extent.lat_max); lat += latStep) {
+      const [, , z] = latLonToScene(lat, extent.lon_min, extent, 10, 8);
       lines.push([
         new THREE.Vector3(-5, 0.005, z),
         new THREE.Vector3(5, 0.005, z),
       ]);
     }
 
-    // Longitude lines (every 10 degrees)
-    for (let lon = 60; lon <= 100; lon += 10) {
-      const [x] = latLonToScene(5, lon);
+    // Longitude lines
+    for (let lon = Math.floor(extent.lon_min); lon <= Math.ceil(extent.lon_max); lon += lonStep) {
+      const [x, , ] = latLonToScene(extent.lat_min, lon, extent, 10, 8);
       lines.push([
         new THREE.Vector3(x, 0.005, -4),
         new THREE.Vector3(x, 0.005, 4),
@@ -53,7 +62,7 @@ export function GridOverlay({ verticalExaggeration: _ve }: GridOverlayProps) {
     }
 
     return lines;
-  }, []);
+  }, [extent]);
 
   return (
     <group>

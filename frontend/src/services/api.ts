@@ -80,12 +80,13 @@ export const modelApi = {
 
   getCurrents: (params: {
     dataset_id?: string;
+    variable?: string;
     time_index?: number;
     depth_index?: number;
   } = {}) => {
     const qs = new URLSearchParams();
     if (params.dataset_id) qs.set('dataset_id', params.dataset_id);
-    qs.set('variable', 'currents');
+    qs.set('variable', params.variable || 'currents');
     if (params.time_index !== undefined) qs.set('time_index', String(params.time_index));
     if (params.depth_index !== undefined) qs.set('depth_index', String(params.depth_index));
     return fetchJSON<CurrentsData>(`${API_BASE}/model/slice?${qs}`);

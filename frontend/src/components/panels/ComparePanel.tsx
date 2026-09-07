@@ -15,6 +15,7 @@ export function ComparePanel() {
   const activePage = useOceanStore((s) => s.activePage);
   const selectedObservation = useOceanStore((s) => s.selectedObservation);
   const setSelectedObservation = useOceanStore((s) => s.setSelectedObservation);
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
   
   const [observations, setObservations] = useState<Observation[]>([]);
   const [comparisonData, setComparisonData] = useState<ComparisonData | null>(null);
@@ -46,6 +47,7 @@ export function ComparePanel() {
 
     setLoadingCompare(true);
     comparisonApi.compare({
+      dataset_id: datasetMeta?.id,
       observation_id: selectedObservation.id,
       variable: profileVariable,
     })
@@ -55,7 +57,7 @@ export function ComparePanel() {
         setComparisonData(null);
       })
       .finally(() => setLoadingCompare(false));
-  }, [selectedObservation, profileVariable, activePage]);
+  }, [selectedObservation, profileVariable, activePage, datasetMeta?.id]);
 
   if (activePage !== 'compare') return null;
 

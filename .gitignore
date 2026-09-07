@@ -4,3 +4,8 @@ dist/
 .env
 *.log
 *.zip
+
+backend/data/
+__pycache__/
+*.pyc
+.venv/

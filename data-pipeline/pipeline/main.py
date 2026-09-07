@@ -45,50 +45,26 @@ async def trigger_processing(request: ProcessRequest):
 
     pipeline_settings.ensure_dirs()
 
-    # Try Celery async dispatch
+    # Force synchronous processing since Celery worker is not running in start.sh
     try:
-        if request.file_type in ("csv", "txt"):
-            from pipeline.tasks import process_insitu_upload
-            process_insitu_upload.delay(
-                task_id=request.task_id,
-                file_path=request.file_path,
-                dataset_name=request.dataset_name,
-            )
-        else:
-            from pipeline.tasks import process_netcdf_upload
-            process_netcdf_upload.delay(
-                task_id=request.task_id,
-                file_path=request.file_path,
-                dataset_name=request.dataset_name,
-            )
-
+        from pipeline.tasks import process_file_sync
+        result = process_file_sync(
+            task_id=request.task_id,
+            file_path=request.file_path,
+            file_type=request.file_type,
+            dataset_name=request.dataset_name,
+        )
         return {
-            "status": "dispatched",
+            "status": "completed",
             "task_id": request.task_id,
-            "mode": "celery_async",
+            "mode": "synchronous",
+            "result": result,
         }
-
-    except Exception as celery_err:
-        # Fallback: process synchronously
-        try:
-            from pipeline.tasks import process_file_sync
-            result = process_file_sync(
-                task_id=request.task_id,
-                file_path=request.file_path,
-                file_type=request.file_type,
-                dataset_name=request.dataset_name,
-            )
-            return {
-                "status": "completed",
-                "task_id": request.task_id,
-                "mode": "synchronous",
-                "result": result,
-            }
-        except Exception as sync_err:
-            raise HTTPException(
-                status_code=500,
-                detail=f"Processing failed: {sync_err}",
-            )
+    except Exception as sync_err:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Processing failed: {sync_err}",
+        )
 
 
 @app.get("/")

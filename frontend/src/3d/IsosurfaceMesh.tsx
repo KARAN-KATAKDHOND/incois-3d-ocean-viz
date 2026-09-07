@@ -16,11 +16,12 @@ export function IsosurfaceMesh({ verticalExaggeration }: IsosurfaceMeshProps) {
   const variable = useOceanStore((s) => s.variable);
   const isoThreshold = useOceanStore((s) => s.isoThreshold);
   const timeIndex = useOceanStore((s) => s.timeIndex);
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
 
   useEffect(() => {
     if (variable === 'currents') return;
 
-    modelApi.getIsosurface({ variable, threshold: isoThreshold, time_index: timeIndex })
+    modelApi.getIsosurface({ dataset_id: datasetMeta?.id, variable, threshold: isoThreshold, time_index: timeIndex })
       .then(setIsoData)
       .catch(console.error);
   }, [variable, isoThreshold, timeIndex]);
@@ -33,19 +34,14 @@ export function IsosurfaceMesh({ verticalExaggeration }: IsosurfaceMeshProps) {
     const normals = new Float32Array(isoData.normals);
     const indices = new Uint32Array(isoData.indices);
 
-    // Scale vertices to scene space
-    for (let i = 0; i < vertices.length; i += 3) {
-      vertices[i] = vertices[i] * 10 - 5;          // lon → x
-      vertices[i + 1] = -vertices[i + 2] * 5 * (verticalExaggeration / 5);  // depth → y
-      vertices[i + 2] = vertices[i + 1 - 1] * 8 - 4;  // lat → z (use original i+1)
-    }
-
-    // Re-map properly
-    const remapped = new Float32Array(vertices.length);
+    // Re-map coordinates from model space to scene space
+    // Model space is normalized [0,1] or grid coordinates
+    const remapped = new Float32Array(isoData.vertex_count * 3);
     for (let i = 0; i < isoData.vertex_count; i++) {
-      const srcX = isoData.vertices[i * 3];     // lat normalized
-      const srcY = isoData.vertices[i * 3 + 1]; // lon normalized
-      const srcZ = isoData.vertices[i * 3 + 2]; // depth normalized
+      const srcX = isoData.vertices[i * 3];     // lat
+      const srcY = isoData.vertices[i * 3 + 1]; // lon
+      const srcZ = isoData.vertices[i * 3 + 2]; // depth
+      
       remapped[i * 3] = srcY * 10 - 5;          // x from lon
       remapped[i * 3 + 1] = -srcZ * 5 * (verticalExaggeration / 5);  // y from depth
       remapped[i * 3 + 2] = srcX * 8 - 4;       // z from lat

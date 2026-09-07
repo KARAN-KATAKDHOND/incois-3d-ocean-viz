@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { id: 'observations', label: 'Observations', icon: '📍' },
   { id: 'compare', label: 'Compare', icon: '📊' },
   { id: 'crosssection', label: 'Cross Section', icon: '📐' },
+  { id: 'data', label: 'Data', icon: '📂' },
   { id: 'datasets', label: 'Datasets', icon: '💾' },
 ];
 

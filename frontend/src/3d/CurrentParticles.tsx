@@ -28,11 +28,14 @@ export function CurrentParticles({ verticalExaggeration }: CurrentParticlesProps
   const particleDensity = useOceanStore((s) => s.particleDensity);
   const particleSpeed = useOceanStore((s) => s.particleSpeed);
 
+  const datasetMeta = useOceanStore((s) => s.datasetMeta);
+  const variable = useOceanStore((s) => s.variable);
+
   useEffect(() => {
-    modelApi.getCurrents({ time_index: timeIndex, depth_index: depthIndex })
+    modelApi.getCurrents({ dataset_id: datasetMeta?.id, time_index: timeIndex, depth_index: depthIndex, variable })
       .then((data) => setCurrentsData(data as CurrentsData))
       .catch(console.error);
-  }, [timeIndex, depthIndex]);
+  }, [timeIndex, depthIndex, datasetMeta?.id, variable]);
 
   const { positions, velocities, colors, count } = useMemo(() => {
     const n = Math.min(particleDensity, 4000); // More particles for trails
@@ -60,10 +63,13 @@ export function CurrentParticles({ verticalExaggeration }: CurrentParticlesProps
     } else {
       const [nLat, nLon] = currentsData.shape;
 
+      const depthLevels = datasetMeta?.depth_levels || [0, 1000];
+      const maxDepth = depthLevels[depthLevels.length - 1] || 1000;
+
       for (let i = 0; i < n; i++) {
         const px = (random() - 0.5) * 10;
         const pz = (random() - 0.5) * 8;
-        const py = -(currentsData.depth / 1000) * 5 * (verticalExaggeration / 5);
+        const py = -(currentsData.depth / maxDepth) * 5 * (verticalExaggeration / 5);
         
         pos[i * 6] = px; pos[i * 6 + 1] = py; pos[i * 6 + 2] = pz;
         pos[i * 6 + 3] = px; pos[i * 6 + 4] = py; pos[i * 6 + 5] = pz;
