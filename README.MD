@@ -1,80 +1,77 @@
 <div align="center">
 
-# 🌊 INCOIS 3D Ocean Visualization
+# 🌊 INCOIS 3D Ocean Visualization & Intelligence Platform
 
-An interactive, browser-native 3D platform rendering high-resolution ocean models, sea ice dynamics, and real-time autonomous instrument profiles for rapid operational forecasting.
+**An interactive, browser-native 3D digital twin and multi-day analytical intelligence dashboard for high-resolution ocean models, sea ice dynamics, and real-time autonomous instrument profiles.**
 
 **Smart India Hackathon (SIH) 2026 — Problem Statement SIH26067**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?logo=vite)](https://vite.dev/)
 [![Three.js](https://img.shields.io/badge/Three.js-r185-000000?logo=threedotjs)](https://threejs.org/)
 [![CesiumJS](https://img.shields.io/badge/CesiumJS-1.145-6CADDF)](https://cesium.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.141-009688?logo=fastapi)](https://fastapi.tiangolo.com/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org/)
+[![Xarray](https://img.shields.io/badge/Xarray-Data_Pipeline-blue)](https://xarray.pydata.org/en/stable/)
+[![Zarr](https://img.shields.io/badge/Zarr-Cloud_Storage-orange)](https://zarr.readthedocs.io/en/stable/)
 
 </div>
 
 ---
 
 ## 📖 Table of Contents
-1.  [Project Overview](#-project-overview)
-2.  [Key Features](#-key-features)
-3.  [Architecture Diagram](#-architecture-diagram)
-4.  [Data Flow](#-data-flow)
-5.  [Tech Stack](#-tech-stack)
-6.  [Project Structure](#-project-structure)
-7.  [Installation & Setup](#-installation--setup)
-8.  [API Documentation](#-api-documentation)
-9.  [User Guide](#-user-guide)
-10. [Design System](#-design-system)
-11. [Future Roadmap](#-future-roadmap)
-12. [License](#-license)
+1. [Project Overview](#-project-overview)
+2. [Core Modules](#-core-modules)
+   - [Module A: 3D Ocean Explorer](#module-a-3d-ocean-explorer)
+   - [Module B: Ocean Intelligence Dashboard](#module-b-ocean-intelligence-dashboard)
+   - [Module C: Validation & Prediction Engine](#module-c-validation--prediction-engine)
+3. [Architecture & Data Pipeline](#-architecture--data-pipeline)
+4. [Scientific Inference Engine (Deterministic)](#-scientific-inference-engine-deterministic)
+5. [Datasets & Prediction Models](#-datasets--prediction-models)
+6. [Tech Stack](#-tech-stack)
+7. [Installation & Setup](#-installation--setup)
+8. [License & Credits](#-license--credits)
 
 ---
 
 ## 🎯 Project Overview
 
-**INCOIS 3D Ocean Viz** is a full-stack scientific visualization platform developed for the **Indian National Centre for Ocean Information Services (INCOIS)**. It transforms complex, multi-dimensional ocean data — temperature, salinity, sea ice, and ocean currents — into intuitive, interactive 3D visualizations on a digital twin globe, enabling researchers and meteorologists to make rapid operational forecasting decisions.
+**INCOIS 3D Ocean Viz** is a full-stack scientific visualization and intelligence platform developed for the **Indian National Centre for Ocean Information Services (INCOIS)**. 
 
-The platform combines the power of **CesiumJS** for geospatial rendering with **Three.js / React Three Fiber** for advanced scientific overlays (physical shader displacement, volume rendering, isosurfaces, particle systems), backed by a **FastAPI** data processing engine.
+It transforms complex, multi-dimensional ocean data — temperature, salinity, sea ice, and ocean currents — into intuitive, interactive 3D visualizations on a digital twin globe, whilst providing a dedicated **Ocean Intelligence Dashboard** for multi-day analytical inferences, correlation matrices, and stock-market style parameter tracking.
 
-| Feature | Description |
-|---|---|
-| 🌐 **3D Digital Twin Globe** | High-fidelity Cesium globe with real-world terrain and imagery as the base layer |
-| 🧠 **Ocean Intelligence Dashboard** | Dedicated multi-day analytics dashboard providing real-time statistical inference, correlation matrices, heatmaps, and stock-market style candlestick anomaly tracking |
-| 🌡️ **Physical Shader Dynamics** | Variables like Sea Surface Height and Ice Thickness are rendered using custom WebGL shaders that physically deform the 3D meshes for lab-grade realism |
-| 📊 **Isosurface Extraction** | Marching-cubes-based 3D isosurface generation for threshold-based analysis (e.g., 25°C thermocline) |
-| 🔀 **Dynamic Cross-Sections** | Interactive vertical cross-section slicing between any two geographic points |
-| 🎯 **Instrument Tracking** | Real-time Argo float, glider, and moored buoy positions with full depth-profile readouts |
-| ⚡ **Current Particle System** | GPU-accelerated animated particle trails showing ocean current velocity, Zonal/Meridional flow, and Sea Ice Drift |
-| 📈 **Model-Observation Comparison** | Side-by-side comparison of numerical model output vs. in-situ observations with bias/RMSE metrics |
-| 🎛️ **Context-Aware UI** | Dashboard interface that auto-categorizes variables (Water Column, Sea Ice, Surface) and intelligently toggles controls based on physical dimensions |
-| ⏱️ **Timeline Playback** | Animated time-stepping through NetCDF time indices with configurable playback speed |
+> **Our Philosophy:** *Do not just show what the data is. Explain why it matters.* We convert multi-day oceanographic data into understandable scientific inferences, relationships, trends, anomalies, and actionable insights.
 
 ---
 
-## 🧠 Why This Architecture?
+## 🧩 Core Modules
 
-Ocean datasets are inherently **massive and multi-dimensional** (latitude × longitude × depth × time × variables). Rendering them in a browser requires a carefully designed client-server split:
+### Module A: 3D Ocean Explorer
+The Explorer is a WebGL-powered digital twin of the Earth's oceans, designed for lab-grade accuracy directly in the browser.
+* 🌐 **Cesium + Three.js:** High-fidelity globe combined with custom React Three Fiber rendering.
+* 🌡️ **Physical Shader Dynamics:** Variables like Sea Surface Height (`zos`) and Ice Thickness (`sithick`) are rendered using custom GLSL shaders that physically deform the 3D meshes for true-to-life realism.
+* 📊 **Isosurface Extraction:** Marching-cubes-based 3D isosurface generation for threshold analysis (e.g., locating the 25°C thermocline volume).
+* ⚡ **Vector Particle Systems:** GPU-accelerated animated particle trails showing Zonal/Meridional ocean current flow and Sea Ice Drift.
 
-| Concern | Solution |
-|---|---|
-| **Data Volume** | The Python backend lazily parses gigabyte-scale NetCDF/Zarr stores using xarray/Dask and serves only the processed slices needed by the current view |
-| **Scientific Inference Engine** | The FastAPI backend generates real-time, deterministic scientific insights (e.g., thermal anomalies, momentum shifts) without relying on hallucinatory LLMs, ensuring absolute scientific truth |
-| **Rendering Performance** | WebGL-based rendering via custom ShaderMaterials prevents texture memory leaks, keeping the visualization interactive at a rock-solid 60fps |
-| **Scientific Accuracy** | Proper handling of multi-dimensional bounds, precise color mapping via normalized alpha-channel packing, and true-to-life 3D displacement |
-| **Future Extensibility** | Architecture supports plugging in real OPeNDAP/ERDDAP data sources without changing the frontend |
+### Module B: Ocean Intelligence Dashboard
+A dedicated, highly responsive, and premium analytical dashboard for multi-day trend analysis.
+* 📈 **Stock-Market Style Trend Analysis:** Visualizes multi-day parameter shifts (e.g., Temperature vs. Salinity) using dual-axis, gradient-filled Area charts. Hovering over any point reveals instant, text-based inferences (e.g., *"▲ Experiencing an upward thermal trend (+0.452)"*).
+* 🧮 **Pairwise Correlation Matrices:** A dynamic heatmap grid computing the Pearson correlation coefficient between any physical variables across the selected time bounds.
+* ⚠️ **Automated Anomaly Detection:** Real-time statistical analysis flagging observations that deviate significantly from the baseline standard deviation.
+* 📑 **Export & Reporting System:** One-click generation of comprehensive PDF and CSV reports summarizing the analytical findings.
 
-> **Result:** Browser-native scientific visualization with lab-grade accuracy and instant multi-day statistical inference, no desktop software required.
+### Module C: Validation & Prediction Engine
+An automated backend pipeline that compares numerical prediction models against real-world, in-situ oceanographic observations (like Argo floats).
+* **RMSE (Root Mean Square Error):** Quantifies the overall magnitude of the prediction error.
+* **Bias (Mean Error):** Measures if the numerical model systematically over-predicts or under-predicts the true ocean state.
+* **Pearson Correlation:** Validates whether the prediction model accurately captures the structural shape of vertical stratifications (like the halocline).
 
 ---
 
-## 🏛 Architecture Diagram
+## 🏛 Architecture & Data Pipeline
 
-```
+Ocean datasets are inherently **massive and multi-dimensional** (latitude × longitude × depth × time × variables). Rendering them in a browser requires a highly optimized client-server split.
+
+```text
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                  INCOIS 3D Ocean Visualization — Architecture            │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -88,133 +85,75 @@ Ocean datasets are inherently **massive and multi-dimensional** (latitude × lon
     │  │  (Globe)   │  │              │ │  Data Processor  │ │
     │  └────────────┘  │              │ └──────────────────┘ │
     │  ┌────────────┐  │              │ ┌──────────────────┐ │
-    │  │  Three.js  │  │              │ │  Isosurface      │ │
-    │  │  R3F/Drei  │  │              │ │  Extraction      │ │
-    │  │ (Shaders)  │  │              │ │  (Marching Cubes)│ │
+    │  │  Recharts  │  │              │ │  Inference &     │ │
+    │  │ (Analytics)│  │              │ │  Stats Engine    │ │
     │  └────────────┘  │              │ └──────────────────┘ │
-    │  ┌────────────┐  │              │ ┌──────────────────┐ │
-    │  │  Recharts  │  │              │ │  Vector Velocity │ │
-    │  │ (2D Charts)│  │              │ │  Generator       │ │
-    │  └────────────┘  │              │ └──────────────────┘ │
-    │  ┌────────────┐  │              └──────────────────────┘
-    │  │  Zustand   │  │
-    │  │  (State)   │  │              ┌──────────────────────┐
-    │  └────────────┘  │              │  Data Pipeline       │
-    └──────────────────┘              │  (xarray / Dask)     │
+    └──────────────────┘              └──────────────────────┘
+                                                  ▲
+                                                  │ Lazy Chunk Loading
+                                                  ▼
+                                      ┌──────────────────────┐
+                                      │  Data Pipeline       │
+                                      │  (xarray / Dask)     │
                                       └──────────────────────┘
 ```
 
+1. **Lazy Chunk-Streamed Ingestion:** Gigabyte-scale NetCDF4 files are converted to **Zarr** stores. This allows the FastAPI backend to fetch *only the specific chunk of data needed* from disk, bypassing memory bottlenecks.
+2. **REST API Slicing:** The frontend requests highly specific 2D slices or multi-day time-series arrays. The backend slices the Xarray dataset dynamically and returns lightweight JSON payloads.
+
 ---
 
-## 📤 Data Flow
+## 🧠 Scientific Inference Engine (Deterministic)
 
-### Volumetric Data Request
-```
-User selects Variable (Temperature) + Depth Index + Time Index
-              │
-              ▼
-    ┌──────────────────────────────┐
-    │  GET /api/model/slice        │  ── Frontend sends query params
-    │  ?variable=temperature       │  ── Backend slices Zarr dataset lazily
-    │  &depth_index=5              │  ── Selects active temporal/spatial bounds
-    │  &time_index=0               │  ── Returns flat 1D data array & shape
-    └──────────┬───────────────────┘
-               │  JSON { data[], shape[lat, lon], min, max }
-               ▼
-    ┌──────────────────────────────┐
-    │  DepthSlice (React Three)    │  ── Texture packed with normalized data in Alpha
-    │  Custom ShaderMaterial       │  ── Shader computes physical displacement & color
-    │  Cesium Globe Context        │  ── Overlays dynamically above base terrain
-    └──────────────────────────────┘
-               │
-               ▼
-      🌊 Interactive 3D visualization on the digital twin globe
-```
+**Crucial Architecture Choice:** The platform *does not* use Large Language Models (LLMs) to generate numerical data or scientific inferences. 
+
+In oceanography, hallucinations are unacceptable. All inferences generated by the Ocean Intelligence Dashboard (e.g., determining water column stability, identifying upwelling zones, flagging thermal anomalies) are generated by a **Rule-Based Deterministic Inference Engine** (`inference_engine.py`).
+
+* It computes strict standard deviations and Z-scores using `numpy` and `scipy.stats`.
+* It calculates actual Pearson correlation matrices.
+* It applies physical oceanographic logic (e.g., if Sea Surface Temperature decreases rapidly while Salinity increases, it identifies a potential "Coastal Upwelling Event").
+
+---
+
+## 🌍 Datasets & Prediction Models
+
+The platform supports multiple data sources, dynamically normalized to CF Conventions.
+
+### Primary Model: Mercator Ocean Global Reanalysis (`GLORYS12V1`)
+* **Underlying Engine:** NEMO (Nucleus for European Modelling of the Ocean).
+* **Grid:** $1/12^\circ$ Equirectangular (~8 km at equator). Eddy-resolving grid capable of simulating mesoscale eddies and western boundary currents.
+* **Vertical Levels:** 50 standard geopotential depth levels (1m near surface to 450m in abyssal depths).
+* **Variables Extracted:** `thetao` (Temp), `so` (Salinity), `uo`/`vo` (Velocities), `zos` (SSH), `sithick` (Ice Thickness).
+
+### Secondary Model: NOAA High-Resolution Hydrodynamic Grid
+* **Coverage:** Northern Indian Ocean Basin.
+* **Variables:** `temperature`, `salinity`, `current_speed`.
 
 ---
 
 ## 🛠 Tech Stack
 
-Our technology choices were deliberately made to balance high-performance rendering of massive scientific datasets with rapid, maintainable frontend development.
-
-### Languages Used
-| Language | Purpose & Why It's Used |
-|---|---|
-| **TypeScript / JavaScript** | **Why:** The primary language for the web frontend. TypeScript ensures type safety across our complex 3D state, catching bugs at compile-time and enforcing strict data structures when interfacing with the Python backend. |
-| **Python 3.10+** | **Why:** The undisputed king of scientific computing and data analysis. Python allows our backend to effortlessly manipulate massive NetCDF/Zarr multidimensional arrays using established oceanographic libraries (like `xarray`) before shipping simplified slices to the web. |
-| **GLSL (OpenGL Shading Language)** | **Why:** We write custom fragment and vertex shaders in GLSL. It runs directly on the GPU, allowing us to physically deform sea ice thickness and ocean wave meshes in real-time at 60 FPS—something impossible to calculate on the CPU. |
-| **HTML5 / CSS3** | **Why:** Standard web markup. We use Vanilla CSS (via `index.css`) mixed with Tailwind to craft our visually striking, glassmorphic UI. |
-
 ### Frontend Ecosystem (`frontend/`)
-| Technology | Why It Is Used |
-|---|---|
-| **React 19** | **Why:** Provides a component-based architecture perfect for building our complex dashboard UI. React's state management perfectly handles the multitude of user controls (depth sliders, variable selectors, timelines). |
-| **Vite** | **Why:** Our build tool of choice. Vite provides lightning-fast Hot Module Replacement (HMR) during development, instantly updating our 3D canvas when we tweak shader code or React components. |
-| **CesiumJS** | **Why:** A world-class open-source globe engine. Cesium handles the incredibly complex math of geographic coordinate systems, WGS84 ellipsoid projections, and rendering satellite imagery terrain, giving our ocean data a true real-world geographic context. |
-| **Three.js & React Three Fiber (R3F)** | **Why:** Three.js provides the WebGL 3D rendering engine for our scientific overlays. R3F allows us to write Three.js code declaratively as React components, seamlessly integrating our 3D logic into our React dashboard state. |
-| **@react-three/drei** | **Why:** A vital ecosystem of helper components for R3F, saving us from writing boilerplate code for camera controls, text rendering, and complex geometries. |
-| **TailwindCSS** | **Why:** A utility-first CSS framework that allows us to rapidly style our UI components directly in the JSX. We use it to create our custom "dark mode" glassmorphic aesthetics that feel premium and modern. |
-| **Zustand** | **Why:** A minimalist, fast state management solution. Unlike Redux, Zustand operates without boilerplate and avoids wrapping the app in context providers, making it exceptionally performant when dealing with rapidly changing 3D variables. |
-| **Recharts** | **Why:** Used for our 2D charts (like the Vertical Cross-Section chart). It is highly composable, responsive, and integrates smoothly with our React component tree. |
+* **React 19 & Vite:** Component-based UI architecture with lightning-fast Hot Module Replacement.
+* **CesiumJS:** World-class globe engine handling geographic coordinate systems and WGS84 ellipsoid projections.
+* **Three.js & React Three Fiber (R3F):** Declarative WebGL engine for custom shader displacement and volumetric extraction.
+* **Zustand:** Minimalist, fast state management preventing unnecessary re-renders in the heavy 3D canvas.
+* **Recharts:** Highly interactive, composable 2D charting library for the Intelligence Dashboard.
+* **TailwindCSS:** Used for crafting the premium, glassmorphic dark-mode aesthetic.
 
-### Backend & Data Pipeline (`backend/` & `data-pipeline/`)
-| Technology | Why It Is Used |
-|---|---|
-| **FastAPI** | **Why:** An incredibly fast, modern Python web framework. Its asynchronous capabilities (`async/await`) are crucial for handling non-blocking file I/O when reading massive ocean datasets, and it automatically generates our Swagger API documentation. |
-| **Xarray** | **Why:** Xarray extends NumPy to work with labeled multi-dimensional arrays (like latitude, longitude, depth, time). It allows our backend to extract hyper-specific 2D slices or cross-sections out of gigabyte-scale volumes with a single line of code. |
-| **Zarr** | **Why:** A modern, cloud-optimized format for storing chunked N-dimensional arrays. We convert legacy NetCDF files to Zarr because Zarr allows our FastAPI backend to read *only the specific chunk of data needed* from disk, rather than loading the whole multi-gigabyte file into memory. |
-| **Dask** | **Why:** Parallel computing library that integrates with Xarray. It enables "out-of-core" computation in our pipeline, meaning we can process datasets larger than the server's RAM. |
-| **NumPy & Pandas** | **Why:** The backbone of Python data science. Used for high-speed mathematical array manipulation, flattening data for JSON payloads, and parsing tabular in-situ observation data. |
-
----
-
-## 📁 Project Structure
-
-```
-incois-3d-ocean-viz/
-│
-├── frontend/                          # React + TypeScript SPA
-│   ├── src/
-│   │   ├── 3d/                        # Three.js / R3F overlay components
-│   │   │   ├── OceanScene.tsx         # Main R3F canvas orchestrator
-│   │   │   ├── DepthSlice.tsx         # Custom ShaderMaterial for slices & physical displacement
-│   │   │   ├── IsosurfaceMesh.tsx     # Marching-cubes isosurface geometry
-│   │   │   ├── CurrentParticles.tsx   # Animated GPU particle system for vectors (uo, vo, etc)
-│   │   │   └── ObservationMarkers.tsx # Argo/Glider/Buoy 3D markers
-│   │   │
-│   │   ├── charts/                    # 2D data visualization (Recharts)
-│   │   ├── components/
-│   │   │   ├── layout/                # App shell layout (Sidebar, TopBar)
-│   │   │   └── panels/               # Feature-specific control panels
-│   │   │       ├── VariableSelector.tsx       # Smart category-based variable selector
-│   │   │       ├── DepthSlider.tsx            # Context-aware depth controller
-│   │   │       └── TimelineController.tsx     # Animated time playback
-│   │   │
-│   │   ├── stores/                    # Zustand state management
-│   │   └── utils/                     # Shared utility functions (Colormaps, API)
-│
-├── backend/                           # FastAPI Python server
-│   ├── main.py                        # Application entry — all route definitions
-│   ├── services/
-│   │   ├── real_data.py               # Zarr dataset handlers and slicers
-│   │   └── demo_data.py               # Synthetic fallback data
-│   ├── visualization/
-│   │   └── isosurface.py              # Marching-cubes isosurface extraction
-│   └── data/                          # Zarr stores and metadata JSON
-│
-└── data-pipeline/                     # NetCDF to Zarr ingestion tools
-```
+### Backend Pipeline (`backend/`)
+* **FastAPI:** Modern Python asynchronous framework for non-blocking file I/O and rapid API routing.
+* **Xarray:** Multi-dimensional array manipulation (extending NumPy) for slicing gigabyte-scale volumes.
+* **Zarr:** Cloud-optimized format for storing chunked N-dimensional arrays.
+* **Dask:** Parallel computing library enabling "out-of-core" computation.
 
 ---
 
 ## 🚀 Installation & Setup
 
 ### Prerequisites
-| Requirement | Notes |
-|---|---|
-| **Node.js** ≥ 18 | [Download](https://nodejs.org/) |
-| **Python** 3.10+ | [Download](https://python.org/) |
-| **npm** & **pip** | Bundled with Node.js and Python respectively |
+* **Node.js** ≥ 18
+* **Python** 3.10+
 
 ### Step 1 — Clone the Repository
 ```bash
@@ -222,116 +161,48 @@ git clone https://github.com/<your-username>/incois-3d-ocean-viz.git
 cd incois-3d-ocean-viz
 ```
 
-### Step 2 — Install Dependencies
-
-**Backend:**
+### Step 2 — Backend Setup
 ```bash
 cd backend
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-cd ..
 ```
 
-**Frontend:**
+### Step 3 — Frontend Setup
+```bash
+cd ../frontend
+npm install
+```
+
+### Step 4 — Run the Application
+You can start both servers simultaneously:
+
+**Terminal 1 (Backend):**
+```bash
+cd backend
+uvicorn main:app --reload --port 8000
+```
+
+**Terminal 2 (Frontend):**
 ```bash
 cd frontend
-npm install
-cd ..
+npm run dev
 ```
 
----
-
-### Step 3 — Start the Application
-
-You can start both the backend and frontend concurrently using the provided start script:
-
-```bash
-chmod +x start.sh
-./start.sh
-```
-
-> 🌐 Open your browser and navigate to [`http://localhost:5173`](http://localhost:5173) to explore the visualizer.
-> 📄 **Swagger UI** (interactive API docs): [`http://localhost:8000/api/docs`](http://localhost:8000/api/docs)
-> 📘 **ReDoc** (reference docs): [`http://localhost:8000/api/redoc`](http://localhost:8000/api/redoc)
+> 🌐 **App URL:** [`http://localhost:5173`](http://localhost:5173)  
+> 📄 **API Docs (Swagger):** [`http://localhost:8000/api/docs`](http://localhost:8000/api/docs)
 
 ---
 
-## 📡 Supported Variables
+## 📄 License & Credits
 
-The platform automatically adjusts UI panels and rendering techniques depending on the active variable's dimensionality and physics:
-
-### Water Column (3D)
-| Variable | Description |
-|---|---|
-| `temperature` / `thetao` | Sea water / Potential temperature (°C) |
-| `salinity` / `so` | Sea water salinity (PSU) |
-| `bottomT` | Bottom temperature (°C) |
-
-### Sea Surface (2D Physical Displacement)
-| Variable | Description |
-|---|---|
-| `zos` | Sea Surface Height (physically displaces mesh Y-axis) |
-| `mlotst` | Mixed Layer Depth (displaces mesh downwards) |
-
-### Sea Ice (2D Physical Shaders)
-| Variable | Description |
-|---|---|
-| `sithick` | Ice Thickness (renders opaque physical block displacing upwards) |
-| `siconc` | Ice Fraction (dynamically adjusts opacity of the ice surface) |
-
-### Velocities (3D Particles)
-| Variable | Description |
-|---|---|
-| `currents` | Combined ocean current magnitude and direction |
-| `uo` / `vo` | Isolated Zonal and Meridional velocity flow |
-| `usi` / `vsi` | Sea ice drift velocities |
-
----
-
-## 🧭 User Guide
-
-### 🔬 Ocean Explorer Dashboard
-The main dashboard is a multi-panel layout with the following regions:
-
-#### Left Sidebar — Data Controls
-1. **Dataset Selector** — Browse and switch between available ocean datasets
-2. **Variable Picker** — Categorized selection of Water Column, Surface, Ice, and Velocities
-3. **Depth Slider** — Select specific depth levels. *Automatically disables with a locked overlay if a 2D surface variable (e.g., Ice Thickness) is selected.*
-4. **Timeline Controller** — Play/pause animated time progression over the dataset's valid time range.
-5. **Layer Manager** — Toggle visibility of each rendering layer.
-
-#### Center — 3D Visualization Canvas
-- **Cesium Globe** with terrain and satellite imagery
-- **Three.js Overlays** rendered in synchronized coordinate space:
-  - Custom ShaderMaterials for exact physical displacement of waves and ice
-  - Animated vector particle flow dynamically anchored to the true dataset max depth
-  - 3D isosurface meshes
-
----
-
-## 🗺 Future Roadmap
-
-| Phase | Feature | Status |
-|---|---|---|
-| **Phase 1** | Synthetic data visualization | ✅ Complete |
-| **Phase 2** | Real Zarr/NetCDF extraction pipeline and Variable-specific routing | ✅ Complete |
-| **Phase 3** | Custom ShaderMaterial physics (Sea Ice & Wave displacement) | ✅ Complete |
-| **Phase 4** | Real-time Argo float data from INCOIS API | 🔄 Planned |
-| **Phase 5** | WebGPU migration for advanced volumetric raymarching | 🔄 Planned |
-
----
-
-## 📄 License
-
-This project was developed as part of **Smart India Hackathon 2026** (SIH26067).
-
----
+This project was developed exclusively as a solution for **Smart India Hackathon 2026** (Problem Statement SIH26067).
 
 <div align="center">
+<br/>
 
-**Built with ❤️ using React, Three.js, CesiumJS & FastAPI**
-
-*INCOIS 3D Ocean Visualization — Making the ocean's depths visible*
+**Built with ❤️ for INCOIS & SIH 2026**  
+*Making the ocean's depths visible, interactive, and intelligent.*
 
 </div>
