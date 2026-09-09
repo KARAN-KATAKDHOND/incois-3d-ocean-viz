@@ -37,6 +37,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# === Ocean Intelligence Analysis Router ===
+from routes import router as analysis_router
+app.include_router(analysis_router, prefix="/api/analysis")
+
 
 # === Pipeline & Upload Endpoints ===
 

@@ -133,6 +133,7 @@ function CesiumGlobeBackground({ isExploring, points }: CesiumGlobeProps) {
         case 'glider': color = Color.fromCssColorString('#ff0055'); size = 14; break;
         case 'ctd': color = Color.fromCssColorString('#00ff00'); size = 10; break;
         case 'bgc': color = Color.fromCssColorString('#ffd700'); size = 12; break;
+        case 'satellite': color = Color.fromCssColorString('#ff8800'); size = 8; break;
       }
 
       ds.entities.add({
@@ -155,6 +156,51 @@ function CesiumGlobeBackground({ isExploring, points }: CesiumGlobeProps) {
       });
     });
   }, [points, isExploring, obsLayers]);
+
+  // Handle Model Imagery Layer (Heatmap)
+  const storeVariable = useOceanStore((s: any) => s.variable);
+  const colorbar = useOceanStore((s: any) => s.colorbar);
+  const modelLayers = useOceanStore((s: any) => s.modelLayers);
+  const imageryLayerRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (!viewerRef.current || !isExploring) return;
+
+    const isActive = modelLayers[storeVariable]?.visible !== false;
+    if (!isActive) {
+      if (imageryLayerRef.current) {
+        viewerRef.current.scene.imageryLayers.remove(imageryLayerRef.current);
+        imageryLayerRef.current = null;
+      }
+      return;
+    }
+
+    // Force the global dataset for the home screen globe
+    const globalDatasetId = 'mercatorglorys12v1_gl12_mean_20260101_R20260107';
+    // Map generic UI variables to the Mercator model's specific variable names
+    let apiVariable = storeVariable;
+    if (storeVariable === 'temperature') apiVariable = 'thetao';
+    if (storeVariable === 'salinity') apiVariable = 'so';
+
+    let isSubscribed = true;
+    import('../services/api').then(({ modelApi }) => {
+      modelApi.getSlice({ dataset_id: globalDatasetId, variable: apiVariable, depth_index: 0 })
+        .then(slice => {
+          if (!isSubscribed || !viewerRef.current) return;
+          
+          import('../utils/cesiumHeatmap').then(({ createHeatmapImageryProvider }) => {
+            const provider = createHeatmapImageryProvider(slice, colorbar);
+            if (imageryLayerRef.current) {
+              viewerRef.current!.scene.imageryLayers.remove(imageryLayerRef.current);
+            }
+            imageryLayerRef.current = viewerRef.current!.scene.imageryLayers.addImageryProvider(provider);
+          });
+        })
+        .catch(console.error);
+    });
+
+    return () => { isSubscribed = false; };
+  }, [storeVariable, colorbar, modelLayers, isExploring]);
 
   const handleZoomIn = () => {
     if (viewerRef.current) {
@@ -196,26 +242,14 @@ export function GlobeLanding() {
   const [points, setPoints] = useState<Observation[]>([]);
 
   useEffect(() => {
-    // Load points to display on the 2D Cesium globe
-    fetch('/ocean_data_points.json')
-      .then(res => res.json())
-      .then(data => {
-        const rawInstruments = data.instruments || [];
-        const mappedPoints = rawInstruments.map((inst: any) => ({
-          id: inst.id,
-          instrument_type: inst.type || 'argo',
-          longitude: inst.coordinates?.[0] ?? 0,
-          latitude: inst.coordinates?.[1] ?? 0,
-          depth: Math.abs(inst.coordinates?.[2] ?? 0),
-          timestamp: new Date().toISOString(),
-          data_source: 'simulated',
-          quality: 'valid',
-          variables: ['temperature'],
-          platform_id: inst.id,
-        }));
-        setPoints(mappedPoints);
-      })
-      .catch(console.error);
+    // Load real points from backend API to display on the 2D Cesium globe
+    import('../services/api').then(({ observationApi }) => {
+      observationApi.list()
+        .then(data => {
+          setPoints(data || []);
+        })
+        .catch(console.error);
+    });
   }, []);
 
   if (isExploring) {

@@ -44,6 +44,7 @@ The platform combines the power of **CesiumJS** for geospatial rendering with **
 | Feature | Description |
 |---|---|
 | 🌐 **3D Digital Twin Globe** | High-fidelity Cesium globe with real-world terrain and imagery as the base layer |
+| 🧠 **Ocean Intelligence Dashboard** | Dedicated multi-day analytics dashboard providing real-time statistical inference, correlation matrices, heatmaps, and stock-market style candlestick anomaly tracking |
 | 🌡️ **Physical Shader Dynamics** | Variables like Sea Surface Height and Ice Thickness are rendered using custom WebGL shaders that physically deform the 3D meshes for lab-grade realism |
 | 📊 **Isosurface Extraction** | Marching-cubes-based 3D isosurface generation for threshold-based analysis (e.g., 25°C thermocline) |
 | 🔀 **Dynamic Cross-Sections** | Interactive vertical cross-section slicing between any two geographic points |
@@ -62,11 +63,12 @@ Ocean datasets are inherently **massive and multi-dimensional** (latitude × lon
 | Concern | Solution |
 |---|---|
 | **Data Volume** | The Python backend lazily parses gigabyte-scale NetCDF/Zarr stores using xarray/Dask and serves only the processed slices needed by the current view |
+| **Scientific Inference Engine** | The FastAPI backend generates real-time, deterministic scientific insights (e.g., thermal anomalies, momentum shifts) without relying on hallucinatory LLMs, ensuring absolute scientific truth |
 | **Rendering Performance** | WebGL-based rendering via custom ShaderMaterials prevents texture memory leaks, keeping the visualization interactive at a rock-solid 60fps |
 | **Scientific Accuracy** | Proper handling of multi-dimensional bounds, precise color mapping via normalized alpha-channel packing, and true-to-life 3D displacement |
 | **Future Extensibility** | Architecture supports plugging in real OPeNDAP/ERDDAP data sources without changing the frontend |
 
-> **Result:** Browser-native scientific visualization with lab-grade accuracy, no desktop software required.
+> **Result:** Browser-native scientific visualization with lab-grade accuracy and instant multi-day statistical inference, no desktop software required.
 
 ---
 

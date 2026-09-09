@@ -62,7 +62,7 @@ export function VariableSelector() {
     } else {
       const metaVar = activeVariables.find(av => av.name === v);
       if (metaVar) {
-        setColorbar({ colormap: 'turbo', min: metaVar.min_value || 0, max: metaVar.max_value || 100 });
+        setColorbar({ colormap: 'turbo', min: (metaVar as any).min_value || 0, max: (metaVar as any).max_value || 100 });
       }
     }
     const particleVars = ['currents', 'uo', 'vo', 'usi', 'vsi'];

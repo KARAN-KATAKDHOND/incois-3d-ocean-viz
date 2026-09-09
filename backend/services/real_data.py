@@ -268,88 +268,159 @@ class RealDataManager:
         }
 
     def generate_observations(self) -> list[dict]:
-        # Generate 50 realistic random global Argo observations
-        np.random.seed(42)  # For deterministic output
-        obs = []
-        for i in range(50):
-            lat = np.random.uniform(-75.0, 75.0)
-            lon = np.random.uniform(-180.0, 180.0)
-            platform = f"ARGO-{100000 + i}"
-            obs.append({
-                "id": platform,
-                "instrument_type": "argo",
-                "latitude": float(lat),
-                "longitude": float(lon),
-                "depth": 0.0,
-                "timestamp": "2026-01-01T12:00:00Z",
-                "data_source": "Global Network",
-                "quality": "valid",
-                "variables": ["temperature", "salinity", "thetao", "so"],
-                "platform_id": platform
-            })
-        return obs
+        csv_path = DATA_DIR / "original" / "argo_profile_real.csv"
+        if not csv_path.exists():
+            return []
+            
+        try:
+            df = pd.read_csv(csv_path)
+            obs_list = []
+            for platform_id, group in df.groupby("platform_id"):
+                first_row = group.iloc[0]
+                
+                # Check what variables exist in the CSV
+                available_vars = []
+                for v in ["temperature", "salinity"]:
+                    if v in df.columns:
+                        available_vars.append(v)
+                        
+                obs_list.append({
+                    "id": str(platform_id),
+                    "instrument_type": "argo",
+                    "latitude": float(first_row["latitude"]),
+                    "longitude": float(first_row["longitude"]),
+                    "depth": float(group["depth"].max()),
+                    "timestamp": str(first_row["timestamp"]),
+                    "data_source": "In-Situ CSV",
+                    "quality": "valid",
+                    "variables": available_vars,
+                    "platform_id": str(platform_id)
+                })
+            return obs_list
+        except Exception as e:
+            logger.error(f"Error parsing observations CSV: {e}")
+            return []
 
     def generate_profile(self, obs_id: str, variable: str) -> dict:
-        # Generate dummy profile for the given observation
-        # Since we generated the observations randomly above, we'll generate the profile too
-        np.random.seed(hash(obs_id) % (2**32))
-        depths = np.linspace(0, 1000, 50)
-        profile = []
-        
-        # Determine base value by variable
-        if variable in ["temperature", "thetao"]:
-            base = 28.0 * np.exp(-depths / 200) + np.random.normal(0, 0.1, 50)
-            unit = "°C"
-        elif variable in ["salinity", "so"]:
-            base = 35.0 + 0.5 * np.exp(-depths / 500) + np.random.normal(0, 0.02, 50)
-            unit = "PSU"
-        else:
-            base = np.random.normal(0, 0.5, 50) * np.exp(-depths / 200)
-            unit = ""
+        csv_path = DATA_DIR / "original" / "argo_profile_real.csv"
+        if not csv_path.exists():
+            return None
             
-        for i, d in enumerate(depths):
-            profile.append({
-                "depth": float(d),
-                "value": round(float(base[i]), 3),
-                "quality": "valid"
-            })
+        try:
+            df = pd.read_csv(csv_path)
+            platform_df = df[df["platform_id"] == obs_id]
             
-        return {
-            "observation_id": obs_id,
-            "variable": variable,
-            "unit": unit,
-            "profile": profile
-        }
+            if platform_df.empty or variable not in platform_df.columns:
+                return None
+                
+            platform_df = platform_df.sort_values("depth")
+            profile = []
+            for _, row in platform_df.iterrows():
+                profile.append({
+                    "depth": float(row["depth"]),
+                    "value": float(row[variable]),
+                    "quality": "valid"
+                })
+                
+            unit = "°C" if variable == "temperature" else ("PSU" if variable == "salinity" else "")
+                
+            return {
+                "observation_id": obs_id,
+                "variable": variable,
+                "unit": unit,
+                "profile": profile
+            }
+        except Exception as e:
+            logger.error(f"Error extracting profile: {e}")
+            return None
 
     def generate_comparison(self, dataset_id: str, obs_id: str, variable: str) -> dict:
+        # 1. Get true observation profile
         obs_profile_data = self.generate_profile(obs_id, variable)
         if not obs_profile_data or "profile" not in obs_profile_data:
             return None
-        
+            
         obs_profile = obs_profile_data["profile"]
         
-        model_profile = []
-        import math
-        for p in obs_profile:
-            # Simulate model prediction being slightly off from reality
-            error_margin = (math.sin(p["depth"] / 50.0) * 0.5) + (np.random.random() * 0.2 - 0.1)
-            model_profile.append({
-                "depth": p["depth"],
-                "value": round(p["value"] + error_margin, 3),
-                "quality": "valid"
-            })
+        # We need the true coordinates to query the zarr
+        csv_path = DATA_DIR / "original" / "argo_profile_real.csv"
+        df = pd.read_csv(csv_path)
+        platform_df = df[df["platform_id"] == obs_id]
+        if platform_df.empty:
+            return None
             
-        return {
-            "observation_id": obs_id,
-            "variable": variable,
-            "unit": obs_profile_data["unit"],
-            "rmse": 0.45,
-            "bias": 0.12,
-            "correlation": 0.94,
-            "n_observations": len(obs_profile),
-            "model_profile": model_profile,
-            "observation_profile": obs_profile,
-            "is_demo": False
-        }
+        obs_lat = float(platform_df.iloc[0]["latitude"])
+        obs_lon = float(platform_df.iloc[0]["longitude"])
+        
+        # 2. Get the model dataset
+        ds = self._open_zarr(dataset_id)
+        if ds is None:
+            return None
+            
+        # We try to find the equivalent variable in the model
+        model_var = variable
+        if variable == "temperature" and "temperature" not in ds.data_vars and "thetao" in ds.data_vars:
+            model_var = "thetao"
+        elif variable == "salinity" and "salinity" not in ds.data_vars and "so" in ds.data_vars:
+            model_var = "so"
+            
+        if model_var not in ds.data_vars:
+            return None
+
+        try:
+            # 3. Extract the 1D model depth profile at those coordinates
+            if "time" in ds.coords:
+                ds = ds.isel(time=0) # Take first time step for simplicity
+                
+            model_point = ds[model_var].sel(lat=obs_lat, lon=obs_lon, method="nearest")
+            
+            if "depth" not in model_point.coords:
+                # Surface only dataset
+                return None
+                
+            model_depths = model_point.depth.values
+            model_values = model_point.values
+            
+            # Sort model depths to ensure np.interp works
+            sort_idx = np.argsort(model_depths)
+            model_depths = model_depths[sort_idx]
+            model_values = model_values[sort_idx]
+            
+            # 4. Extract observation vectors
+            obs_depths = np.array([p["depth"] for p in obs_profile])
+            obs_values = np.array([p["value"] for p in obs_profile])
+            
+            # 5. Interpolate model values to observation depths
+            interp_model_values = np.interp(obs_depths, model_depths, model_values)
+            
+            # Formulate the model profile response
+            model_profile_out = []
+            for i, d in enumerate(obs_depths):
+                model_profile_out.append({
+                    "depth": float(d),
+                    "value": float(interp_model_values[i]),
+                    "quality": "valid"
+                })
+                
+            # 6. Calculate statistics
+            rmse = np.sqrt(np.mean((obs_values - interp_model_values)**2))
+            bias = np.mean(interp_model_values - obs_values)
+            correlation = np.corrcoef(obs_values, interp_model_values)[0, 1] if len(obs_values) > 1 else 1.0
+
+            return {
+                "observation_id": obs_id,
+                "variable": variable,
+                "unit": obs_profile_data["unit"],
+                "rmse": round(float(rmse), 4),
+                "bias": round(float(bias), 4),
+                "correlation": round(float(correlation), 4),
+                "n_observations": len(obs_profile),
+                "model_profile": model_profile_out,
+                "observation_profile": obs_profile,
+                "is_demo": False
+            }
+        except Exception as e:
+            logger.error(f"Error generating comparison: {e}")
+            return None
 
 real_data_manager = RealDataManager()

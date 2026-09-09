@@ -74,6 +74,19 @@ export function TopBar() {
 
       {/* Right: Mode switcher & time */}
       <div className="flex items-center gap-3">
+        <button
+          onClick={() => navigate('/intelligence')}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-semibold transition-all"
+          style={{
+            background: 'linear-gradient(135deg, rgba(0, 131, 143, 0.4), rgba(0, 229, 255, 0.2))',
+            color: '#00e5ff',
+            border: '1px solid rgba(0, 229, 255, 0.3)',
+            boxShadow: '0 0 10px rgba(0, 229, 255, 0.1)'
+          }}
+          title="Ocean Intelligence Dashboard"
+        >
+          <span>🧠</span> Intelligence
+        </button>
         <div className="tab-group">
           <button
             className={`tab-item ${appMode === 'professional' ? 'active' : ''}`}

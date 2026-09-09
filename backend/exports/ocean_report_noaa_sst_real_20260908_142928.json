@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "dataset_id": "noaa_sst_real",
+    "generated_at": "2026-09-08T14:29:30.218129",
+    "time_range": {
+      "start_idx": 0,
+      "end_idx": 30
+    }
+  },
+  "inferences": {
+    "primary_insight": null,
+    "discovered_relationships": [],
+    "change_events": [
+      {
+        "variable": "salinity",
+        "display_name": "Salinity",
+        "unit": "PSU",
+        "delta": 0.0042,
+        "pct_change": 0.01,
+        "direction": "increased",
+        "description": "Salinity increased by 0.0042 PSU (0.0%)"
+      },
+      {
+        "variable": "temperature",
+        "display_name": "Temperature",
+        "unit": "\u00b0C",
+        "delta": -0.0001,
+        "pct_change": -0.0,
+        "direction": "decreased",
+        "description": "Temperature decreased by 0.0001 \u00b0C (0.0%)"
+      }
+    ],
+    "connections": [],
+    "anomaly_summary": [
+      {
+        "variable": "salinity",
+        "display_name": "Salinity",
+        "status": "significant",
+        "most_anomalous_day": "2024-01-19T00:00:00.000000000",
+        "peak_z_score": -2.4439
+      },
+      {
+        "variable": "temperature",
+        "display_name": "Temperature",
+        "status": "significant",
+        "most_anomalous_day": "2024-01-07T00:00:00.000000000",
+        "peak_z_score": 2.2562
+      }
+    ],
+    "dataset_id": "noaa_sst_real",
+    "is_demo": false
+  },
+  "correlations": {
+    "variables": [
+      "temperature",
+      "salinity",
+      "current_speed"
+    ],
+    "labels": [
+      {
+        "name": "temperature",
+        "display": "Temperature",
+        "unit": "\u00b0C"
+      },
+      {
+        "name": "salinity",
+        "display": "Salinity",
+        "unit": "PSU"
+      },
+      {
+        "name": "current_speed",
+        "display": "Current Speed",
+        "unit": "m/s"
+      }
+    ],
+    "matrix": [
+      [
+        1.0,
+        -0.1281,
+        0.0
+      ],
+      [
+        -0.1281,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "cells": [
+      {
+        "row": 0,
+        "col": 0,
+        "variable_a": "temperature",
+        "variable_b": "temperature",
+        "value": 1.0,
+        "strength": "identity",
+        "direction": "identity"
+      },
+      {
+        "row": 0,
+        "col": 1,
+        "variable_a": "temperature",
+        "variable_b": "salinity",
+        "value": -0.1281,
+        "strength": "negligible",
+        "direction": "negative"
+      },
+      {
+        "row": 0,
+        "col": 2,
+        "variable_a": "temperature",
+        "variable_b": "current_speed",
+        "value": 0.0,
+        "strength": "negligible",
+        "direction": "negligible"
+      },
+      {
+        "row": 1,
+        "col": 0,
+        "variable_a": "salinity",
+        "variable_b": "temperature",
+        "value": -0.1281,
+        "strength": "negligible",
+        "direction": "negative"
+      },
+      {
+        "row": 1,
+        "col": 1,
+        "variable_a": "salinity",
+        "variable_b": "salinity",
+        "value": 1.0,
+        "strength": "identity",
+        "direction": "identity"
+      },
+      {
+        "row": 1,
+        "col": 2,
+        "variable_a": "salinity",
+        "variable_b": "current_speed",
+        "value": 0.0,
+        "strength": "negligible",
+        "direction": "negligible"
+      },
+      {
+        "row": 2,
+        "col": 0,
+        "variable_a": "current_speed",
+        "variable_b": "temperature",
+        "value": 0.0,
+        "strength": "negligible",
+        "direction": "negligible"
+      },
+      {
+        "row": 2,
+        "col": 1,
+        "variable_a": "current_speed",
+        "variable_b": "salinity",
+        "value": 0.0,
+        "strength": "negligible",
+        "direction": "negligible"
+      },
+      {
+        "row": 2,
+        "col": 2,
+        "variable_a": "current_speed",
+        "variable_b": "current_speed",
+        "value": 1.0,
+        "strength": "identity",
+        "direction": "identity"
+      }
+    ],
+    "n_observations": 30
+  },
+  "trends_summary": [
+    {
+      "variable": "temperature",
+      "trend": "decreasing",
+      "delta": -0.0001
+    },
+    {
+      "variable": "salinity",
+      "trend": "increasing",
+      "delta": 0.0042
+    },
+    {
+      "variable": "current_speed",
+      "trend": "stable",
+      "delta": 0.0
+    }
+  ]
+}
