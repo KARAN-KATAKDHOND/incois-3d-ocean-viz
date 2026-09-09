@@ -31,7 +31,7 @@ export function CrossSectionChart() {
       .then(setData)
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [crossSection, variable, timeIndex]);
+  }, [crossSection, variable, timeIndex, datasetMeta?.id]);
 
   if (!crossSection.enabled) return null;
 

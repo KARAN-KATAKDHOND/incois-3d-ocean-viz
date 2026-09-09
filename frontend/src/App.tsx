@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { GlobeLanding } from './pages/GlobeLanding';
 import { OceanExplorer } from './pages/OceanExplorer';
+import { OceanIntelligence } from './pages/OceanIntelligence';
 import './index.css';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<GlobeLanding />} />
         <Route path="/visualization" element={<OceanExplorer />} />
-        <Route path="/dashboard" element={<Navigate to="/visualization" replace />} />
+        <Route path="/intelligence" element={<OceanIntelligence />} />
+        <Route path="/dashboard" element={<Navigate to="/intelligence" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

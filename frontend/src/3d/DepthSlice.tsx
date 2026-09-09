@@ -134,11 +134,13 @@ export function DepthSlice({ verticalExaggeration }: DepthSliceProps) {
       tex.magFilter = THREE.LinearFilter;
       textureRef.current = tex;
     } else {
-      textureRef.current.image.data.set(pixels);
+      if (textureRef.current.image.data) {
+        textureRef.current.image.data.set(pixels);
+      }
     }
     textureRef.current.needsUpdate = true;
 
-    if (materialRef.current) {
+    if (materialRef.current && textureRef.current) {
       materialRef.current.uniforms.uTexture.value = textureRef.current;
       materialRef.current.uniforms.uMin.value = colorbar.min;
       materialRef.current.uniforms.uMax.value = colorbar.max;
@@ -166,7 +168,7 @@ export function DepthSlice({ verticalExaggeration }: DepthSliceProps) {
     uVarType: { value: varType },
     uExaggeration: { value: verticalExaggeration },
     uTime: { value: 0 }
-  }), []);
+  }), [colorbar.min, colorbar.max, varType, verticalExaggeration]);
 
   // Update shader variable type when it changes
   useEffect(() => {

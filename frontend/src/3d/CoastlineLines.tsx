@@ -53,7 +53,7 @@ export function CoastlineLines() {
   const lines = useMemo(() => {
     return COASTLINE_SEGMENTS.map((segment) => {
       const points = segment.map(([lat, lon]) => {
-        const [x, y, z] = latLonToScene(lat, lon, extent, 10, 8, 0, 1);
+        const [x, , z] = latLonToScene(lat, lon, extent, 10, 8, 0, 1);
         return new THREE.Vector3(x, 0.01, z);
       });
       const geo = new THREE.BufferGeometry().setFromPoints(points);

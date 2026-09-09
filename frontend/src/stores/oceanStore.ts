@@ -143,6 +143,7 @@ export const useOceanStore = create<OceanState>((set) => ({
     glider: { visible: true, opacity: 1 },
     ctd: { visible: false, opacity: 1 },
     bgc: { visible: false, opacity: 1 },
+    satellite: { visible: true, opacity: 1 },
   },
   setModelLayer: (name, state) =>
     set((s) => ({

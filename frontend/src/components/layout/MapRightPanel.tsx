@@ -6,6 +6,7 @@ const INSTRUMENT_TYPES: { id: InstrumentType; label: string; color: string }[] =
   { id: 'glider', label: 'Gliders', color: '#ff0055' },
   { id: 'ctd', label: 'CTD Casts', color: '#00ff00' },
   { id: 'bgc', label: 'BGC Argo', color: '#ffd700' },
+  { id: 'satellite', label: 'AMSRE Satellite', color: '#ff8800' },
 ];
 
 export function MapRightPanel() {
